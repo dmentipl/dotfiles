@@ -40,13 +40,25 @@ ln -sf ~/.local/share/zsh/repos/spaceship-prompt/spaceship.zsh \
   ~/.local/share/zsh/functions/prompt_spaceship_setup
 ```
 
-Symlink config files.
+Symlink config files. `zshenv` and `zshenv.d` are for all zsh shells, i.e. interactive and non-interactive. `zshrc` and `zshrc.d` are for interactive shells only.
 
 ```bash
-ln -sf "${DOTDIR}/zsh/zshenv"   ~/.zshenv
-ln -sf "${DOTDIR}/zsh/zshrc"    ~/.zshrc
-ln -sf "${DOTDIR}/zsh/zshenv.d" ~/.zshenv.d
-ln -sf "${DOTDIR}/zsh/zshrc.d"  ~/.zshrc.d
+ln -sf "${DOTDIR}/zsh/zshenv" ~/.zshenv
+ln -sf "${DOTDIR}/zsh/zshrc" ~/.zshrc
+
+mkdir ~/.zshenv.d
+files=("${DOTDIR}/zsh/zshenv.d/"*)
+for file in "${files[@]}"; do
+  [[ -f $file && -r $file ]] && ln -sf "$file" "$HOME/.zshenv.d/$file:t"
+done
+unset file files
+
+mkdir ~/.zshrc.d
+files=("${DOTDIR}/zsh/zshrc.d/"*)
+for file in "${files[@]}"; do
+  [[ -f $file && -r $file ]] && ln -sf "$file" "$HOME/.zshrc.d/$file:t"
+done
+unset file files
 ```
 
 Colours
