@@ -50,7 +50,9 @@ ssh-keygen -t rsa
 then add the public key at github.com. Once you do this you can clone the repository with
 
 ```
-mkdir ~/repos && cd ~/repos && git clone git@github.com:dmentipl/dotfiles
+mkdir ~/repos
+cd ~/repos
+git clone git@github.com:dmentipl/dotfiles
 ```
 
 
