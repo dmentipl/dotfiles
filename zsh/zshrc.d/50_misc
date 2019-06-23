@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+# ==== CONDA ==== #
+
+conda activate base
+
 # ==== autoloads ==== #
 
 autoload -Uz zmv
