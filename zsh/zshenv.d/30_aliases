@@ -32,7 +32,7 @@ alias scp='scp -r'
 alias ssh='ssh -Y'
 alias sudo='sudo '
 alias type='type -a'
-alias vimrc='vim ~/repos/dotfiles/vim/init.vim'
+alias vimrc='vim ~/repos/dotfiles/vim/nvim/init.vim'
 alias which='type -a'
 
 # Print shell variable separated by new line.
