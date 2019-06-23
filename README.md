@@ -78,3 +78,5 @@ The directories are as follows.
 - [ubuntu](ubuntu/README.md)
 - [vim](vim/README.md)
 - [zsh](zsh/README.md)
+
+Note that I have assumed that this dotfiles repository is at `$HOME/repos/dotfiles`.
