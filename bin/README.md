@@ -1,6 +1,12 @@
 bin
 ===
 
+Set directory for these dotfiles.
+
+```bash
+DOTDIR=$HOME/repos/dotfiles
+```
+
 This directory contains useful binaries.
 
 Link binaries to `~/bin`.

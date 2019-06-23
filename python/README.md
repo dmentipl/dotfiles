@@ -1,6 +1,12 @@
 Python
 ======
 
+Set directory for these dotfiles.
+
+```bash
+DOTDIR=$HOME/repos/dotfiles
+```
+
 Download and install Anaconda
 
 ```bash

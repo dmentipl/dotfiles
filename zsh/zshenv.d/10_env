@@ -2,9 +2,6 @@
 
 # ==== environment ==== #
 
-# DOTFILES.
-DOTDIR=$HOME/repos/dotfiles
-
 # PATH.
 typeset -U path
 path=(

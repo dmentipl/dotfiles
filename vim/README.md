@@ -1,6 +1,12 @@
 Setup Neovim
 ============
 
+Set directory for these dotfiles.
+
+```bash
+DOTDIR=$HOME/repos/dotfiles
+```
+
 Installing and setting up Neovim.
 
 ```bash

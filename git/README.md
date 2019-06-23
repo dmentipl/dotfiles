@@ -1,6 +1,12 @@
 git
 ===
 
+Set directory for these dotfiles.
+
+```bash
+DOTDIR=$HOME/repos/dotfiles
+```
+
 Symlink gitconfig and gitignore files.
 
 ```bash
