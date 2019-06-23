@@ -1,0 +1,47 @@
+# macOS
+._*
+.AppleDouble
+.DS_Store
+.localized
+.LSOverride
+.Spotlight-V100
+.Trashes
+Icon
+
+# Vim
+.*.un~
+*.swp
+*.xmark.*
+%*
+.lvimrc
+
+# PyCharm
+.idea
+
+# Python
+__pycache__
+*.pyc
+.ipynb_checkpoints*
+.pytest_cache
+
+# Fortran
+*.mod
+*.smod
+*.o
+
+# Ctags
+tags
+.tags
+
+# Latex
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.synctex*
+*.toc

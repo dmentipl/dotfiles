@@ -1,0 +1,37 @@
+bat
+colordiff
+coreutils
+dos2unix
+exa
+fd
+ffmpeg
+gawk
+gcc --without-multilib
+git
+git-lfs
+htop
+hyperfine
+imagemagick
+iperf
+ispell
+jq
+mas
+openblas
+opencoarrays
+openmpi
+pandoc
+pandoc-citeproc
+parallel
+poppler
+pv
+r --with-openblas
+ranger
+ripgrep
+shellcheck
+the_silver_searcher
+tmux
+trash
+tree
+--HEAD universal-ctags/universal-ctags/universal-ctags
+watch
+wget

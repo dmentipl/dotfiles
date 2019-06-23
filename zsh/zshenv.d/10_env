@@ -1,0 +1,51 @@
+#!/usr/bin/env zsh
+
+# ==== environment ==== #
+
+# DOTFILES.
+DOTDIR=$HOME/repos/dotfiles
+
+# PATH.
+typeset -U path
+path=(
+  /usr/local/bin        # Homebrew
+  $HOME/bin             # User
+  $path                 # Current $path
+)
+
+# HOST.
+if [[ "$OSTYPE" == darwin* ]]; then
+  # Fix for eduroam.
+  export HOST=macbookpro
+fi
+
+# LESS.
+export LESS='-FXRi'
+
+# EDITOR.
+set -o emacs
+if (( $+commands[nvim] )); then
+  export EDITOR='nvim'
+else
+  export EDITOR='vim'
+fi
+
+# LATEX.
+export TEXMFHOME=$HOME/.texmf
+export BIBINPUTS=$HOME/repos/phd/references
+
+# (DY)LD LIBRARY PATH.
+if [[ $OSTYPE == darwin* ]]; then
+  typeset -T DYLD_LIBRARY_PATH dyld_library_path
+  typeset -U dyld_library_path
+  export DYLD_LIBRARY_PATH
+else
+  typeset -T LD_LIBRARY_PATH ld_library_path
+  typeset -U ld_library_path
+  export LD_LIBRARY_PATH
+fi
+
+# PYTHONPATH.
+typeset -T PYTHONPATH pythonpath
+typeset -U pythonpath
+export PYTHONPATH

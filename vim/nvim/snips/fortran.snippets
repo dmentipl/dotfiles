@@ -1,0 +1,59 @@
+snippet do
+do ${1:i} = ${2:start}, ${3:end}
+	$0
+enddo
+endsnippet
+
+snippet while
+do while (${1:condition})
+	$2
+enddo
+endsnippet
+
+snippet if
+if (${1:condition})
+	$0
+endif
+endsnippet
+
+snippet prog
+program ${1:main}
+	$0
+end program $1
+endsnippet
+
+snippet mod
+module ${1:modulename}
+	$0
+end module $1
+endsnippet
+
+snippet sub
+subroutine ${1:name}($2)
+	$0
+end subroutine $1
+endsnippet
+
+snippet impl
+implicit none
+endsnippet
+
+snippet in
+${1:type}, intent(in) :: $0
+endsnippet
+
+snippet out
+${1:type}, intent(out) :: $0
+endsnippet
+
+snippet inout
+${1:type}, intent(inout) :: $0
+endsnippet
+
+snippet pvar
+print*,'-------->  ${1:variable} = ',$1
+endsnippet
+
+snippet print
+print*,'-------->  ${1:variable}'
+endsnippet

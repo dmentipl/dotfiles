@@ -1,0 +1,46 @@
+#!/usr/bin/env zsh
+
+# ==== completion ==== #
+
+autoload -Uz compinit
+compinit
+
+WORDCHARS=''                    # Sets characters as part of words. No
+                                # characters indicates .-_/ separate words.
+
+zstyle ':completion:*' menu select                          # Menu in tab completion.
+
+zstyle ':completion:*' list-colors ''                       # Colors in menu.
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
+                                    'r:|[._-]=* r:|=*' \
+                                    'l:|=* r:|=*'           # Case-insensitive.
+
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'     # Shows match type.
+
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+
+zstyle -e ':completion:*:hosts' hosts 'reply=(
+  ${${${(@M)${(f)"$(<${HOME}/.ssh/config)"}:#Host *}#Host }:#*[*?]*}
+  ${(s: :)${(ps:\t:)${${(f)~~"$(</etc/hosts)"}%%\#*}#*[[:blank:]]}}
+)'                                                  # Hostnames completion.
+
+zstyle ':completion:*:*:*:users' ignored-patterns '_*'
+
+bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] to move
+                                                    # through the completion
+                                                    # menu backwards.
+
+setopt always_to_end            # When completing from the middle of a word,
+                                # move the cursor to the end of the word.
+
+setopt auto_menu                # Show completion menu on successive tab press.
+                                # Needs unsetop menu_complete to work.
+
+setopt auto_name_dirs           # Any parameter that is set to the absolute name
+                                # of a directory immediately becomes a name for
+                                # that directory.
+
+setopt complete_in_word         # Allow completion from within a word/phrase.
+
+unsetopt menu_complete          # Do not autoselect the first completion entry.

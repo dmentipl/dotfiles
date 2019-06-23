@@ -1,0 +1,20 @@
+# conda packages
+# to install:
+#   conda install --file base.yml
+
+altair
+bibtexparser
+black
+coverage
+flake8
+jupytext
+line_profiler
+mpl-scatter-density
+mypy
+progressbar2
+pytest-cov
+python-language-server
+sphinx_rtd_theme
+yapf
+yt
+xarray

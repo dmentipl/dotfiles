@@ -1,0 +1,40 @@
+#!/usr/bin/env zsh
+
+autoload -Uz colors && colors
+autoload -Uz promptinit && promptinit
+prompt spaceship
+
+# ==== prompt config ==== #
+
+SPACESHIP_CHAR_SYMBOL="%!%  ➜ "
+SPACESHIP_DIR_PREFIX="%F{008}§ %f"
+SPACESHIP_DIR_TRUNC="5"
+SPACESHIP_EXIT_CODE_SHOW=true
+SPACESHIP_EXIT_CODE_SUFFIX="%{$fg[red]%} | "
+SPACESHIP_EXIT_CODE_SYMBOL="(℮)"
+SPACESHIP_GIT_PREFIX="%F{008}%f"
+SPACESHIP_GIT_STATUS_ADDED="%{$fg[green]%} ✚"
+SPACESHIP_GIT_STATUS_AHEAD=" ⇡"
+SPACESHIP_GIT_STATUS_BEHIND=" ⇣"
+SPACESHIP_GIT_STATUS_DELETED="%{$fg[red]%} ✖"
+SPACESHIP_GIT_STATUS_DIVERGED=" ⇕"
+SPACESHIP_GIT_STATUS_MODIFIED="%{$fg[cyan]%} ✦"
+SPACESHIP_GIT_STATUS_PREFIX="%F{008} ●%f"
+SPACESHIP_GIT_STATUS_RENAMED="%{$fg[yellow]%} ➜"
+SPACESHIP_GIT_STATUS_STASHED="%{$fg[yellow]%} ＄"
+SPACESHIP_GIT_STATUS_SUFFIX=" "
+SPACESHIP_GIT_STATUS_UNMERGED="%{$fg[blue]%} ═"
+SPACESHIP_GIT_STATUS_UNTRACKED="%{$fg[yellow]%} ✭"
+SPACESHIP_HOST_PREFIX="%F{008}@ %f"
+SPACESHIP_HOST_SHOW=always
+SPACESHIP_JOBS_COLOR="green"
+SPACESHIP_JOBS_SYMBOL="⒥ "
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_ORDER=(time host dir git exec_time line_sep jobs exit_code char)
+SPACESHIP_TIME_SHOW=true
+
+# ==== old hosts ==== #
+
+if [[ $(zsh --version | awk '{print $2}') < 5.0.6 ]]; then
+  export PS1="[%m] %~%  %% "
+fi

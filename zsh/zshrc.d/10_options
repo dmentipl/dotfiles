@@ -1,0 +1,61 @@
+#!/usr/bin/env zsh
+
+# ==== options ==== #
+
+setopt noclobber            # Don't overwrite files if they exist.
+setopt interactive_comments # Allow comments in shell.
+setopt multios              # Multiple input and output redirections.
+setopt prompt_subst         # Required for fancy prompts.
+disable r                   # Use r to refer to the REPL for the language r.
+
+setopt extended_glob        # Extended globbing.
+unsetopt case_glob          # Case-insensitive globbing.
+
+setopt auto_pushd
+setopt auto_cd              # Change directory without cd.
+setopt pushd_ignore_dups    # Don't push multiples on the dirstack.
+setopt pushdminus
+
+# ==== history ==== #
+
+if [ -z "$HISTFILE" ]; then
+  HISTFILE=$HOME/.zsh_history
+fi
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+# Partial term history search.
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^p" up-line-or-beginning-search
+bindkey "^n" down-line-or-beginning-search
+
+setopt append_history           # Allow multiple terminal sessions to all append
+                                # to one zsh command history.
+
+setopt extended_history         # Save timestamp of command and duration.
+
+setopt inc_append_history       # Add comamnds as they are typed, don't wait
+                                # until shell exit.
+
+setopt hist_expire_dups_first   # When trimming history, lose oldest duplicates
+                                # first.
+
+setopt hist_ignore_dups         # Do not write events to history that are
+                                # duplicates of previous events.
+
+setopt hist_ignore_space        # Remove command line from history list when
+                                # first character on the line is a space.
+
+setopt hist_find_no_dups        # When searching history don't display results
+                                # already cycled through twice.
+
+setopt hist_reduce_blanks       # Remove extra blanks from each command line
+                                # being added to history.
+
+setopt hist_verify              # Don't execute, just expand history.
+
+setopt share_history            # Imports new commands and appends typed
+                                # commands to history.
