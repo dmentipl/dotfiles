@@ -79,6 +79,7 @@ The directories are as follows.
 - [tmux](tmux/README.md)
 - [ubuntu](ubuntu/README.md)
 - [vim](vim/README.md)
+- [vscode](vscode/README.md)
 - [zsh](zsh/README.md)
 
 Note that I have assumed that this dotfiles repository is at `$HOME/repos/dotfiles`.
