@@ -2,9 +2,11 @@
 # to install:
 #   conda install --file base.yml
 
+anaconda-client
 altair
 bibtexparser
 black
+conda-build
 coverage
 flake8
 ipympl
