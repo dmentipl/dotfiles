@@ -38,6 +38,8 @@ Install Jupyter Lab extensions
 
 ```bash
 jupyter labextension install jupyterlab_vim
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+jupyter labextension install jupyter-matplotlib
 ```
 
 Link Python config files
