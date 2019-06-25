@@ -13,13 +13,15 @@ Download and install Anaconda
 # Dowload Anaconda install script
 cd ~/Downloads || return
 if [[ $OSTYPE =~ ^darwin ]]; then
-  curl -O https://repo.anaconda.com/archive/Anaconda3-2018.12-MacOSX-x86_64.sh
+  URL=$($DOTDIR/python/latest_anaconda_install_script_url macOS)
 else
-  curl -O https://repo.anaconda.com/archive/Anaconda3-2018.12-Linux-x86_64.sh
+  URL=$($DOTDIR/python/latest_anaconda_install_script_url Linux)
 fi
+curl -O $URL
 
 # Install anaconda
 bash Anaconda3-*-x86_64.sh
+cd -
 ```
 
 Install extra Python packages with Conda

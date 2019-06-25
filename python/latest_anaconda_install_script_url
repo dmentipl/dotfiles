@@ -1,0 +1,44 @@
+#!/usr/bin/env python
+"""
+Return the URL of the latest Anaconda install script for macOS or Linux.
+"""
+import argparse
+import re
+
+import requests
+
+
+def latest_anaconda_version(os):
+
+    if os.lower() in ['mac', 'macos', 'osx', 'macosx']:
+        OS = 'MacOSX'
+    elif os.lower() == 'linux':
+        OS = 'Linux'
+    else:
+        raise ValueError('Cannot determine what OS you mean')
+
+    regex = re.compile('Anaconda3-.*?' + OS + '.*?x86_64.sh')
+
+    url = 'https://repo.anaconda.com/archive/'
+    r = requests.get(url)
+
+    match = None
+    lines = r.text.split('\n')
+    for line in lines:
+        if regex.search(line):
+            match = regex.search(line)
+            break
+
+    if match is not None:
+        return match.group()
+    else:
+        raise RuntimeError('Cannot determine latest Anaconda version')
+
+
+if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser(description='Get latest Anaconda version')
+    parser.add_argument('os', type=str, help='Operating system')
+    args = parser.parse_args()
+
+    print('https://repo.anaconda.com/archive/' + latest_anaconda_version(args.os))
