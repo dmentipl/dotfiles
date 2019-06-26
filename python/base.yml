@@ -12,12 +12,12 @@ flake8
 ipympl
 jupytext
 line_profiler
+memory_profiler
 mpl-scatter-density
 mypy
-progressbar2
+pympler
 pytest-cov
 python-language-server
 sphinx_rtd_theme
-yapf
 yt
 xarray
