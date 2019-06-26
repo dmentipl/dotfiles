@@ -1066,63 +1066,6 @@ vnoremap <leader>xf  =
 
 " }}}
 " ==============================================================================
-"   Filetypes {{{
-" ==============================================================================
-
-"---Fortran.
-augroup fortran
-    autocmd!
-    autocmd FileType fortran setlocal shiftwidth=2 tabstop=2 textwidth=80
-    autocmd FileType fortran let fortran_more_precise=1
-    autocmd FileType fortran let fortran_do_enddo=1
-    autocmd FileType fortran let fortran_indent_more=0
-augroup END
-
-"---HTML.
-augroup html
-    autocmd!
-    autocmd FileType html setlocal shiftwidth=2 tabstop=2
-augroup END
-
-"---Markdown.
-augroup markdown
-    autocmd!
-    autocmd FileType markdown setlocal spell
-augroup END
-
-"---Python.
-augroup python
-    autocmd!
-    autocmd FileType python setlocal shiftwidth=4 tabstop=4 textwidth=88
-    autocmd FileType python command! IPython execute SlimeSplit('ipython', 16)
-augroup END
-
-"---Shell.
-augroup shell
-    autocmd!
-    autocmd FileType sh,zsh setlocal shiftwidth=2 tabstop=2
-augroup END
-
-"---Tex.
-augroup tex
-    autocmd!
-    autocmd FileType tex setlocal spell shiftwidth=3 tabstop=3
-augroup END
-
-"---Terminal.
-augroup terminal
-    autocmd!
-    autocmd TermOpen * setlocal nonumber signcolumn=no
-augroup END
-
-"---YAML.
-augroup yaml
-    autocmd!
-    autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
-augroup END
-
-" }}}
-" ==============================================================================
 "   Miscellaneous {{{
 " ==============================================================================
 
@@ -1165,7 +1108,7 @@ autocmd FileType qf wincmd J
 " ==============================================================================
 
 "
-"---Format options: always last to override ftplugins.
+"---Format options: always last, but before filetypes, to override ftplugins.
 "
 augroup postscript
     autocmd!
@@ -1180,6 +1123,74 @@ augroup postscript
     " Allow formatting comments with 'gq' ---------+                |
     " Do not continue comment using o or O -------------------------+
     " automatically.
+augroup END
+
+" }}}
+" ==============================================================================
+"   Filetypes {{{
+" ==============================================================================
+
+"---Fortran.
+augroup fortran
+    autocmd!
+    autocmd FileType fortran setlocal shiftwidth=2 tabstop=2 textwidth=80
+    autocmd FileType fortran let fortran_more_precise=1
+    autocmd FileType fortran let fortran_do_enddo=1
+    autocmd FileType fortran let fortran_indent_more=0
+augroup END
+
+"---HTML.
+augroup html
+    autocmd!
+    autocmd FileType html setlocal shiftwidth=2 tabstop=2
+augroup END
+
+"---Markdown.
+augroup markdown
+    autocmd!
+    autocmd FileType markdown setlocal spell
+    autocmd FileType markdown setlocal formatoptions-=t
+    autocmd FileType markdown setlocal wrap
+augroup END
+
+"---Python.
+augroup python
+    autocmd!
+    autocmd FileType python setlocal shiftwidth=4 tabstop=4
+    autocmd FileType python setlocal textwidth=88 colorcolumn=88
+    autocmd FileType python command! IPython execute SlimeSplit('ipython', 16)
+augroup END
+
+"---reStructuredText.
+augroup rst
+    autocmd!
+    autocmd FileType rst setlocal spell
+    autocmd FileType rst setlocal formatoptions-=t
+    autocmd FileType rst setlocal wrap
+augroup END
+
+"---Shell.
+augroup shell
+    autocmd!
+    autocmd FileType sh,zsh setlocal shiftwidth=2 tabstop=2
+augroup END
+
+"---Tex.
+augroup tex
+    autocmd!
+    autocmd FileType tex setlocal spell shiftwidth=3 tabstop=3
+augroup END
+
+"---Terminal.
+augroup terminal
+    autocmd!
+    autocmd TermOpen * setlocal nonumber signcolumn=no
+augroup END
+
+"---YAML.
+augroup yaml
+    autocmd!
+    autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
 augroup END
 
 " }}}
