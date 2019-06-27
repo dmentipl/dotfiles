@@ -7,7 +7,7 @@ Set directory for these dotfiles.
 DOTDIR=$HOME/repos/dotfiles
 ```
 
-Download and install Anaconda
+Download and install Anaconda.
 
 ```bash
 # Dowload Anaconda install script
@@ -24,19 +24,21 @@ bash Anaconda3-*-x86_64.sh
 cd -
 ```
 
-Install extra Python packages with Conda
+Install Python packages into the base environment with Conda.
 
 ```bash
+# Make sure to be in base environment
+conda update conda
 conda install --file base.yml
 ```
 
-Install extra Python packages with pip
+Install extra Python packages with pip.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Install Jupyter Lab extensions
+Install Jupyter Lab extensions.
 
 ```bash
 jupyter labextension install jupyterlab_vim
@@ -44,7 +46,7 @@ jupyter labextension install @jupyter-widgets/jupyterlab-manager
 jupyter labextension install jupyter-matplotlib
 ```
 
-Link Python config files
+Link Python config files.
 
 ```bash
 ln -sf "${DOTDIR}/python/condarc" ~/.condarc
