@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+# Use (n)vim over ssh
+#
+# From https://erikzaadi.com/2013/03/07/fast-remote-editing-with-vim/
+
+if [ $# -ne 2 ]; then
+    echo "usage : $(basename "$0") user@host /path"
+    exit 1
+fi
+COMMAND="ssh $1 -f -N -o ControlMaster=auto -o ControlPath=/tmp/%r@%h:%p"
+echo "Opening ssh tunnel..."
+$COMMAND || exit $?
+echo "ssh tunnel active, opening nvim..."
+nvim "scp://$1/$2"
+echo "closing ssh tunnel..."
+if pgrep "$COMMAND" | grep -v grep | awk '{print $2}' | xargs kill -9; then
+  echo "ssh tunnel closed"
+else
+  echo "failed to close ssh tunnel"
+  exit 1
+fi
