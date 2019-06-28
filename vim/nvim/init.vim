@@ -21,7 +21,6 @@ set concealcursor=nc                 " Conceal in normal & command mode.
 set conceallevel=1                   " Concealed text replaced by one character.
 set cursorline                       " Highlight the line with the cursor.
 set diffopt+=vertical                " Diff splits side-by-side.
-set directory=~/.config/nvim/swp//   " Swap file directory.
 set expandtab                        " Convert tabs to spaces.
 set encoding=utf-8                   " Set encoding to UTF-8.
 set hidden                           " Edit multiple unsaved buffers.
@@ -68,7 +67,6 @@ set tabstop=4                        " Set <tab> to display four spaces.
 set textwidth=80                     " Maximum text length before a new line.
 set timeoutlen=500                   " Key time out length.
 set ttyfast                          " Indicates a fast terminal connection.
-set undodir=~/.config/nvim/undo//    " Save undo history to this location.
 set undofile                         " Enable persistent undos.
 set undolevels=9999                  " Number of changes that can be undone.
 set undoreload=9999                  " Number of lines to save on buffer reload.
