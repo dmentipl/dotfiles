@@ -6,6 +6,7 @@ Packages to install on Debian based machines.
 Apt add some repositories.
 
 ```bash
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt-add-repository ppa:hnakamur/universal-ctags
 sudo apt-add-repository ppa:numix/ppa
 sudo apt update
