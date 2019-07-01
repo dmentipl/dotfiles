@@ -16,15 +16,9 @@ iperf
 ispell
 jq
 mas
-openblas
-opencoarrays
-openmpi
-pandoc
-pandoc-citeproc
 parallel
 poppler
 pv
-r --with-openblas
 ranger
 ripgrep
 shellcheck

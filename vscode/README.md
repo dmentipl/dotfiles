@@ -1,6 +1,12 @@
 Visual Studio Code
 ==================
 
+Download for either macOS or Ubuntu from https://code.visualstudio.com/download. For macOS extract the zip file and copy the application to `/Applications`. For Ubuntu install the `deb` with apt.
+
+```bash
+sudo apt install code_*_amd64.deb
+```
+
 Launching from the command line
 -------------------------------
 
