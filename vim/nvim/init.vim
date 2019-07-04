@@ -549,6 +549,7 @@ vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 "---ludovicchabant/vim-gutentags
 "
 let g:gutentags_ctags_exclude = ['*.css', '*.html', '*.js', '*.md', '*.rst']
+let g:gutentags_ctags_tagfile = '.tags'
 
 "
 "---majutsushi/tagbar
