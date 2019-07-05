@@ -17,7 +17,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 # LESS.
-export LESS='-FXRi'
+export LESS='-FXRiMS'
 
 # EDITOR.
 set -o emacs
