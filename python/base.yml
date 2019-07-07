@@ -20,7 +20,7 @@ flake8
 flask
 h5py
 ipympl
-jupyter
+ipython
 jupyter
 jupyterlab
 jupytext
