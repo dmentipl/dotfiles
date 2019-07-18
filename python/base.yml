@@ -32,6 +32,7 @@ mypy
 numpy
 pandas
 pip
+pyarrow
 pycodestyle
 pympler
 pytest
