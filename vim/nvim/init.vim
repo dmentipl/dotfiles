@@ -688,6 +688,9 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " LaTeX
 let g:ale_linters.tex = ['chktex', 'lacheck', 'writegood', 'alex']
 
+" Markdown
+let g:ale_linters.markdown = ['writegood', 'alex']
+
 " Python
 let g:ale_linters.python = ['pyflakes', 'pycodestyle']
 let g:ale_fixers.python = ['isort', 'black']
