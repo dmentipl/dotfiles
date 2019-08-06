@@ -23,10 +23,16 @@ Install extensions
 Install extensions.
 
 ```bash
+code --install-extension christian-kohler.path-intellisense
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension eamodio.gitlens
 code --install-extension formulahendry.code-runner
+code --install-extension guyskk.language-cython
 code --install-extension hansec.fortran-ls
 code --install-extension krvajalm.linter-gfortran
+code --install-extension lextudio.restructuredtext
 code --install-extension ms-python.python
+code --install-extension ms-vscode.cpptools
 code --install-extension tomphilbin.gruvbox-themes
 code --install-extension vscodevim.vim
 ```

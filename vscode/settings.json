@@ -1,36 +1,44 @@
 {
-    // misc
-    "workbench.colorTheme": "Gruvbox Dark (Medium)",
-    "editor.rulers": [80],
+  // misc
+  "workbench.colorTheme": "Gruvbox Dark (Medium)",
+  "editor.rulers": [80],
 
-    // python
-    "python.pythonPath": "/Users/daniel/anaconda/bin/python",
+  // python
+  "python.pythonPath": "/Users/daniel/anaconda/bin/python",
 
-    // terminal
-    "terminal.external.osxExec": "iTerm.App"
+  // terminal
+  "terminal.external.osxExec": "iTerm.App",
 
-    // vim
-    "vim.easymotion": true,
-    "vim.sneak": true,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.insertModeKeyBindings": [
-      {
-        "before": ["f", "d"],
-        "after": ["<Esc>"]
-      }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-      {
-        "before": ["<C-n>"],
-        "commands": [":nohl"]
-      }
-    ],
-    "vim.leader": "<space>",
-    "vim.handleKeys": {
-      "<C-a>": false,
-      "<C-f>": false
+  // vim
+  "vim.easymotion": true,
+  "vim.sneak": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["f", "d"],
+      "after": ["<Esc>"]
     }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+        "before": ["j"],
+        "after": ["g", "j"]
+    },
+    {
+        "before": ["k"],
+        "after": ["g", "k"]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  }
 }
