@@ -9,6 +9,10 @@
   // terminal
   "terminal.external.osxExec": "iTerm.App",
 
+  // latex
+  "latex-workshop.bind.altKeymap.enabled": true,
+  "latex-workshop.view.pdf.viewer": "tab",
+
   // vim
   "vim.easymotion": true,
   "vim.sneak": true,
