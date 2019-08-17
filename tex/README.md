@@ -19,9 +19,4 @@ or via apt on Linux.
 sudo apt install texlive-full
 ```
 
-Link `${TEXMFHOME}` directory and `latexmkrc`.
-
-```bash
-ln -sf "${DOTDIR}/tex/texmf" ~/.texmf
-ln -sf "${DOTDIR}/tex/latexmkrc.${OS}" ~/.latexmkrc
-```
+The `latexmkrc` and `latexdiff-preamble.sty` files can be copied to a tex project directory as required.
