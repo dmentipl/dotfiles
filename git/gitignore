@@ -15,9 +15,6 @@ Icon
 %*
 .lvimrc
 
-# PyCharm
-.idea
-
 # Python
 __pycache__
 *.pyc
@@ -32,16 +29,3 @@ __pycache__
 # Ctags
 tags
 .tags
-
-# Latex
-*.aux
-*.bbl
-*.blg
-*.fdb_latexmk
-*.fls
-*.lof
-*.log
-*.lot
-*.out
-*.synctex*
-*.toc
