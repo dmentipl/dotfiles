@@ -27,10 +27,6 @@ else
   export EDITOR='vim'
 fi
 
-# LATEX.
-export TEXMFHOME=$HOME/.texmf
-export BIBINPUTS=$HOME/repos/phd/references
-
 # (DY)LD LIBRARY PATH.
 if [[ $OSTYPE == darwin* ]]; then
   typeset -T DYLD_LIBRARY_PATH dyld_library_path

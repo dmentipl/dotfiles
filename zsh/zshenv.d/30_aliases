@@ -2,9 +2,6 @@
 
 # ==== aliases ==== #
 
-if (( $+commands[bat] )); then
-  alias cat=bat
-fi
 alias chown='chown -R'
 alias cp='cp -i -r'
 alias diff=colordiff
@@ -12,7 +9,6 @@ alias d='dirs -v | head -10'
 alias df='df -H'
 alias dot='cd ~/repos/dotfiles'
 alias du='du -hs'
-alias dus='\du -d 1 -h | sort -h'
 alias e=exit
 alias finder='open -a Finder .'
 alias grep='grep --color=auto --exclude-dir={.git,.hg,.svn}'
@@ -20,13 +16,11 @@ alias h='fc -l'
 alias history='fc -l 1 | less'
 alias info='info --vi-keys'
 alias j='jobs -l'
-alias lsd='ls -l -d -- *(/)'
 alias library='printf ".ezproxy.lib.monash.edu.au" | pbcopy'
 alias mkdir='mkdir -pv'
 alias mv='mv -i'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias pgrep='pgrep -a -l'
-alias pprint='print_hashed_path'
 alias rg='rg -S'
 alias scp='scp -r'
 alias ssh='ssh -Y'
