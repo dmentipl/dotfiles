@@ -50,6 +50,21 @@ gsc () {
   grep -o "[a-f0-9]\{7,\}"
 }
 
+# FZF search PDFs.
+# See https://github.com/bellecp/fast-p.
+p () {
+    local open
+    open=open   # on OSX, "open" opens a pdf in preview
+    ag -U -g ".pdf$" \
+    | fast-p \
+    | fzf --read0 --reverse -e -d $'\t'  \
+        --preview-window down:80% --preview '
+            v=$(echo {q} | gtr " " "|");
+            echo -e {1}"\n"{2} | ggrep -E "^|$v" -i --color=always;
+        ' \
+    | gcut -z -f 1 -d $'\t' | gtr -d '\n' | gxargs -r --null $open > /dev/null 2> /dev/null
+}
+
 # Print time of last commit. Useful for prompts.
 # Derived from dogenpunk.zsh-theme from oh-my-zsh.
 git_time_since_commit() {

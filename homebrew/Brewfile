@@ -1,8 +1,10 @@
 bat
+bib-tool
 colordiff
 coreutils
 dos2unix
 exa
+brew install bellecp/fast-p/fast-pdf-finder
 fd
 ffmpeg
 gawk
