@@ -72,6 +72,3 @@ defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
 
 # Install System data files & security updates
 defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
-
-# To get TexShop to not steal focus
-defaults write TeXShop BringPdfFrontOnAutomaticUpdate NO
