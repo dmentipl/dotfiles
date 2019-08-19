@@ -1,10 +1,15 @@
 {
   // misc
+  "editor.fontFamily": "Inconsolata",
+  "editor.fontSize": 14,
   "workbench.colorTheme": "Gruvbox Dark (Medium)",
   "editor.rulers": [80],
 
   // python
-  "python.pythonPath": "/Users/daniel/anaconda/bin/python",
+  "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
+  "[python]": {
+      "editor.rulers": [88],
+  }
 
   // terminal
   "terminal.external.osxExec": "iTerm.App",
@@ -41,8 +46,4 @@
     }
   ],
   "vim.leader": "<space>",
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
-  }
 }
