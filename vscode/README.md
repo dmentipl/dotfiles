@@ -23,6 +23,8 @@ Install extensions
 Install extensions.
 
 ```bash
+code --install-extension bierner.markdown-checkbox
+code --install-extension bierner.markdown-preview-github-styles
 code --install-extension christian-kohler.path-intellisense
 code --install-extension DavidAnson.vscode-markdownlint
 code --install-extension eamodio.gitlens
