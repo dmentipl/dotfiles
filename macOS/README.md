@@ -33,15 +33,6 @@ FONTDIR=~/Library/Fonts
 cd ~/Downloads
 ```
 
-I use 'Lato' for Evernote.
-
-```bash
-# Lato for Evernote
-curl -L http://www.latofonts.com/download/Lato2OFL.zip -o Lato2OFL.zip
-unzip Lato2OFL.zip
-cp Lato2OFL/*.ttf $FONTDIR
-```
-
 And 'Inconsolata for Powerline' for the terminal.
 
 ```bash
