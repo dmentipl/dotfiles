@@ -19,6 +19,8 @@
   "latex-workshop.view.pdf.viewer": "tab",
 
   // vim
+  "vim.enableNeovim": true,
+  "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.easymotion": true,
   "vim.sneak": true,
   "vim.incsearch": true,
