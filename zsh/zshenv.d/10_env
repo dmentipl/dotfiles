@@ -44,6 +44,6 @@ typeset -U pythonpath
 export PYTHONPATH
 
 # CONDA.
-CONDA_DIR=~/anaconda
+CONDA_DIR=~/conda
 [ -f "${CONDA_DIR}/etc/profile.d/conda.sh" ] && \
   . ${CONDA_DIR}/etc/profile.d/conda.sh
