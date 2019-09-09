@@ -9,7 +9,11 @@
   "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
   "[python]": {
       "editor.rulers": [88],
-  }
+  },
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.mypyEnabled": true,
+  "python.formatting.blackArgs": ["--skip-string-normalization"],
 
   // terminal
   "terminal.external.osxExec": "iTerm.App",
@@ -48,4 +52,5 @@
     }
   ],
   "vim.leader": "<space>",
+  "editor.minimap.enabled": true,
 }
