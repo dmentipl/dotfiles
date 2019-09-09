@@ -114,6 +114,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }                                " --- Language Server Protocol.
 Plug 'bps/vim-textobj-python'          " --- Python text objects.
+Plug 'cespare/vim-toml'                " --- TOML syntax.
 Plug 'chrisbra/csv.vim'                " --- CSV files.
 Plug 'chrisbra/vim-diff-enhanced'      " --- Enhanced vimdiff.
 Plug 'christoomey/vim-tmux-navigator'  " --- Tmux pane integration with vim.
