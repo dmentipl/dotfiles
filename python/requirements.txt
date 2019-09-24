@@ -3,5 +3,4 @@ ads2bibdesk
 fortran-language-server
 proselint
 pynvim
-toml
 twine

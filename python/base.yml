@@ -22,6 +22,7 @@ flask
 h5py
 ipympl
 ipython
+isort
 jupyter
 jupyterlab
 jupytext
@@ -30,6 +31,7 @@ matplotlib
 memory_profiler
 mpl-scatter-density
 mypy
+nbsphinx
 numpy
 pandas
 pint
@@ -45,6 +47,7 @@ scipy
 sphinx
 sphinx_rtd_theme
 sympy
+tomlkit
 xarray
 yaml
 yt
