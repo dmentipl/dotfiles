@@ -1,56 +1,54 @@
 {
-  // misc
-  "editor.fontFamily": "Inconsolata",
-  "editor.fontSize": 14,
-  "workbench.colorTheme": "Gruvbox Dark (Medium)",
-  "editor.rulers": [80],
-
-  // python
-  "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
-  "[python]": {
-      "editor.rulers": [88],
-  },
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true,
-  "python.linting.mypyEnabled": true,
-  "python.formatting.blackArgs": ["--skip-string-normalization"],
-
-  // terminal
-  "terminal.external.osxExec": "iTerm.App",
-
-  // latex
-  "latex-workshop.bind.altKeymap.enabled": true,
-  "latex-workshop.view.pdf.viewer": "tab",
-
-  // vim
-  "vim.enableNeovim": true,
-  "vim.neovimPath": "/usr/local/bin/nvim",
-  "vim.easymotion": true,
-  "vim.sneak": true,
-  "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
-  "vim.hlsearch": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["f", "d"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
+    "editor.fontFamily": "Inconsolata",
+    "editor.fontSize": 14,
+    "editor.minimap.enabled": true,
+    "editor.rulers": [80],
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.tags": true
     },
-    {
-        "before": ["j"],
-        "after": ["g", "j"]
+    "latex-workshop.bind.altKeymap.enabled": true,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "[python]": {
+        "editor.rulers": [88],
+        "editor.defaultFormatter": "ms-python.python"
     },
-    {
-        "before": ["k"],
-        "after": ["g", "k"]
-    }
-  ],
-  "vim.leader": "<space>",
-  "editor.minimap.enabled": true,
+    "python.dataScience.sendSelectionToInteractiveWindow": false,
+    "python.formatting.blackArgs": ["--skip-string-normalization"],
+    "python.formatting.provider": "black",
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
+    "terminal.external.osxExec": "iTerm.App",
+    "vim.easymotion": true,
+    "vim.enableNeovim": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["f", "d"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.leader": "<space>",
+    "vim.neovimPath": "/usr/local/bin/nvim",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-n>"],
+            "commands": [":nohl"]
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        }
+    ],
+    "vim.sneak": true,
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true,
+    "workbench.colorTheme": "Gruvbox Dark (Medium)"
 }
