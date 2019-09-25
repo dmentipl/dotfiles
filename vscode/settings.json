@@ -2,6 +2,7 @@
     "editor.fontFamily": "Inconsolata",
     "editor.fontSize": 14,
     "editor.minimap.enabled": true,
+    "editor.renderWhitespace": "boundary",
     "editor.rulers": [80],
     "files.exclude": {
         "**/__pycache__": true,
