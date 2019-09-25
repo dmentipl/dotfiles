@@ -48,6 +48,7 @@ sphinx
 sphinx_rtd_theme
 sympy
 tomlkit
+twine
 xarray
 yaml
 yt
