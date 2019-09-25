@@ -4,16 +4,20 @@
     "editor.minimap.enabled": true,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [80],
+    "[git-commit]": {
+        "editor.rulers": [72, 50],
+        "editor.wordWrap": "off"
+    },
+    "[python]": {
+        "editor.rulers": [88],
+        "editor.defaultFormatter": "ms-python.python"
+    },
     "files.exclude": {
         "**/__pycache__": true,
         "**/.tags": true
     },
     "latex-workshop.bind.altKeymap.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
-    "[python]": {
-        "editor.rulers": [88],
-        "editor.defaultFormatter": "ms-python.python"
-    },
     "python.dataScience.sendSelectionToInteractiveWindow": false,
     "python.formatting.blackArgs": ["--skip-string-normalization"],
     "python.formatting.provider": "black",
