@@ -2,6 +2,11 @@
 
 # ==== CONDA ==== #
 
+path=(
+  $HOME/conda/bin
+  $path
+)
+
 conda activate base
 
 # ==== autoloads ==== #
