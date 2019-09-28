@@ -12,6 +12,7 @@ astropy
 bibtexparser
 black
 bokeh
+click
 conda-build
 coverage
 coveralls
