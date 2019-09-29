@@ -1,32 +1,42 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "ctrl-j",
-        "command": "selectNextSuggestion",
-        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+        "key": "ctrl+j",
+        "command": "editor.action.marker.nextInFiles",
+        "when": "editorFocus"
     },
     {
-        "key": "ctrl-k",
-        "command": "selectPrevSuggestion",
-        "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+        "key": "ctrl+k",
+        "command": "editor.action.marker.prevInFiles",
+        "when": "editorFocus"
     },
     {
-        "key": "ctrl+h",
+        "key": "ctrl+n",
+        "command": "workbench.action.editor.nextChange",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.editor.previousChange",
+        "when": "editorFocus"
+    },
+    {
+        "key": "alt+h",
         "command": "workbench.action.navigateLeft",
         "when": "!terminalFocus"
     },
     {
-        "key": "ctrl+l",
+        "key": "alt+l",
         "command": "workbench.action.navigateRight",
         "when": "!terminalFocus"
     },
     {
-        "key": "ctrl+k",
+        "key": "alt+k",
         "command": "workbench.action.navigateUp",
         "when": "!terminalFocus"
     },
     {
-        "key": "ctrl+j",
+        "key": "alt+j",
         "command": "workbench.action.navigateDown",
         "when": "!terminalFocus"
     }
