@@ -129,6 +129,24 @@
                 "`",
                 "z"
             ]
+        },
+        {
+            "before": [
+                "]",
+                "e"
+            ],
+            "commands": [
+                "editor.action.marker.nextInFiles"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "e"
+            ],
+            "commands": [
+                "editor.action.marker.prevInFiles"
+            ]
         }
     ],
     "vim.sneak": true,
