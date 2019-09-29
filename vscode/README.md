@@ -20,7 +20,7 @@ Running this command links `/Applications/Visual Studio Code.app/Contents/Resour
 Install extensions
 ------------------
 
-Install extensions.
+Install extensions from `extensions.list`.
 
 ```bash
 grep -v '^#' extensions.list | xargs -L1 code --install-extension
@@ -39,6 +39,12 @@ Symlink config file `setting.json`.
 
 ```bash
 ln -sf "$DOTDIR/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+```
+
+Symlink keybindings file `keybindings.json`.
+
+```bash
+ln -sf "$DOTDIR/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
 ```
 
 Symlink dictionary file `spellright.dict`.

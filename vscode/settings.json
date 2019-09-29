@@ -1,65 +1,204 @@
 {
+    // editor
     "editor.fontFamily": "Inconsolata",
     "editor.fontSize": 14,
     "editor.minimap.enabled": true,
     "editor.renderWhitespace": "boundary",
-    "editor.rulers": [80],
-    "[git-commit]": {
-        "editor.rulers": [72, 50],
-        "editor.wordWrap": "off"
-    },
-    "[python]": {
-        "editor.rulers": [88],
-        "editor.defaultFormatter": "ms-python.python",
-        "editor.formatOnSave": true,
-        "editor.formatOnPaste": true
-    },
+    "editor.rulers": [
+        80
+    ],
+    "editor.tabCompletion": "on",
+
+    // files
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
     "files.exclude": {
         "**/__pycache__": true,
         "**/.tags": true
     },
+
+    // fortran
     "fortran.symbols": [],
+
+    // latex-workshop
     "latex-workshop.bind.altKeymap.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
+
+    // python
     "python.dataScience.sendSelectionToInteractiveWindow": false,
-    "python.formatting.blackArgs": ["--skip-string-normalization"],
+    "python.formatting.blackArgs": [
+        "--skip-string-normalization"
+    ],
     "python.formatting.provider": "black",
     "python.linting.enabled": true,
     "python.linting.mypyEnabled": true,
     "python.linting.pylintEnabled": true,
     "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
-    "spellright.language": ["en-GB"],
+
+    // spellright
+    "spellright.language": [
+        "en-GB"
+    ],
     "spellright.groupDictionaries": false,
+
+    // terminal
     "terminal.external.osxExec": "iTerm.App",
+
+    // vim
     "vim.easymotion": true,
     "vim.enableNeovim": true,
     "vim.hlsearch": true,
     "vim.incsearch": true,
     "vim.insertModeKeyBindings": [
         {
-            "before": ["f", "d"],
-            "after": ["<Esc>"]
+            "before": [
+                "f",
+                "d"
+            ],
+            "after": [
+                "<Esc>"
+            ]
         }
     ],
     "vim.leader": "<space>",
     "vim.neovimPath": "/usr/local/bin/nvim",
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": ["j"],
-            "after": ["g", "j"]
+            "before": [
+                "j"
+            ],
+            "after": [
+                "g",
+                "j"
+            ]
         },
         {
-            "before": ["k"],
-            "after": ["g", "k"]
+            "before": [
+                "k"
+            ],
+            "after": [
+                "g",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "$"
+            ],
+            "after": [
+                "g",
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "^"
+            ],
+            "after": [
+                "g",
+                "^"
+            ]
+        },
+        {
+            "before": [
+                "0"
+            ],
+            "after": [
+                "g",
+                "0"
+            ]
+        },
+        {
+            "before": [
+                "Y"
+            ],
+            "after": [
+                "y",
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "J"
+            ],
+            "after": [
+                "m",
+                "z",
+                "J",
+                "`",
+                "z"
+            ]
         }
     ],
     "vim.sneak": true,
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "f",
+                "d"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+        {
+            "before": [
+                "p"
+            ],
+            "after": [
+                "p",
+                "g",
+                "v",
+                "y"
+            ]
+        }
+    ],
+
+    // write-good
     "write-good.languages": [
         "markdown",
         "latex",
         "restructuredtext"
     ],
-    "workbench.colorTheme": "Monokai"
+
+    // workbench
+    "workbench.colorTheme": "Monokai",
+
+    // [git-commit]
+    "[git-commit]": {
+        "editor.rulers": [
+            72,
+            50
+        ],
+        "editor.wordWrap": "off"
+    },
+
+    // [python]
+    "[python]": {
+        "editor.rulers": [
+            88
+        ],
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    }
 }
