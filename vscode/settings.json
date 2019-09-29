@@ -132,8 +132,7 @@
         },
         {
             "before": [
-                "]",
-                "e"
+                "<C-j>"
             ],
             "commands": [
                 "editor.action.marker.nextInFiles"
@@ -141,11 +140,26 @@
         },
         {
             "before": [
-                "[",
-                "e"
+                "<C-k>"
             ],
             "commands": [
                 "editor.action.marker.prevInFiles"
+            ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "commands": [
+                "workbench.action.editor.nextChange"
+            ]
+        },
+        {
+            "before": [
+                "<C-h>"
+            ],
+            "commands": [
+                "workbench.action.editor.previousChange"
             ]
         }
     ],

@@ -1,26 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
     {
-        "key": "ctrl+j",
-        "command": "editor.action.marker.nextInFiles",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+k",
-        "command": "editor.action.marker.prevInFiles",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "workbench.action.editor.nextChange",
-        "when": "editorFocus"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "workbench.action.editor.previousChange",
-        "when": "editorFocus"
-    },
-    {
         "key": "alt+h",
         "command": "workbench.action.navigateLeft",
         "when": "!terminalFocus"
