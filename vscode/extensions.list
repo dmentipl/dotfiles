@@ -1,3 +1,4 @@
+ban.spellright
 bierner.markdown-checkbox
 bierner.markdown-preview-github-styles
 bungcip.better-toml
@@ -6,9 +7,11 @@ DavidAnson.vscode-markdownlint
 eamodio.gitlens
 formulahendry.code-runner
 goessner.mdmath
+GrapeCity.gc-excelviewer
 guyskk.language-cython
 hansec.fortran-ls
 James-Yu.latex-workshop
+kamikillerto.vscode-colorize
 krvajalm.linter-gfortran
 lextudio.restructuredtext
 ms-python.python
@@ -16,6 +19,9 @@ ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
 ms-vscode-remote.remote-ssh-explorer
 ms-vscode.cpptools
+ms-vscode.wordcount
+timonwong.shellcheck
 tomphilbin.gruvbox-themes
+travisthetechie.write-good-linter
 vscodevim.vim
 zoxon.monokai-light
