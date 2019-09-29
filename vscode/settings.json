@@ -10,7 +10,9 @@
     },
     "[python]": {
         "editor.rulers": [88],
-        "editor.defaultFormatter": "ms-python.python"
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
     },
     "files.exclude": {
         "**/__pycache__": true,
@@ -39,10 +41,6 @@
     "vim.leader": "<space>",
     "vim.neovimPath": "/usr/local/bin/nvim",
     "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": ["<C-n>"],
-            "commands": [":nohl"]
-        },
         {
             "before": ["j"],
             "after": ["g", "j"]

@@ -15,6 +15,9 @@ Icon
 %*
 .lvimrc
 
+# VS Code
+.vscode
+
 # Python
 __pycache__
 *.pyc
@@ -28,5 +31,4 @@ __pycache__
 *.o
 
 # Ctags
-tags
 .tags
