@@ -18,6 +18,7 @@
         "**/__pycache__": true,
         "**/.tags": true
     },
+    "fortran.symbols": [],
     "latex-workshop.bind.altKeymap.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "python.dataScience.sendSelectionToInteractiveWindow": false,
