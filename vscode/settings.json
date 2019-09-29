@@ -28,6 +28,8 @@
     "python.linting.mypyEnabled": true,
     "python.linting.pylintEnabled": true,
     "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
+    "spellright.language": ["en-GB"],
+    "spellright.groupDictionaries": false,
     "terminal.external.osxExec": "iTerm.App",
     "vim.easymotion": true,
     "vim.enableNeovim": true,
@@ -54,5 +56,10 @@
     "vim.sneak": true,
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
+    "write-good.languages": [
+        "markdown",
+        "latex",
+        "restructuredtext"
+    ],
     "workbench.colorTheme": "Monokai"
 }

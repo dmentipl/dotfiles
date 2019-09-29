@@ -40,3 +40,9 @@ Symlink config file `setting.json`.
 ```bash
 ln -sf "$DOTDIR/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 ```
+
+Symlink dictionary file `spellright.dict`.
+
+```bash
+ln -sf "$DOTDIR/vscode/spellright.dict" "$HOME/Library/Application Support/Code/User/spellright.dict"
+```
