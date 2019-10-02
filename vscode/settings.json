@@ -1,8 +1,13 @@
 {
+    // autoDocstring
+    "autoDocstring.docstringFormat": "numpy",
+    "autoDocstring.includeExtendedSummary": true,
+    "autoDocstring.startOnNewLine": true,
+
     // editor
     "editor.fontFamily": "Inconsolata",
     "editor.fontSize": 14,
-    "editor.minimap.enabled": true,
+    "editor.minimap.enabled": false,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [
         80
@@ -37,6 +42,11 @@
     "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
 
     // spellright
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
     "spellright.language": [
         "en-GB"
     ],
