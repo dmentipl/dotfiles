@@ -32,7 +32,6 @@
     "latex-workshop.chktex.enabled": true,
 
     // python
-    "python.dataScience.sendSelectionToInteractiveWindow": false,
     "python.formatting.blackArgs": [
         "--skip-string-normalization"
     ],
@@ -63,7 +62,6 @@
     "vim.easymotion": true,
     "vim.enableNeovim": true,
     "vim.hlsearch": true,
-    "vim.incsearch": true,
     "vim.insertModeKeyBindings": [
         {
             "before": [
@@ -234,8 +232,12 @@
         "editor.rulers": [
             72,
             50
-        ],
-        "editor.wordWrap": "off"
+        ]
+    },
+
+    // [markdown]
+    "[markdown]": {
+        "editor.wordWrap": "wordWrapColumn"
     },
 
     // [python]
