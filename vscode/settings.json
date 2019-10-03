@@ -29,6 +29,7 @@
     // latex-workshop
     "latex-workshop.bind.altKeymap.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.chktex.enabled": true,
 
     // python
     "python.dataScience.sendSelectionToInteractiveWindow": false,
