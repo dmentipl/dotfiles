@@ -31,6 +31,11 @@
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.chktex.enabled": true,
 
+    // markdownlint
+    "markdownlint.config": {
+        "MD003": { "style": "setext_with_atx" }
+    },
+
     // python
     "python.formatting.blackArgs": [
         "--skip-string-normalization"
