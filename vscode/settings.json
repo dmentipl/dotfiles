@@ -43,6 +43,10 @@
     "python.linting.pylintEnabled": true,
     "python.linting.pydocstyleEnabled": true,
     "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
+    "python.terminal.launchArgs": [
+        "-m",
+        "IPython"
+    ],
 
     // spellright
     "spellright.documentTypes": [
