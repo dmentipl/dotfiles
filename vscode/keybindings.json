@@ -13,7 +13,6 @@
     {
         "key": "alt+k",
         "command": "workbench.action.navigateUp",
-        "when": "!terminalFocus"
     },
     {
         "key": "alt+j",
