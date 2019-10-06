@@ -22,6 +22,7 @@ ms-vscode-remote.remote-ssh-explorer
 ms-vscode.cpptools
 ms-vscode.wordcount
 njpwerner.autodocstring
+ryu1kn.partial-diff
 timonwong.shellcheck
 tomphilbin.gruvbox-themes
 travisthetechie.write-good-linter
