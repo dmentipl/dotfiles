@@ -236,6 +236,11 @@
     // workbench
     "workbench.colorTheme": "Monokai",
 
+    // [FortranFreeForm]
+    "[FortranFreeForm]": {
+        "editor.tabSize": 2
+    },
+
     // [git-commit]
     "[git-commit]": {
         "editor.rulers": [
