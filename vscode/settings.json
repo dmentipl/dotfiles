@@ -47,6 +47,7 @@
     "python.linting.mypyEnabled": true,
     "python.linting.pylintEnabled": true,
     "python.linting.pydocstyleEnabled": true,
+    "python.linting.pydocstyleArgs": ["--ignore=D107,D203,D212,D213,D402,D413,D415,D416,D417"],
     "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
     "python.terminal.launchArgs": [
         "-m",
