@@ -3,6 +3,7 @@
 # ==== aliases ==== #
 
 alias chown='chown -R'
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias cp='cp -i -r'
 alias diff=colordiff
 alias d='dirs -v | head -10'
