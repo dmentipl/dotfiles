@@ -67,6 +67,9 @@
 
     // terminal
     "terminal.external.osxExec": "iTerm.App",
+    "terminal.integrated.fontFamily": "Inconsolata for Powerline",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.lineHeight": 1.2,
 
     // vim
     "vim.easymotion": true,
