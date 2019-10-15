@@ -152,7 +152,6 @@ Plug 'ludovicchabant/vim-gutentags'    " --- Tag management.
 Plug 'majutsushi/tagbar'               " --- Exuberant ctags tagbar.
 Plug 'mbbill/undotree'                 " --- Undo tree visualization.
 Plug 'mhinz/vim-signify'               " --- Git gutter.
-Plug 'mhinz/vim-startify'              " --- Fancy start screen.
 Plug 'michaeljsmith/vim-indent-object' " --- Indent text object.
 Plug 'morhetz/gruvbox'                 " --- Gruvbox colorscheme.
 Plug 'mtth/scratch.vim'                " --- Scratch buffer.
@@ -918,7 +917,6 @@ nnoremap <leader>bb  :Buffers<cr>
 nnoremap <leader>bd  :bdelete<cr>
 nnoremap <leader>bD  :bdelete!<cr>
 nnoremap <leader>bf  :bfirst<cr>
-nnoremap <leader>bh  :Startify<cr>
 nnoremap <leader>bl  :blast<cr>
 nnoremap <leader>bn  :bnext<cr>
 nnoremap <leader>bN  :enew<cr>
