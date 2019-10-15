@@ -659,7 +659,7 @@ let g:lt_quickfix_list_toggle_map = '<F99>'
 "---vim-airline/vim-airline
 "
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'jay'
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -1071,7 +1071,7 @@ vnoremap <leader>xf  =
 "
 "---Aesthetics.
 "
-colorscheme gruvbox
+colorscheme monokai
 set termguicolors
 let g:rehash256 = 1
 :highlight! link QuickFixLine NONE             " No hightlight in quickfix.
