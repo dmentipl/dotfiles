@@ -134,10 +134,6 @@ Plug 'josuegaleas/jay'                 " --- Jay colorscheme.
 Plug 'jpalardy/vim-slime'              " --- Text to REPL.
 Plug 'jreybert/vimagit'                " --- Git integration.
 Plug 'JuliaEditorSupport/julia-vim'    " --- Julia support.
-Plug 'junegunn/fzf', {
-    \ 'dir': '~/.fzf',
-    \ 'do': './install --all'
-    \ }                                " --- fzf.
 Plug 'junegunn/fzf.vim'                " --- fzf in vim.
 Plug 'junegunn/goyo.vim'               " --- Distraction free writing.
 Plug 'junegunn/gv.vim'                 " --- Git commit browser.

@@ -7,6 +7,7 @@ exa
 brew install bellecp/fast-p/fast-pdf-finder
 fd
 ffmpeg
+fzf
 gawk
 gcc --without-multilib
 git
