@@ -2,3 +2,4 @@ channels:
   - conda-forge
   - defaults
 anaconda_upload: false
+changeps1: False
