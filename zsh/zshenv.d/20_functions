@@ -2,148 +2,8 @@
 
 # ==== functions ==== #
 
-# Fancy Ctrl-Z: fg -> ctrl-z.
-fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line
-  else
-    zle push-input
-    zle clear-screen
-  fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
-# Update nvim.
-update-vim () {
-  nvim +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qall
-  pip install --upgrade pynvim
-}
-
-# FZF preview window.
-pr () {
-  fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
-                   echo {} is a binary file ||
-                   (bat --style=numbers --color=always {} ||
-                    highlight -O ansi -l {} ||
-                    coderay {} ||
-                    rougify {} ||
-                    cat {}) 2> /dev/null | head -500' --preview-window down:20
-}
-
-# FZF search git commits.
-is_in_git_repo() {
-  git rev-parse HEAD > /dev/null 2>&1
-}
-
-fzf-down() {
-  fzf --height 50% "$@" --border
-}
-
-gsc () {
-  is_in_git_repo || return
-  git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=always |
-  fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
-    --header 'Press CTRL-S to toggle sort' \
-    --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always | head -'$LINES |
-  grep -o "[a-f0-9]\{7,\}"
-}
-
-# FZF search PDFs.
-# See https://github.com/bellecp/fast-p.
-p () {
-    local open
-    open=open   # on OSX, "open" opens a pdf in preview
-    ag -U -g ".pdf$" \
-    | fast-p \
-    | fzf --read0 --reverse -e -d $'\t'  \
-        --preview-window down:80% --preview '
-            v=$(echo {q} | gtr " " "|");
-            echo -e {1}"\n"{2} | ggrep -E "^|$v" -i --color=always;
-        ' \
-    | gcut -z -f 1 -d $'\t' | gtr -d '\n' | gxargs -r --null $open > /dev/null 2> /dev/null
-}
-
-# Print time of last commit. Useful for prompts.
-# Derived from dogenpunk.zsh-theme from oh-my-zsh.
-git_time_since_commit() {
-  if git rev-parse --git-dir > /dev/null 2>&1; then
-    # Only proceed if there is actually a commit.
-    if git log -n 1  > /dev/null 2>&1; then
-      # Get the last commit.
-      last_commit=`git log --pretty=format:'%at' -1 2> /dev/null`
-      now=`date +%s`
-      seconds_since_last_commit=$((now-last_commit))
-
-      # Totals
-      MINUTES=$((seconds_since_last_commit / 60))
-      HOURS=$((seconds_since_last_commit/3600))
-
-      # Sub-hours and sub-minutes
-      DAYS=$((seconds_since_last_commit / 86400))
-      SUB_HOURS=$((HOURS % 24))
-      SUB_MINUTES=$((MINUTES % 60))
-
-      if [ "$HOURS" -gt 24 ]; then
-        print "(${DAYS}d)"
-      elif [ "$MINUTES" -gt 60 ]; then
-        print "(${HOURS}h)"
-      else
-        print "(${MINUTES}m)"
-      fi
-    else
-      print ""
-    fi
-  fi
-}
-
-# Add my patch to Spaceship zsh theme.
-patch_spaceship () {
-  patch -R ~/.local/share/zsh/repos/spaceship-prompt/sections/git_branch.zsh << 'EOF'
-30c30
-<     "$SPACESHIP_GIT_BRANCH_PREFIX${git_current_branch}$(git_time_since_commit)$SPACESHIP_GIT_BRANCH_SUFFIX"
----
->     "$SPACESHIP_GIT_BRANCH_PREFIX${git_current_branch}$SPACESHIP_GIT_BRANCH_SUFFIX"
-EOF
-}
-
-# Colored man pages. (Irrelevant if nvim is paging.)
-man () {
-  env \
-  LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-  LESS_TERMCAP_md=$(printf "\e[1;31m") \
-  LESS_TERMCAP_me=$(printf "\e[0m") \
-  LESS_TERMCAP_se=$(printf "\e[0m") \
-  LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-  LESS_TERMCAP_ue=$(printf "\e[0m") \
-  LESS_TERMCAP_us=$(printf "\e[1;32m") \
-  PAGER="${commands[less]:-$PAGER}" \
-  man "$@"
-}
-
-# Sort vim spell file.
-sort_spell_file () {
-  print 'execute "%!sort -f" | write' | vim -es ~dotfiles/vim/spell/en.utf-8.add
-}
-
-# Recursively trash build files: *.i90, *.o, *.mod, and *.smod.
-# Mnemonic cl = clean.
-cl () {
-  print "Recursively removing build files from current directory."
-  find . -type f -name '*.i' -print0 | xargs -0 trash
-  find . -type f -name '*.i90' -print0 | xargs -0 trash
-  find . -type f -name '*.o' -print0 | xargs -0 trash
-  find . -type f -name '*.mod' -print0 | xargs -0 trash
-  find . -type f -name '*.smod' -print0 | xargs -0 trash
-}
-
-# Python webserver: serves the contents of the folder.
-web () {
-  python -m http.server 0 --bind 127.0.0.1 &
-}
-
 # Calculator in shell.
+# Uses Python with Numpy loaded.
 = () {
 if [ "$#" -ne 1 ]; then
   print "Put the expression in quotes"
@@ -152,145 +12,15 @@ else
 fi
 }
 
-# Takes one or more files/directories as argument then prints the shortest hash
-# of each one on a new line.
-print_hashed_path () {
-  local hashdirs hashlabels idx dir cdir
-  hashlabels=($(hash -d | tr -s '=' ' ' | awk '{print $1}'))
-  hashdirs=($(hash -d | tr -s '=' ' ' | awk '{print $2}'))
-  # Ignore PWD and OLDPWD.
-  hashdirs[${hashlabels[(i)PWD]}]=()
-  hashlabels[${hashlabels[(i)PWD]}]=()
-  hashdirs[${hashlabels[(i)OLDPWD]}]=()
-  hashlabels[${hashlabels[(i)OLDPWD]}]=()
-  for cdir in $@; do
-    [[ -d $cdir ]] || [[ -f $cdir ]] || return cdir
-    # Initialize $dir.
-    dir=$cdir
-    # First check against $HOME.
-    new_dir=${${cdir/#%${HOME}/\~}/#${HOME}\//\~/}
-    if [[ ${#new_dir} -lt ${#dir} ]]; then
-      dir=$new_dir
-    fi
-    # Then check against hashed dirs.
-    for idx in {1..$#hashdirs}; do
-      if [[ $cdir == *${hashdirs[idx]}* ]]; then
-        new_dir=\~${${cdir/#%${hashdirs[idx]}/${hashlabels[idx]}}/#${hashdirs[idx]}\//${hashlabels[idx]}/}
-        if [[ ${#new_dir} -lt ${#dir} ]]; then
-          dir=$new_dir
-        fi
-      fi
-    done
-    print $dir
-  done
-}
-
-# Diff two directories and ignore files that only exist in one.
-# This prints a list of files that exist in both directories and are different.
-ddiff () {
-  if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
-ddiff
-
-Usage: ddiff dir1 dir2
-
-Diff common files between two directories.
-
-This prints a diff of each different file followed by a list of
-those files.
-
-Daniel Mentiplay, 2018.
-HELP
-    return
-  fi
-  [[ -d $1 ]] && [[ -d $2 ]] || return 1
-  blue=$(tput setaf 4)
-  normal=$(tput sgr0)
-  files=($(diff -qr "$1" "$2"  | grep -v '^Only in' | cut -d' ' -f 2))
-  if [[ $files ]]; then
-    for file in ${files[@]}; do
-      printf '\n%s\n' "${blue}[ === ${file:t} === ]${normal}"
-      diff $1/**/${file:t} $2/**/${file:t}
-    done
-    printf '\n\n%s\n\n' 'List of files:'
-    for file in ${files[@]}; do
-      printf '\t%s\n' "${blue}${file:t}${normal}"
-    done
-  fi
-}
-
-# Diff two directories and ignore files that only exist in one. Then copy
-# differing files from the first directory to second directory.
-cpddiff () {
-  if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
-cpddiff
-
-Usage: cpddiff dir1 dir2
-
-Diff and copy common files between two directories.
-
-Copy differing files from the first directory to second directory.
-
-Daniel Mentiplay, 2018.
-HELP
-    return
-  fi
-  [[ -d $1 ]] && [[ -d $2 ]] || return 1
-  blue=$(tput setaf 4)
-  normal=$(tput sgr0)
-  files=($(diff -qr "$1" "$2"  | grep -v '^Only in' | cut -d' ' -f 2))
-  if [[ $files ]]; then
-    dir1=$(print_hashed_path $1)
-    dir2=$(print_hashed_path $2)
-    read -q "ANS?Copy diff'd files from ${blue}${dir1} ${normal}to ${blue}${dir2}${normal}? [y/n] "
-    printf '\n'
-    case ${ANS:0:1} in
-      y|Y )
-        files1=($(diff -qr "$1" "$2" | grep -v '^Only in' | cut -d' ' -f 2))
-        files2=($(diff -qr "$1" "$2" | grep -v '^Only in' | cut -d' ' -f 4))
-        for i in {1..$#files1}; do
-          cp $files1[$i] $files2[$i]
-        done
-        ;;
-      * )
-        return 2
-        ;;
-    esac
-  else
-    return 3
-  fi
-}
-
-# Detect OS.
-is_macos() {
-  [[ "$OSTYPE" =~ ^darwin ]] || return 1
-}
-is_ubuntu() {
-  [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
-}
-
-# Ask a question.
-ask () {
-  read -q "ANS?$1 (y/N) "
-  printf '\n'
-  case ${ANS:0:1} in
-    y|Y )
-      true
-      ;;
-    * )
-      false
-      ;;
-  esac
-}
-
-# Pretty text.
-ok() {
-  print -P "%B%F{green}[ok] $1"
-}
-warn() {
-  print -P "%B%F{yellow}[warning] $1"
-}
-error() {
-  print -P "%B%F{red}[error] $1"
+# Fuzzy search Chrome history with fzf.
+# https://junegunn.kr/2015/04/browsing-chrome-history-with-fzf/
+chrome-history () {
+	local cols sep
+	cols=$(( COLUMNS / 3 ))
+	sep='{::}'
+	\cp -i -r -f ~/Library/Application\ Support/Google/Chrome/Default/History /tmp/fzf.chrome.history
+	sqlite3 -separator $sep /tmp/h "select substr(title, 1, $cols), url
+     from urls order by last_visit_time desc" | awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' | fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs open
 }
 
 # Extract zip, tar, & other archives.
@@ -364,26 +94,76 @@ HELP
   done
 }
 
-# Prepend to PATH if not already present.
-prepend_path() {
-  case ":${PATH:=$1}:" in
-    *:$1:*)
-      ;;
-    *)
-      PATH="$1:$PATH"
-      ;;
-  esac
+# Fuzzy search git commits with fzf.
+git-search () {
+  _is-in-git-repo() {
+    git rev-parse HEAD > /dev/null 2>&1
+  }
+  _fzf-down() {
+    fzf --height 50% "$@" --border
+  }
+  _is-in-git-repo || return
+  git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=always |
+  _fzf-down --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
+    --header 'Press CTRL-S to toggle sort' \
+    --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always | head -'$LINES |
+  grep -o "[a-f0-9]\{7,\}"
 }
 
-# Append to PATH if not already present.
-append_path() {
-  case ":${PATH:=$1}:" in
-    *:$1:*)
-      ;;
-    *)
-      PATH="$PATH:$1"
-      ;;
-  esac
+# Detect OS.
+is-macos() {
+  [[ "$OSTYPE" =~ ^darwin ]] || return 1
+}
+is-ubuntu() {
+  [[ "$(cat /etc/issue 2> /dev/null)" =~ Ubuntu ]] || return 1
+}
+
+# Colored man pages.
+man () {
+  env \
+  LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+  LESS_TERMCAP_md=$(printf "\e[1;31m") \
+  LESS_TERMCAP_me=$(printf "\e[0m") \
+  LESS_TERMCAP_se=$(printf "\e[0m") \
+  LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+  LESS_TERMCAP_ue=$(printf "\e[0m") \
+  LESS_TERMCAP_us=$(printf "\e[1;32m") \
+  PAGER="${commands[less]:-$PAGER}" \
+  man "$@"
+}
+
+# Fuzzy search full text of PDFs with fzf.
+# See https://github.com/bellecp/fast-p.
+pdf-search () {
+    local open
+    open=open   # on OSX, "open" opens a pdf in preview
+    ag -U -g ".pdf$" \
+    | fast-p \
+    | fzf --read0 --reverse -e -d $'\t'  \
+        --preview-window down:80% --preview '
+            v=$(echo {q} | gtr " " "|");
+            echo -e {1}"\n"{2} | ggrep -E "^|$v" -i --color=always;
+        ' \
+    | gcut -z -f 1 -d $'\t' | gtr -d '\n' | gxargs -r --null $open > /dev/null 2> /dev/null
+}
+
+# fzf preview window.
+# Fuzzy search files within a directory and preview the contents.
+# Only works on text files, not binaries.
+preview () {
+  fzf --preview '[[ $(file --mime {}) =~ binary ]] &&
+                   echo {} is a binary file ||
+                   (bat --style=numbers --color=always {} ||
+                    highlight -O ansi -l {} ||
+                    coderay {} ||
+                    rougify {} ||
+                    cat {}) 2> /dev/null | head -500' --preview-window down:20
+}
+
+# Sort VS Code dictionary file.
+sort-spell-file () {
+  sort -f -o ~/repos/dotfiles/vscode/spellright.dict \
+    ~/repos/dotfiles/vscode/spellright.dict
 }
 
 # Turtle.
@@ -403,4 +183,68 @@ turtle () {
   echo '         ~-----||====/~     |==================|       |/~~~~~      '
   echo '          (_(__/  ./     /                    \_\      \.           '
   echo '                 (_(___/                         \_____)_)-         '
+}
+
+# Python webserver: serves the contents of the folder.
+web-server () {
+  python -m http.server 0 --bind 127.0.0.1 &
+}
+
+# ----------------------------------------------------------------------------- #
+
+# Fancy Ctrl-Z: fg -> ctrl-z.
+# Type ctrl-z to background a process, and ctrl-z to foreground it.
+_fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N _fancy-ctrl-z
+bindkey '^Z' _fancy-ctrl-z
+
+# Print time of last commit. Useful for prompts.
+# Derived from dogenpunk.zsh-theme from oh-my-zsh.
+_git-time-since-commit() {
+  if git rev-parse --git-dir > /dev/null 2>&1; then
+    # Only proceed if there is actually a commit.
+    if git log -n 1  > /dev/null 2>&1; then
+      # Get the last commit.
+      last_commit=`git log --pretty=format:'%at' -1 2> /dev/null`
+      now=`date +%s`
+      seconds_since_last_commit=$((now-last_commit))
+
+      # Totals
+      MINUTES=$((seconds_since_last_commit / 60))
+      HOURS=$((seconds_since_last_commit/3600))
+
+      # Sub-hours and sub-minutes
+      DAYS=$((seconds_since_last_commit / 86400))
+      SUB_HOURS=$((HOURS % 24))
+      SUB_MINUTES=$((MINUTES % 60))
+
+      if [ "$HOURS" -gt 24 ]; then
+        print "(${DAYS}d)"
+      elif [ "$MINUTES" -gt 60 ]; then
+        print "(${HOURS}h)"
+      else
+        print "(${MINUTES}m)"
+      fi
+    else
+      print ""
+    fi
+  fi
+}
+
+# Add my patch to Spaceship zsh theme.
+_patch-spaceship () {
+  patch -R ~/.local/share/zsh/repos/spaceship-prompt/sections/git_branch.zsh << 'EOF'
+30c30
+<     "$SPACESHIP_GIT_BRANCH_PREFIX${git_current_branch}$(_git-time-since-commit)$SPACESHIP_GIT_BRANCH_SUFFIX"
+---
+>     "$SPACESHIP_GIT_BRANCH_PREFIX${git_current_branch}$SPACESHIP_GIT_BRANCH_SUFFIX"
+EOF
 }
