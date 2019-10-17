@@ -1,9 +1,9 @@
 Set up macOS
 ============
 
-Change caps lock to control
+Change caps lock to control.
 
-- System Preferences > Keyboard > Keyboard (Modifier Keys): remap caps lock to control.
+> System Preferences > Keyboard > Keyboard (Modifier Keys): remap caps lock to control.
 
 To set desktop background (wallpaper), first quit System Preferences, if open, then download the file and set it as the background.
 
@@ -21,7 +21,7 @@ To set the macOS defaults run the `macOS_defaults.sh` shell script:
 ./macOS_defaults.sh
 ```
 
-Read the script to see what it does, and modify as required.
+Read the script to see what it does, and change parts as required.
 
 Fonts
 -----

@@ -5,7 +5,7 @@ This directory contains useful binaries.
 
 Link binaries to `~/bin`.
 
-```
+```bash
 mkdir -p ~/bin
 files=("${DOTFILES}"/bin/*)
 for file in "${files[@]}"; do

@@ -13,4 +13,4 @@ or via apt on Linux.
 sudo apt install texlive-full
 ```
 
-The `latexmkrc` and `latexdiff-preamble.sty` files can be copied to a tex project directory as required.
+You can copy `latexmkrc` and `latexdiff-preamble.sty` to a tex project directory as required.

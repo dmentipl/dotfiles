@@ -17,10 +17,9 @@ else
 fi
 ```
 
-Add zsh extras such as autosuggestions when typing, completion, syntax
-highlighting, shell prompt.
+Add zsh extras such as autosuggestions when typing, completion, syntax highlighting, shell prompt.
 
-```
+```bash
 mkdir -p ~/.local/share/zsh/{functions,repos}
 
 cd ~/.local/share/zsh/repos || return 1
@@ -34,7 +33,7 @@ ln -sf ~/.local/share/zsh/repos/spaceship-prompt/spaceship.zsh \
   ~/.local/share/zsh/functions/prompt_spaceship_setup
 ```
 
-Symlink config files. `zshenv` and `zshenv.d` are for all zsh shells, i.e. interactive and non-interactive. `zshrc` and `zshrc.d` are for interactive shells only.
+Symlink config files. `zshenv` and `zshenv.d` are for all zsh shells, i.e. interactive and non-interactive. `zshrc` and `zshrc.d` are for interactive shells.
 
 ```bash
 ln -sf "${DOTFILES}/zsh/zshenv" ~/.zshenv
@@ -58,9 +57,10 @@ unset file files
 Colours
 -------
 
-For macOS download and install manually from https://github.com/mbadolato/iTerm2-Color-Schemes.
+For macOS download and install manually from <https://github.com/mbadolato/iTerm2-Color-Schemes.>
 
-For Ubuntu we can use https://github.com/Mayccoll/Gogh.
+For Ubuntu we can use <https://github.com/Mayccoll/Gogh.>
+
 ```bash
 wget -O gogh https://git.io/vQgMr
 chmod +x gogh
@@ -68,7 +68,7 @@ printf '10 33 85 87 88' | ./gogh
 \rm gogh
 ```
 
-This downloads the following terminal colorschemes
+This downloads the following terminal colour schemes
 
 - 10 = Atom
 - 33 = Dimmed Monokai
@@ -76,4 +76,4 @@ This downloads the following terminal colorschemes
 - 87 = Monokai Dark
 - 88 = Monokai Soda
 
-Monokai Soda is my preferred colorscheme.
+Monokai Soda is my preferred colour scheme.

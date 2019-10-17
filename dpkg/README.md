@@ -52,7 +52,7 @@ sudo apt install ripgrep*.deb
 ```
 
 fd
---
+---
 
 To install `fd`, a nicer `find`:
 

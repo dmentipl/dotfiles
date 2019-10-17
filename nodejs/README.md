@@ -3,7 +3,7 @@ node.js
 
 I use node.js as a package manager for binaries made available through it. Not for JavaScript development.
 
-Download and install node.js from https://nodejs.org/.
+Download and install node.js from <https://nodejs.org/.>
 
 Need to set permissions.
 
