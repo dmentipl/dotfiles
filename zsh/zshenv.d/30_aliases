@@ -3,12 +3,11 @@
 # ==== aliases ==== #
 
 alias chown='chown -R'
-alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias cp='cp -i -r'
 alias diff=colordiff
-alias d='dirs -v | head -10'
 alias df='df -H'
-alias dot='cd ~/repos/dotfiles'
+alias dot="cd ${DOTFILES}"
 alias du='du -hs'
 alias e=exit
 alias finder='open -a Finder .'

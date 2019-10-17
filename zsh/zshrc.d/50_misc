@@ -55,7 +55,7 @@ fi
 
 # https://github.com/grml/grml-etc-core/blob/master/etc/zsh/zshrc
 
-DIRSTACKSIZE=${DIRSTACKSIZE:-20}
+DIRSTACKSIZE=${DIRSTACKSIZE:-50}
 dirstack_file=${dirstack_file:-${HOME}/.zdirs}
 
 if [[ -f ${dirstack_file} ]] && [[ ${#dirstack[*]} -eq 0 ]] ; then

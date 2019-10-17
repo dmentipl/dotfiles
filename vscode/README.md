@@ -37,29 +37,23 @@ grep -v '^#' extensions.list | xargs -L1 code --install-extension
 Symlink settings
 ----------------
 
-Set directory for these dotfiles.
-
-```bash
-DOTDIR=$HOME/repos/dotfiles
-```
-
 Symlink config file `setting.json`.
 
 ```bash
-ln -sf "$DOTDIR/vscode/settings.json" \
+ln -sf "${DOTFILES}/vscode/settings.json" \
     "$HOME/Library/Application Support/Code/User/settings.json"
 ```
 
 Symlink keybindings file `keybindings.json`.
 
 ```bash
-ln -sf "$DOTDIR/vscode/keybindings.json" \
+ln -sf "${DOTFILES}/vscode/keybindings.json" \
     "$HOME/Library/Application Support/Code/User/keybindings.json"
 ```
 
 Symlink dictionary file `spellright.dict`.
 
 ```bash
-ln -sf "$DOTDIR/vscode/spellright.dict" \
+ln -sf "${DOTFILES}/vscode/spellright.dict" \
     "$HOME/Library/Application Support/Code/User/spellright.dict"
 ```

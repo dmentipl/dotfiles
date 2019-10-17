@@ -1,12 +1,6 @@
 LaTeX
 =====
 
-Set directory for these dotfiles.
-
-```bash
-DOTDIR=$HOME/repos/dotfiles
-```
-
 Install via Homebrew Cask on macOS,
 
 ```bash

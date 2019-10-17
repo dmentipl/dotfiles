@@ -2,6 +2,9 @@
 
 # ==== environment ==== #
 
+# DOTFILES.
+export DOTFILES=~/repos/dotfiles
+
 # PATH.
 typeset -U path
 path=(

@@ -64,7 +64,7 @@ How to use this repository. I call sub-directories packages because they are som
 1. You should first follow the instructions in the `homebrew` or `dpkg` directories. Those instructions install software that other packages may rely on.
 2. After that, each directory contains a `README.md` with instructions on how to use the files contained within.
 
-You don't have to use every directory, just the ones you require.
+You don't have to use every directory, just the ones you require. Each of the instructions require that the environment variable `DOTFILES` is set. This is the path to this dotfiles repository. My zsh config sets `DOTFILES=~/repos/dotfiles`.
 
 The directories are as follows.
 
@@ -82,4 +82,4 @@ The directories are as follows.
 - [vscode](vscode/README.md)
 - [zsh](zsh/README.md)
 
-Note that I have assumed that this dotfiles repository is at `$HOME/repos/dotfiles`.
+*Note that I have assumed that this dotfiles repository is at `$HOME/repos/dotfiles`.*

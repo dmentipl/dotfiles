@@ -1,12 +1,6 @@
 Set up terminal
 ===============
 
-Set directory for these dotfiles.
-
-```bash
-DOTDIR=$HOME/repos/dotfiles
-```
-
 zsh
 ---
 
@@ -43,18 +37,18 @@ ln -sf ~/.local/share/zsh/repos/spaceship-prompt/spaceship.zsh \
 Symlink config files. `zshenv` and `zshenv.d` are for all zsh shells, i.e. interactive and non-interactive. `zshrc` and `zshrc.d` are for interactive shells only.
 
 ```bash
-ln -sf "${DOTDIR}/zsh/zshenv" ~/.zshenv
-ln -sf "${DOTDIR}/zsh/zshrc" ~/.zshrc
+ln -sf "${DOTFILES}/zsh/zshenv" ~/.zshenv
+ln -sf "${DOTFILES}/zsh/zshrc" ~/.zshrc
 
 mkdir ~/.zshenv.d
-files=("${DOTDIR}/zsh/zshenv.d/"*)
+files=("${DOTFILES}/zsh/zshenv.d/"*)
 for file in "${files[@]}"; do
   [[ -f $file && -r $file ]] && ln -sf "$file" "$HOME/.zshenv.d/$file:t"
 done
 unset file files
 
 mkdir ~/.zshrc.d
-files=("${DOTDIR}/zsh/zshrc.d/"*)
+files=("${DOTFILES}/zsh/zshrc.d/"*)
 for file in "${files[@]}"; do
   [[ -f $file && -r $file ]] && ln -sf "$file" "$HOME/.zshrc.d/$file:t"
 done

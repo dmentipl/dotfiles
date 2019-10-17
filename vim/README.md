@@ -1,12 +1,6 @@
 Setup Neovim
 ============
 
-Set directory for these dotfiles.
-
-```bash
-DOTDIR=$HOME/repos/dotfiles
-```
-
 Installing and setting up Neovim.
 
 ```bash
@@ -25,7 +19,7 @@ pip install pynvim
 Link config directory.
 
 ```bash
-ln -sf "${DOTDIR}/vim/nvim" "${HOME}/.config/nvim"
+ln -sf "${DOTFILES}/vim/nvim" "${HOME}/.config/nvim"
 ```
 
 Install vim-plug, the plugin manager.

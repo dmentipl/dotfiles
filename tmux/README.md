@@ -1,12 +1,6 @@
 tmux
 ====
 
-Set directory for these dotfiles.
-
-```bash
-DOTDIR=$HOME/repos/dotfiles
-```
-
 Install via Homebrew
 
 ```bash
@@ -22,5 +16,5 @@ sudo apt install tmux
 Link `tmux.conf`
 
 ```bash
-ln -sf "${DOTDIR}/tmux/tmux.conf" ~/.tmux.conf
+ln -sf "${DOTFILES}/tmux/tmux.conf" ~/.tmux.conf
 ```
