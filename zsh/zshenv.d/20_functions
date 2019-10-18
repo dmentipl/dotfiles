@@ -162,9 +162,9 @@ preview () {
 
 # Fuzzy seach for previous directory and change to it with fzf.
 previous-dirs () {
-  local dest_dir=$(cat ~/.zdirs | fzf)
+  local dest_dir=$(dirs -v | awk '{print $2}' | fzf)
   if [[ $dest_dir != '' ]]; then
-    cd "$dest_dir"
+    cd ${~dest_dir}
   fi
 }
 
