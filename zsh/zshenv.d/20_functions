@@ -15,11 +15,11 @@ fi
 # Fuzzy search Chrome history with fzf.
 # https://junegunn.kr/2015/04/browsing-chrome-history-with-fzf/
 chrome-history () {
-	local cols sep
-	cols=$(( COLUMNS / 3 ))
-	sep='{::}'
-	\cp -r -f ~/Library/Application\ Support/Google/Chrome/Default/History /tmp/fzf.chrome.history
-	sqlite3 -separator $sep /tmp/h "select substr(title, 1, $cols), url
+  local cols sep
+  cols=$(( COLUMNS / 3 ))
+  sep='{::}'
+  \cp -r -f ~/Library/Application\ Support/Google/Chrome/Default/History /tmp/fzf.chrome.history
+  sqlite3 -separator $sep /tmp/h "select substr(title, 1, $cols), url
      from urls order by last_visit_time desc" | awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\x1b[m\n", $1, $2}' | fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs open
 }
 
@@ -190,6 +190,30 @@ turtle () {
   echo '         ~-----||====/~     |==================|       |/~~~~~      '
   echo '          (_(__/  ./     /                    \_\      \.           '
   echo '                 (_(___/                         \_____)_)-         '
+}
+
+# Updating system.
+update-apt () {
+  sudo apt update
+  sudo apt -y upgrade
+}
+update-brew () {
+  brew update
+  brew upgrade
+  yes | brew cleanup
+}
+update-nvim () {
+  nvim +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qall
+  pip install --upgrade pynvim
+}
+update-zsh-plugins () {
+  local cwd=$PWD
+  cd ~/.local/share/zsh/repos || exit
+  local directories=(*/)
+  for directory in ${directories[@]}; do
+    echo $directory && cd $directory && git pull && cd -
+  done
+  cd $cwd
 }
 
 # Python webserver: serves the contents of the folder.

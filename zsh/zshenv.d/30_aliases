@@ -137,9 +137,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
   alias copy='pbcopy'
   alias paste='pbpaste'
 
-  # Homebrew.
-  alias update='brew update && brew upgrade && yes | brew cleanup'
-
 # Linux specific.
 else
 
@@ -152,10 +149,5 @@ else
 
   # Say out loud.
   alias say=spd-say
-
-  # APT.
-  if uname -a | grep -i ubuntu >/dev/null; then
-    alias update="sudo apt update && sudo apt -y upgrade"
-  fi
 
 fi
