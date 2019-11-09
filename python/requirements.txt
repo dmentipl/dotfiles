@@ -1,6 +1,0 @@
-ads
-ads2bibdesk
-fortran-language-server
-proselint
-pynvim
-twine

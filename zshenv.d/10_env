@@ -3,7 +3,7 @@
 # ==== environment ==== #
 
 # DOTFILES.
-export DOTFILES=${0:A:h:h:h}
+export DOTFILES=${0:A:h:h}
 
 # PATH.
 typeset -U path

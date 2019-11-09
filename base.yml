@@ -6,6 +6,7 @@
 #   conda update conda
 #   conda install --file base.yml
 #
+ads
 anaconda-client
 altair
 astropy
@@ -37,6 +38,7 @@ numpy
 pandas
 pint
 pip
+proselint
 pyarrow
 pycodestyle
 pympler
