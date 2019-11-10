@@ -1,14 +1,12 @@
-Set up for macOS
-================
+Set up macOS from scratch
+=========================
 
 This repository contains dotfiles and instructions on setting up a macOS machine from scratch.
 
-*Note: these instructions work for me. Caveat emptor.*
+*Note: these instructions work for me. They may not work for you.*
 
 Before cloning this repository
 ------------------------------
-
-Install iTerm2 from <https://www.iterm2.com/>.
 
 To install the Xcode command line tools (which include git and other basic programs) run:
 
@@ -16,34 +14,64 @@ To install the Xcode command line tools (which include git and other basic progr
 xcode-select --install
 ```
 
-*Note: run this command after every macOS update.* Also, as of 10.14 (Mojave) you need to run:
-
-```bash
-open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
-```
-
-Follow the installer instructions.
-
-*Note: If you're not me, skip this section. Clone a copy over HTTPS.  Alternatively, fork the repository and follow along.*
-
-Set up ssh keys to clone this repository from github.com. Run the following command
+Set up ssh keys to clone this repository from <https://github.com>. Run the following command
 
 ```bash
 ssh-keygen -t rsa
 ```
 
-then add the public key at github.com. Once you do this you can clone the repository with
+then add the public key at <https://github.com>.
+
+Clone the repository
+--------------------
+
+*Note: if you are not me, you may want to fork this repository, instead of cloning mine.*
+
+Clone the repository with
 
 ```bash
-mkdir ~/repos
-cd ~/repos
+mkdir ~/repos && cd ~/repos
 git clone git@github.com:dmentipl/dotfiles
 ```
 
-In what follows, the shell variable `DOTFILES` is set to `~/repos/dotfiles`. This is whatever the directory this repository is cloned into.
+Using the dotfiles
+------------------
 
-zsh
+In what follows, you must set the shell variable `DOTFILES` to the directory in which you cloned this repository.
+
+```bash
+DOTFILES=~/repos/dotfiles
+```
+
+Homebrew
+--------
+
+> The missing package manager for macOS: <https://brew.sh/>.
+
+Install Homebrew.
+
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Update and run `brew doctor` to see if there are any problems.
+
+```bash
+brew update && brew doctor
+```
+
+Install software listed in `Brewfile`.
+
+```bash
+brew bundle
+```
+
+This includes installation of iTerm2 the terminal replacement. Switch to this after running `brew bundle`.
+
+Zsh
 ---
+
+> Zsh is a shell designed for interactive use: <http://zsh.sourceforge.net/>.
 
 Change shell to zsh.
 
@@ -51,21 +79,7 @@ Change shell to zsh.
 sudo dscl . -create "/Users/${USER}" UserShell /bin/zsh
 ```
 
-Add zsh extras such as autosuggestions when typing, completion, syntax highlighting, shell prompt.
-
-```bash
-mkdir -p ~/.local/share/zsh/{functions,repos}
-
-cd ~/.local/share/zsh/repos || return 1
-git clone https://github.com/zsh-users/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-completions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting
-git clone https://github.com/denysdovhan/spaceship-prompt
-git clone https://github.com/esc/conda-zsh-completion
-
-ln -sf ~/.local/share/zsh/repos/spaceship-prompt/spaceship.zsh \
-  ~/.local/share/zsh/functions/prompt_spaceship_setup
-```
+### Configuration
 
 Symlink config files. `zshenv` and `zshenv.d` are for all zsh shells, i.e. interactive and non-interactive. `zshrc` and `zshrc.d` are for interactive shells.
 
@@ -88,43 +102,34 @@ done
 unset file files
 ```
 
-git
----
+### Extras
 
-Symlink `gitconfig` and `gitignore` files.
-
-```bash
-ln -sf "${DOTFILES}/gitconfig" ~/.gitconfig
-ln -sf "${DOTFILES}/gitignore" ~/.gitignore
-```
-
-Note that you should store sensitive information which would otherwise go in `.gitconfig` in `~/.gitconfig.local` which should not go in a public repository.
-
-Homebrew
---------
-
-Install Homebrew.
+Add zsh extras such as autosuggestions when typing, completion, syntax highlighting, shell prompt.
 
 ```bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+mkdir -p ~/.local/share/zsh/{functions,repos}
 
-Update and run `brew doctor` to see if there are any problems.
+cd ~/.local/share/zsh/repos || return 1
+git clone https://github.com/zsh-users/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-completions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting
+git clone https://github.com/denysdovhan/spaceship-prompt
+git clone https://github.com/esc/conda-zsh-completion
 
-```bash
-brew update && brew doctor
-```
-
-Install from `Brewfile`.
-
-```bash
-brew bundle
+ln -sf ~/.local/share/zsh/repos/spaceship-prompt/spaceship.zsh \
+  ~/.local/share/zsh/functions/prompt_spaceship_setup
 ```
 
 Python
 ------
 
-Download and install Anaconda.
+Set up a Python development environment using Conda.
+
+> Package, dependency and environment management for any language: <https://docs.conda.io/>.
+
+### Conda
+
+Download and install Anaconda. Anaconda includes Conda as well as many Python packages, and useful binaries for Python development, and more.
 
 ```bash
 cd ~/Downloads || return
@@ -140,11 +145,17 @@ conda update conda
 conda install --file base.yml
 ```
 
-Install extra Python packages with pip.
+### pip
+
+Install extra Python packages (not available with Conda) with pip.
 
 ```bash
 pip install -r requirements.txt
 ```
+
+### Jupyter
+
+> JupyterLab is a web-based interactive development environment for Jupyter notebooks, code, and data: <https://jupyter.org/>.
 
 Install Jupyter Lab extensions.
 
@@ -153,6 +164,8 @@ jupyter labextension install jupyterlab_vim
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 jupyter labextension install jupyter-matplotlib
 ```
+
+### Configuration
 
 Link Python config files.
 
@@ -164,7 +177,9 @@ ln -sf "${DOTFILES}/pycodestyle" ~/.config/pycodestyle
 Neovim
 ------
 
-Installing and setting up Neovim.
+> Hyper-extensible Vim-base text editor: <https://neovim.io/>.
+
+Should already be installed via Homebrew, and the Python package via pip. If not:
 
 ```bash
 brew install neovim
@@ -177,6 +192,10 @@ Link config file.
 ln -sf "${DOTFILES}/init.vim" "${HOME}/.config/nvim/init.vim"
 ```
 
+### Plugins
+
+> Minimalist Vim plugin manager: <https://github.com/junegunn/vim-plug>.
+
 Install vim-plug, the plugin manager, and plugins.
 
 ```bash
@@ -187,6 +206,8 @@ nvim +PlugInstall +qall
 
 Visual Studio Code
 ------------------
+
+> Microsoft open source code editor: <https://code.visualstudio.com/>.
 
 Download from <https://code.visualstudio.com/download>. Extract the zip file and copy the application to `/Applications`.
 
@@ -220,8 +241,54 @@ ln -sf "${DOTFILES}/vscode-spellright.dict" \
     "$HOME/Library/Application Support/Code/User/spellright.dict"
 ```
 
-macOS
------
+Extra config
+------------
+
+### git
+
+Symlink `gitconfig` and `gitignore` files.
+
+```bash
+ln -sf "${DOTFILES}/gitconfig" ~/.gitconfig
+ln -sf "${DOTFILES}/gitignore" ~/.gitignore
+```
+
+Note that you may want to store sensitive information which would otherwise go in `.gitconfig` in `~/.gitconfig.local` which should not go in a public repository.
+
+### fzf
+
+> The fuzzy command-line finder: <https://github.com/junegunn/fzf>.
+
+Should already be installed via Homebrew. If not:
+
+```bash
+brew install fzf
+```
+
+Install fzf key bindings.
+
+```bash
+$(brew --prefix)/opt/fzf/install
+```
+
+### tmux
+
+> A terminal multiplexer: <https://github.com/tmux/tmux/wiki>.
+
+Should already be installed via Homebrew. If not:
+
+```bash
+brew install tmux
+```
+
+Link the configuration file.
+
+```bash
+ln -sf "${DOTFILES}/tmux.conf" ~/.tmux.conf
+```
+
+System Preferences
+------------------
 
 Change caps lock to control.
 
@@ -248,16 +315,11 @@ Read the script to see what it does, and change parts as required.
 Fonts
 -----
 
-Install fonts.
+Install fonts: 'Inconsolata for Powerline' is a fixed-width font.
 
 ```bash
 FONTDIR=~/Library/Fonts
 cd ~/Downloads
-```
-
-And 'Inconsolata for Powerline' for the terminal.
-
-```bash
 URL=https://github.com/powerline/fonts/blob/master/Inconsolata
 curl -L \
   "${URL}/Inconsolata%20Bold%20for%20Powerline.ttf?raw=true" \
@@ -272,49 +334,4 @@ cp Inconsolata\ for\ Powerline.otf $FONTDIR
 Colours
 -------
 
-For macOS download and install manually from <https://github.com/mbadolato/iTerm2-Color-Schemes.>
-
-fzf
----
-
-Install fzf fuzzy completion key bindings.
-
-```bash
-$(brew --prefix)/opt/fzf/install
-```
-
-tmux
-----
-
-Link `tmux.conf`
-
-```bash
-ln -sf "${DOTFILES}/tmux.conf" ~/.tmux.conf
-```
-
-node.js
--------
-
-I use node.js as a package manager for binaries made available through it. Not for JavaScript development.
-
-Download and install node.js from <https://nodejs.org/.>
-
-Need to set permissions.
-
-```bash
-sudo chown -R ${USER} /usr/local/lib/node_modules
-```
-
-Install node.js packages.
-
-```bash
-npm install -g alex
-npm install -g htmlhint
-npm install -g write-good
-```
-
-This installs the following packages.
-
-- alex: linter for prose; catches insensitive, inconsiderate writing
-- htmlhint: static code analysis tool for HTML
-- write-good: naive linter for English prose
+Download and install manually from <https://iterm2colorschemes.com/>. I use 'Monokai Soda'.
