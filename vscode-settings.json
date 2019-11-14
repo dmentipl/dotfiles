@@ -54,6 +54,9 @@
         "IPython"
     ],
 
+    // search
+    "search.useGlobalIgnoreFiles": true,
+
     // spellright
     "spellright.documentTypes": [
         "markdown",
