@@ -2,7 +2,6 @@
     path = ~/.gitconfig.local
 [core]
     excludesfile = ~/.gitignore
-    editor = code --new-window --wait
 [push]
     default = simple
 [filter "lfs"]
