@@ -20,4 +20,6 @@ end
 starship init fish | source
 
 # iTerm2 integration
-source ~/.iterm2_shell_integration.(basename $SHELL)
+if test (uname) = 'Darwin'
+    source ~/.iterm2_shell_integration.(basename $SHELL)
+end

@@ -93,9 +93,12 @@ Symlink config files.
 
 ```bash
 ln -sf $DOTFILES/fish/config.fish ~/.config/fish/config.fish
-ln -sf $DOTFILES/fish/aliases.fish ~/.config/fish/aliases.fish
-ln -sf $DOTFILES/fish/fish_variables ~/.config/fish/fish_variables
+ln -sf $DOTFILES/fish/abbr.fish ~/.config/fish/abbr.fish
+```
 
+Symlink functions.
+
+```bash
 mkdir ~/.config/fish/functions
 set --local files $DOTFILES/fish/functions/*
 for path in $files
@@ -260,7 +263,7 @@ brew install fzf
 Install fzf fish key bindings.
 
 ```bash
-ln -sf /usr/local/opt/fzf/shell/key-bindings.fish fzf_key_bindings.fish
+ln -sf /usr/local/opt/fzf/shell/key-bindings.fish ~/.config/fish/functions/fzf_key_bindings.fish
 ```
 
 ### tmux
