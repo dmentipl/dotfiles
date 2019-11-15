@@ -104,6 +104,14 @@ for path in $files
 end
 ```
 
+The prompt is provided by Starship.
+
+> The cross-shell prompt for astronauts <https://starship.rs>.
+
+```bash
+ln -sf $DOTFILES/fish/starship.toml ~/.config/starship.toml
+```
+
 Python
 ------
 
@@ -249,11 +257,10 @@ Should already be installed via Homebrew. If not:
 brew install fzf
 ```
 
-Install fzf key bindings.
+Install fzf fish key bindings.
 
 ```bash
-set brew_prefix (brew --prefix)
-$brew_prefix/opt/fzf/install
+ln -sf /usr/local/opt/fzf/shell/key-bindings.fish fzf_key_bindings.fish
 ```
 
 ### tmux
