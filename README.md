@@ -94,6 +94,7 @@ Symlink config files.
 ```bash
 ln -sf $DOTFILES/fish/config.fish ~/.config/fish/config.fish
 ln -sf $DOTFILES/fish/abbr.fish ~/.config/fish/abbr.fish
+ln -sf $DOTFILES/fish/fishfile ~/.config/fish/fishfile
 ```
 
 Symlink functions.
