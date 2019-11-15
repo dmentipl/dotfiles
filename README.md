@@ -63,61 +63,45 @@ brew update && brew doctor
 Install software listed in `Brewfile`.
 
 ```bash
-brew bundle
+cd homebrew && brew bundle && cd -
 ```
 
 This includes installation of iTerm2 the terminal replacement. Switch to this after running `brew bundle`.
 
-Zsh
----
+fish
+----
 
-> Zsh is a shell designed for interactive use: <http://zsh.sourceforge.net/>.
+> fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family <https://fishshell.com/>.
 
-Change shell to zsh.
+Change shell to fish. It should be installed via Homebrew.
 
 ```bash
-sudo dscl . -create "/Users/${USER}" UserShell /bin/zsh
+sudo dscl . -create "/Users/$USER" UserShell /usr/local/bin/fish
+```
+
+Install Fisher.
+
+> A package manager for the fish shell. <https://git.io/fisher>.
+
+```bash
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 ```
 
 ### Configuration
 
-Symlink config files. `zshenv` and `zshenv.d` are for all zsh shells, i.e. interactive and non-interactive. `zshrc` and `zshrc.d` are for interactive shells.
+Symlink config files.
 
 ```bash
-ln -sf "${DOTFILES}/zshenv" ~/.zshenv
-ln -sf "${DOTFILES}/zshrc" ~/.zshrc
+ln -sf $DOTFILES/fish/config.fish ~/.config/fish/config.fish
+ln -sf $DOTFILES/fish/aliases.fish ~/.config/fish/aliases.fish
+ln -sf $DOTFILES/fish/fish_variables ~/.config/fish/fish_variables
 
-mkdir ~/.zshenv.d
-files=("${DOTFILES}/zshenv.d/"*)
-for file in "${files[@]}"; do
-  [[ -f $file && -r $file ]] && ln -sf "$file" "$HOME/.zshenv.d/$file:t"
-done
-unset file files
-
-mkdir ~/.zshrc.d
-files=("${DOTFILES}/zshrc.d/"*)
-for file in "${files[@]}"; do
-  [[ -f $file && -r $file ]] && ln -sf "$file" "$HOME/.zshrc.d/$file:t"
-done
-unset file files
-```
-
-### Extras
-
-Add zsh extras such as autosuggestions when typing, completion, syntax highlighting, shell prompt.
-
-```bash
-mkdir -p ~/.local/share/zsh/{functions,repos}
-
-cd ~/.local/share/zsh/repos || return 1
-git clone https://github.com/zsh-users/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-completions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting
-git clone https://github.com/denysdovhan/spaceship-prompt
-git clone https://github.com/esc/conda-zsh-completion
-
-ln -sf ~/.local/share/zsh/repos/spaceship-prompt/spaceship.zsh \
-  ~/.local/share/zsh/functions/prompt_spaceship_setup
+mkdir ~/.config/fish/functions
+set --local files $DOTFILES/fish/functions/*
+for path in $files
+  set --local file (string replace -r ".*/" "" -- $path)
+  ln -sf $path $HOME/.config/fish/functions/$file
+end
 ```
 
 Python
@@ -133,7 +117,7 @@ Download and install Anaconda. Anaconda includes Conda as well as many Python pa
 
 ```bash
 cd ~/Downloads || return
-curl -O $(${DOTFILES}/.latest_anaconda_install_script_url macOS)
+curl -O $($DOTFILES/python/latest_anaconda_install_script_url macOS)
 bash Anaconda3-*-x86_64.sh
 cd -
 ```
@@ -142,7 +126,7 @@ Install Python packages into the base environment with Conda. Before running thi
 
 ```bash
 conda update conda
-conda install --file base.yml
+conda install --file python/base.yml
 ```
 
 ### pip
@@ -150,7 +134,7 @@ conda install --file base.yml
 Install extra Python packages (not available with Conda) with pip.
 
 ```bash
-pip install -r requirements.txt
+pip install -r python/requirements.txt
 ```
 
 ### Jupyter
@@ -170,8 +154,8 @@ jupyter labextension install jupyter-matplotlib
 Link Python config files.
 
 ```bash
-ln -sf "${DOTFILES}/condarc" ~/.condarc
-ln -sf "${DOTFILES}/pycodestyle" ~/.config/pycodestyle
+ln -sf $DOTFILES/python/condarc ~/.condarc
+ln -sf $DOTFILES/python/pycodestyle ~/.config/pycodestyle
 ```
 
 Neovim
@@ -189,7 +173,7 @@ pip install pynvim
 Link config file.
 
 ```bash
-ln -sf "${DOTFILES}/init.vim" "${HOME}/.config/nvim/init.vim"
+ln -sf $DOTFILES/nvim/init.vim ~/.config/nvim/init.vim
 ```
 
 ### Plugins
@@ -225,7 +209,7 @@ Running this command links `/Applications/Visual Studio Code.app/Contents/Resour
 Install extensions listed in `vscode-extensions.txt`.
 
 ```bash
-grep -v '^#' vscode-extensions.txt | xargs -L1 code --install-extension
+grep -v '^#' vscode/extensions.txt | xargs -L1 code --install-extension
 ```
 
 ### Symlink settings
@@ -233,12 +217,12 @@ grep -v '^#' vscode-extensions.txt | xargs -L1 code --install-extension
 Symlink config file `setting.json`, keybindings file `keybindings.json`, and dictionary file `spellright.dict`.
 
 ```bash
-ln -sf "${DOTFILES}/vscode-settings.json" \
-    "$HOME/Library/Application Support/Code/User/settings.json"
-ln -sf "${DOTFILES}/vscode-keybindings.json" \
-    "$HOME/Library/Application Support/Code/User/keybindings.json"
-ln -sf "${DOTFILES}/vscode-spellright.dict" \
-    "$HOME/Library/Application Support/Code/User/spellright.dict"
+ln -sf $DOTFILES/vscode/settings.json \
+    ~/Library/Application Support/Code/User/settings.json
+ln -sf $DOTFILES/vscode/keybindings.json \
+    ~/Library/Application Support/Code/User/keybindings.json
+ln -sf $DOTFILES/vscode/spellright.dict \
+    ~/Library/Application Support/Code/User/spellright.dict
 ```
 
 Extra config
@@ -249,8 +233,8 @@ Extra config
 Symlink `gitconfig` and `gitignore` files.
 
 ```bash
-ln -sf "${DOTFILES}/gitconfig" ~/.gitconfig
-ln -sf "${DOTFILES}/gitignore" ~/.gitignore
+ln -sf $DOTFILES/git/gitconfig ~/.gitconfig
+ln -sf $DOTFILES/git/gitignore ~/.gitignore
 ```
 
 Note that you may want to store sensitive information which would otherwise go in `.gitconfig` in `~/.gitconfig.local` which should not go in a public repository.
@@ -268,7 +252,8 @@ brew install fzf
 Install fzf key bindings.
 
 ```bash
-$(brew --prefix)/opt/fzf/install
+set brew_prefix (brew --prefix)
+$brew_prefix/opt/fzf/install
 ```
 
 ### tmux
@@ -284,7 +269,7 @@ brew install tmux
 Link the configuration file.
 
 ```bash
-ln -sf "${DOTFILES}/tmux.conf" ~/.tmux.conf
+ln -sf $DOTFILES/tmux/tmux.conf ~/.tmux.conf
 ```
 
 System Preferences
@@ -307,7 +292,7 @@ osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \
 To set the macOS defaults run the `macOS_defaults.sh` shell script:
 
 ```bash
-./macOS_defaults.sh
+./macos/macOS_defaults.sh
 ```
 
 Read the script to see what it does, and change parts as required.
@@ -322,10 +307,10 @@ FONTDIR=~/Library/Fonts
 cd ~/Downloads
 URL=https://github.com/powerline/fonts/blob/master/Inconsolata
 curl -L \
-  "${URL}/Inconsolata%20Bold%20for%20Powerline.ttf?raw=true" \
+  "$URL/Inconsolata%20Bold%20for%20Powerline.ttf?raw=true" \
   -o Inconsolata\ Bold\ for\ Powerline.ttf
 curl -L \
-  "${URL}/Inconsolata%20for%20Powerline.otf?raw=true" \
+  "$URL/Inconsolata%20for%20Powerline.otf?raw=true" \
   -o Inconsolata\ for\ Powerline.otf
 cp Inconsolata\ Bold\ for\ Powerline.ttf $FONTDIR
 cp Inconsolata\ for\ Powerline.otf $FONTDIR

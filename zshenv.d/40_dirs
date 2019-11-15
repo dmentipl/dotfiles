@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-# ==== named directories ==== #
-
-hash -d desktop=$HOME/Desktop
-hash -d downloads=$HOME/Downloads
-hash -d dropbox=$HOME/Dropbox
-hash -d repos=$HOME/repos
