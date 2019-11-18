@@ -23,3 +23,8 @@ starship init fish | source
 if test (uname) = 'Darwin'
     source ~/.iterm2_shell_integration.(basename $SHELL)
 end
+
+# Local config
+if test -e ~/.config/fish/config-local.fish
+    source ~/.config/fish/config-local.fish
+end
