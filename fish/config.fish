@@ -28,8 +28,7 @@ source ~/.config/fish/abbr.fish
 eval ~/conda/bin/conda "shell.fish" "hook" $argv | source
 
 # Fix for Conda prompt
-function fish_right_prompt
-end
+function fish_right_prompt; end
 
 # Prompt
 starship init fish | source
@@ -38,6 +37,10 @@ starship init fish | source
 if test (uname) = 'Darwin'
     source ~/.iterm2_shell_integration.(basename $SHELL)
 end
+
+# Temporary fix for macOS Catalina slow tab completion
+# See https://github.com/fish-shell/fish-shell/issues/6270
+function __fish_describe_command; end
 
 # Local config
 if test -e ~/.config/fish/config-local.fish
