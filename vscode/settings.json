@@ -54,6 +54,11 @@
         "IPython"
     ],
 
+    // restructuredtext
+    "restructuredtext.linter.extraArgs": [
+        "--max-line-length 80"
+    ],
+
     // search
     "search.useGlobalIgnoreFiles": true,
 
@@ -73,6 +78,7 @@
     "terminal.integrated.fontFamily": "Inconsolata for Powerline",
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.lineHeight": 1.2,
+    "terminal.integrated.macOptionIsMeta": true,
 
     // vim
     "vim.easymotion": true,
