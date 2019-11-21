@@ -1,24 +1,25 @@
 set -gx DOTFILES ~/repos/dotfiles
 
-if type nvim > /dev/null ^/dev/null
-    set -gx EDITOR nvim
-else
-    set -gx EDITOR vim
-end
-
 # Homebrew on Linux
 if test (uname) != 'Darwin'
     set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
     set -gx HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar"
     set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew"
-    set -g fish_user_paths \
+    set -gx PATH \
         "/home/linuxbrew/.linuxbrew/bin" \
         "/home/linuxbrew/.linuxbrew/sbin" \
-        $fish_user_paths
+        $PATH
     set -q MANPATH; or set MANPATH ''; set -gx MANPATH \
         "/home/linuxbrew/.linuxbrew/share/man" $MANPATH
     set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH \
         "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH
+end
+
+# Editor
+if type nvim > /dev/null ^/dev/null
+    set -gx EDITOR nvim
+else
+    set -gx EDITOR vim
 end
 
 # Abbreviations
@@ -40,7 +41,9 @@ end
 
 # Temporary fix for macOS Catalina slow tab completion
 # See https://github.com/fish-shell/fish-shell/issues/6270
-function __fish_describe_command; end
+if test (uname) = 'Darwin'
+    function __fish_describe_command; end
+end
 
 # Local config
 if test -e ~/.config/fish/config-local.fish
