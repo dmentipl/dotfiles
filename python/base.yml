@@ -1,57 +1,72 @@
 # Conda packages for my base environment.
 #
-# Many of these packages come with Anaconda by default.
-# I recommend installing the latest Anaconda then do:
+# After installing Anaconda/Miniconda:
 #
 #   conda update conda
 #   conda install --file base.yml
 #
 ads
-anaconda-client
 altair
+anaconda-client
 astropy
-bibtexparser
 black
 bokeh
 click
+colorcet
 conda-build
 coverage
 coveralls
 cython
 dask
+datashader
+doc8
 flake8
 flask
 h5py
+holoviews
 ipympl
 ipython
 isort
+jinja2
 jupyter
 jupyterlab
 jupytext
 line_profiler
 matplotlib
 memory_profiler
-mpl-scatter-density
 mypy
 nbsphinx
+nodejs
+numba
 numpy
 pandas
+pillow
 pint
 pip
 proselint
 pyarrow
 pycodestyle
+pydocstyle
+pylint
+pymc3
 pympler
 pytest
 pytest-cov
 python-language-server
 requests
+scikit-image
+scikit-learn
 scipy
+seaborn
 sphinx
 sphinx_rtd_theme
+statsmodels
 sympy
 tomlkit
+tornado
+tqdm
 twine
+vaex
 xarray
 yaml
 yt

@@ -1,0 +1,5 @@
+dask-labextension
+@jupyter-widgets/jupyterlab-manager
+jupyter-matplotlib
+@jupyterlab/google-drive
+@jupyterlab/github

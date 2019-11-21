@@ -125,12 +125,12 @@ Set up a Python development environment using Conda.
 
 ### Conda
 
-Download and install Anaconda. Anaconda includes Conda as well as many Python packages, and useful binaries for Python development, and more.
+Download and install Miniconda. Miniconda is a bare Conda distribution including Python, pip, Conda, and not much else.
 
 ```bash
 cd ~/Downloads || return
-curl -O $($DOTFILES/python/latest_anaconda_install_script_url macOS)
-bash Anaconda3-*-x86_64.sh
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+bash Miniconda3-*-x86_64.sh
 cd -
 ```
 
@@ -156,9 +156,7 @@ pip install -r python/requirements.txt
 Install Jupyter Lab extensions.
 
 ```bash
-jupyter labextension install jupyterlab_vim
-jupyter labextension install @jupyter-widgets/jupyterlab-manager
-jupyter labextension install jupyter-matplotlib
+jupyter labextension install (cat python/jupyterlab_extension.txt)
 ```
 
 ### Configuration
