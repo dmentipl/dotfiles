@@ -125,7 +125,7 @@ Set up a Python development environment using Conda.
 
 ### Conda
 
-Download and install Miniconda. Miniconda is a bare Conda distribution including Python, pip, Conda, and not much else.
+Download and install Miniconda. Miniconda is a bare bones Conda distribution including Python, pip, Conda, and not much else.
 
 ```bash
 cd ~/Downloads || return
@@ -134,7 +134,13 @@ bash Miniconda3-*-x86_64.sh
 cd -
 ```
 
-Install Python packages into the base environment with Conda. Before running this command, make sure to be in the base environment (`conda activate base`).
+Conda settings are in the `.condarc` file.
+
+```bash
+ln -sf $DOTFILES/python/condarc ~/.condarc
+```
+
+Install Python packages into the base environment with Conda. Before running this command, make sure to be in the base environment (`conda activate base`), and make sure that the `~/.condarc` file is available.
 
 ```bash
 conda update conda
@@ -159,12 +165,11 @@ Install Jupyter Lab extensions.
 jupyter labextension install (cat python/jupyterlab_extension.txt)
 ```
 
-### Configuration
+### Extra
 
-Link Python config files.
+Link Python extra configuration files.
 
 ```bash
-ln -sf $DOTFILES/python/condarc ~/.condarc
 ln -sf $DOTFILES/python/pycodestyle ~/.config/pycodestyle
 ```
 
