@@ -1,3 +1,4 @@
-fortran-language-server
+blackcellmagic
 dask_labextension
+fortran-language-server
 pynvim

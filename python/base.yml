@@ -22,6 +22,8 @@ datashader
 doc8
 flake8
 flask
+fortran-magic
+graphviz
 h5py
 holoviews
 ipympl
@@ -58,6 +60,7 @@ scikit-image
 scikit-learn
 scipy
 seaborn
+snakeviz
 sphinx
 sphinx_rtd_theme
 statsmodels
