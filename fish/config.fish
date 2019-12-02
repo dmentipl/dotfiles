@@ -5,10 +5,12 @@ if test (uname) != 'Darwin'
     set -gx HOMEBREW_PREFIX "/home/linuxbrew/.linuxbrew"
     set -gx HOMEBREW_CELLAR "/home/linuxbrew/.linuxbrew/Cellar"
     set -gx HOMEBREW_REPOSITORY "/home/linuxbrew/.linuxbrew/Homebrew"
-    set -gx PATH \
-        "/home/linuxbrew/.linuxbrew/bin" \
-        "/home/linuxbrew/.linuxbrew/sbin" \
-        $PATH
+    if not contains "/home/linuxbrew/.linuxbrew/bin" $PATH
+        set -gx PATH \
+            "/home/linuxbrew/.linuxbrew/bin" \
+            "/home/linuxbrew/.linuxbrew/sbin" \
+            $PATH
+    end
     set -q MANPATH; or set MANPATH ''; set -gx MANPATH \
         "/home/linuxbrew/.linuxbrew/share/man" $MANPATH
     set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH \
