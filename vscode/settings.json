@@ -5,6 +5,7 @@
     "autoDocstring.startOnNewLine": true,
 
     // cSpell
+    "cSpell.language": "en-GB",
     "cSpell.dictionaryDefinitions": [
         {
             "name": "MyDictionary", "path": "/Users/daniel/Library/Application Support/Code/User/dictionary.txt"
