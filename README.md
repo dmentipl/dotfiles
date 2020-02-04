@@ -229,15 +229,15 @@ grep -v '^#' vscode/extensions.txt | xargs -L1 code --install-extension
 
 ### Symlink settings
 
-Symlink config file `setting.json`, keybindings file `keybindings.json`, and dictionary file `spellright.dict`.
+Symlink config file `setting.json`, keybindings file `keybindings.json`, and dictionary file `dictionary.txt`.
 
 ```bash
 ln -sf $DOTFILES/vscode/settings.json \
-    ~/Library/Application Support/Code/User/settings.json
+    "~/Library/Application Support/Code/User/settings.json"
 ln -sf $DOTFILES/vscode/keybindings.json \
-    ~/Library/Application Support/Code/User/keybindings.json
-ln -sf $DOTFILES/vscode/spellright.dict \
-    ~/Library/Application Support/Code/User/spellright.dict
+    "~/Library/Application Support/Code/User/keybindings.json"
+ln -sf $DOTFILES/vscode/dictionary.txt \
+    "~/Library/Application Support/Code/User/dictionary.txt"
 ```
 
 Extra config

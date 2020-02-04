@@ -4,6 +4,16 @@
     "autoDocstring.includeExtendedSummary": true,
     "autoDocstring.startOnNewLine": true,
 
+    // cSpell
+    "cSpell.dictionaryDefinitions": [
+        {
+            "name": "MyDictionary", "path": "/Users/daniel/Library/Application Support/Code/User/dictionary.txt"
+        }
+    ],
+    "cSpell.dictionaries": [
+        "MyDictionary"
+    ],
+
     // editor
     "editor.fontFamily": "Inconsolata",
     "editor.fontSize": 14,

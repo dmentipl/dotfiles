@@ -1,6 +1,5 @@
 alefragnani.Bookmarks
 artdiniz.quitcontrol-vscode
-ban.spellright
 bierner.markdown-checkbox
 bierner.markdown-preview-github-styles
 bungcip.better-toml
@@ -24,6 +23,7 @@ ms-vscode.wordcount
 njpwerner.autodocstring
 ryu1kn.partial-diff
 stkb.rewrap
+streetsidesoftware.code-spell-checker
 timonwong.shellcheck
 tomphilbin.gruvbox-themes
 travisthetechie.write-good-linter
