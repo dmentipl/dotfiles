@@ -29,6 +29,7 @@ source ~/.config/fish/abbr.fish
 
 # Conda
 eval ~/conda/bin/conda "shell.fish" "hook" $argv | source
+set -gx PATH "$HOME/conda/bin" $PATH
 
 # Fix for Conda prompt
 function fish_right_prompt; end
