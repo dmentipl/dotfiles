@@ -56,6 +56,7 @@ abbr --add --global gl 'git pull'
 abbr --add --global glg 'git log --stat --abbrev-commit'
 abbr --add --global glgp 'git log --patch --abbrev-commit'
 abbr --add --global gp 'git push'
+abbr --add --global gsh 'git show'
 abbr --add --global gst 'git status'
 abbr --add --global gr 'git log -1 --relative-date --stat --abbrev-commit'
 

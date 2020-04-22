@@ -79,14 +79,6 @@ Change shell to fish. It should be installed via Homebrew.
 sudo dscl . -create "/Users/$USER" UserShell /usr/local/bin/fish
 ```
 
-Install Fisher.
-
-> A package manager for the fish shell. <https://git.io/fisher>.
-
-```bash
-curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
-```
-
 ### Configuration
 
 Symlink config files.
@@ -94,7 +86,6 @@ Symlink config files.
 ```bash
 ln -sf $DOTFILES/fish/config.fish ~/.config/fish/config.fish
 ln -sf $DOTFILES/fish/abbr.fish ~/.config/fish/abbr.fish
-ln -sf $DOTFILES/fish/fishfile ~/.config/fish/fishfile
 ```
 
 Symlink functions.
