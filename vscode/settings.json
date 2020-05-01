@@ -67,6 +67,9 @@
         "IPython"
     ],
 
+    // remote via ssh
+    "remote.SSH.useLocalServer": false,
+
     // restructuredtext
     "restructuredtext.linter.extraArgs": [
         "--max-line-length 80"
