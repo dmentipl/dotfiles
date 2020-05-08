@@ -17,6 +17,9 @@ if test (uname) != 'Darwin'
         "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH
 end
 
+# Path
+set -gx PATH ~/.local/bin $PATH
+
 # Editor
 if type nvim > /dev/null ^/dev/null
     set -gx EDITOR nvim
