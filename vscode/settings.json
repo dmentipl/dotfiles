@@ -256,7 +256,7 @@
     ],
 
     // window
-	"window.newWindowDimensions": "inherit",
+    "window.newWindowDimensions": "inherit",
 
     // write-good
     "write-good.languages": [
