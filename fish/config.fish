@@ -17,7 +17,13 @@ if test (uname) != 'Darwin'
         "/home/linuxbrew/.linuxbrew/share/info" $INFOPATH
 end
 
-# Path
+# Haskell via ghcup
+set -gx PATH ~/.cabal/bin ~/.ghcup/bin $PATH
+
+# Poetry
+set -gx PATH ~/.poetry/bin $PATH
+
+# User binaries
 set -gx PATH ~/.local/bin $PATH
 
 # Editor
@@ -32,7 +38,7 @@ source ~/.config/fish/abbr.fish
 
 # Conda
 eval ~/conda/bin/conda "shell.fish" "hook" $argv | source
-set -gx PATH "$HOME/conda/bin" $PATH
+# set -gx PATH "$HOME/conda/bin" $PATH
 
 # Fix for Conda prompt
 function fish_right_prompt; end
