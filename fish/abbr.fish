@@ -75,10 +75,10 @@ if type nvim > /dev/null ^/dev/null
 end
 
 # Resize terminal window.
-abbr --add --global tiny "printf '\e[8;45;85t'"
-abbr --add --global small "printf '\e[8;60;100t'"
-abbr --add --global medium "printf '\e[8;60;150t'"
-abbr --add --global large "printf '\e[8;60;200t'"
+abbr --add --global tiny "printf '\e[8;47;85t'"
+abbr --add --global small "printf '\e[8;66;100t'"
+abbr --add --global medium "printf '\e[8;66;150t'"
+abbr --add --global large "printf '\e[8;66;200t'"
 
 # macOS specific.
 if test (uname) = 'Darwin'

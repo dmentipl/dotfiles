@@ -17,7 +17,7 @@
 
     // editor
     "editor.fontFamily": "Inconsolata",
-    "editor.fontSize": 14,
+    "editor.fontSize": 13,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [
