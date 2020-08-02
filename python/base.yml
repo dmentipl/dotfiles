@@ -19,6 +19,7 @@ coverage
 coveralls
 cython
 dask
+dask_labextension
 datashader
 doc8
 flake8
@@ -53,6 +54,7 @@ pydocstyle
 pylint
 pymc3
 pympler
+pynvim
 pytest
 pytest-cov
 python-language-server

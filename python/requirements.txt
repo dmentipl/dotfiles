@@ -1,5 +1,3 @@
 blackcellmagic
-dask_labextension
 fortran-language-server
 Nikola[extras]
-pynvim
