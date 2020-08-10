@@ -1,9 +1,4 @@
 {
-    // autoDocstring
-    "autoDocstring.docstringFormat": "numpy",
-    "autoDocstring.includeExtendedSummary": true,
-    "autoDocstring.startOnNewLine": true,
-
     // cSpell
     "cSpell.language": "en-GB",
     "cSpell.dictionaryDefinitions": [
@@ -52,15 +47,13 @@
         "--skip-string-normalization"
     ],
     "python.formatting.provider": "black",
+    "python.languageServer": "Microsoft",
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": ["--max-line-length=88"],
     "python.linting.mypyEnabled": true,
     "python.linting.pylintEnabled": false,
     "python.analysis.cachingLevel": "Library",
-    "python.jediEnabled": false,
     "python.linting.pydocstyleEnabled": true,
-    "python.linting.pydocstyleArgs": ["--ignore=D107,D203,D212,D213,D402,D413,D415,D416,D417"],
     "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
     "python.terminal.launchArgs": [
         "-m",
@@ -78,21 +71,10 @@
     // search
     "search.useGlobalIgnoreFiles": true,
 
-    // spellright
-    "spellright.documentTypes": [
-        "markdown",
-        "latex",
-        "plaintext"
-    ],
-    "spellright.language": [
-        "en-GB"
-    ],
-    "spellright.groupDictionaries": false,
-
     // terminal
     "terminal.external.osxExec": "iTerm.App",
     "terminal.integrated.fontFamily": "Inconsolata for Powerline",
-    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontSize": 13,
     "terminal.integrated.lineHeight": 1.2,
     "terminal.integrated.macOptionIsMeta": true,
 
@@ -270,7 +252,10 @@
 
     // [FortranFreeForm]
     "[FortranFreeForm]": {
-        "editor.tabSize": 2
+        "editor.tabSize": 2,
+        "editor.rulers": [
+            90
+        ],
     },
 
     // [git-commit]
@@ -280,6 +265,9 @@
             50
         ]
     },
+
+    // [julia]
+    "julia.enableTelemetry": true,
 
     // [markdown]
     "[markdown]": {
