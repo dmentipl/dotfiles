@@ -47,12 +47,10 @@
         "--skip-string-normalization"
     ],
     "python.formatting.provider": "black",
-    "python.languageServer": "Microsoft",
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
     "python.linting.pylintEnabled": false,
-    "python.analysis.cachingLevel": "Library",
     "python.linting.pydocstyleEnabled": true,
     "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
     "python.terminal.launchArgs": [
