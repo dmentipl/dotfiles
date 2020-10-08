@@ -47,7 +47,7 @@
         "--skip-string-normalization"
     ],
     "python.formatting.provider": "black",
-    "python.languageServer": "Microsoft",
+    "python.languageServer": "Pylance",
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
