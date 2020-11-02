@@ -1,26 +1,22 @@
-prompt_order = [
-    "time",
-    "hostname",
-    "directory",
-    "git_branch",
-    "git_state",
-    "git_status",
-    "conda",
-    "env_var",
-    "cmd_duration",
-    "line_break",
-    "jobs",
-    "battery",
-    "character",
-]
+format = """\
+    $time\
+    [$hostname]("bold blue")\
+    in $directory\
+    $git_branch\
+    $git_state\
+    $git_status\
+    $conda\
+    $env_var\
+    $cmd_duration\
+    $line_break\
+    $jobs\
+    $battery\
+    $character\
+    """
 
 [conda]
 symbol = "🅒 "
+ignore_base = false
 
 [time]
 disabled = false
-
-[hostname]
-prefix = "⟪"
-suffix = "⟫"
-style = "bold blue"
