@@ -1,5 +1,6 @@
-[include]
-    path = ~/.gitconfig.local
+[user]
+    email = ${EMAIL}
+    name = Daniel Mentiplay
 [core]
     excludesfile = ~/.gitignore
 [push]

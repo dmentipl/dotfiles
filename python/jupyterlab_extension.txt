@@ -1,3 +1,0 @@
-dask-labextension
-@jupyter-widgets/jupyterlab-manager
-jupyter-matplotlib

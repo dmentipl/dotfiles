@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 #
 # Set macOS defaults.
+#
+# Modified from: https://github.com/mathiasbynens/dotfiles
 
 # Only run in macOS.
-[[ $OSTYPE =~ ^darwin ]] || return 1
+[[ $(uname) = Darwin ]] || return 1
 
 # Ask for the administrator password upfront
 sudo -v
