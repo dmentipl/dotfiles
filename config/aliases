@@ -1,0 +1,99 @@
+alias chown='chown -R'
+alias cp='cp -i -r'
+alias d='dirs -v | head -10'
+command -v colordiff > /dev/null && alias diff=colordiff
+alias df='df -H'
+alias du='du -hs'
+alias e=exit
+alias j='jobs -l'
+alias mkdir='mkdir -pv'
+alias mv='mv -i'
+alias path='echo $PATH | tr : "\n"'
+alias pgrep='pgrep -a -l'
+command -v rg > /dev/null && alias rg='rg -S'
+alias scp='scp -r'
+alias ssh='ssh -Y'
+alias type='type -a'
+alias which='which -a'
+
+# Use trash not rm.
+if command -v trash > /dev/null; then
+    alias bin='trash'
+    alias rm='printf "%s\n" "Use bin instead, or \\rm for real rm if required."'
+else
+    alias rm='rm -R'
+fi
+
+# List directory contents.
+if command -v exa > /dev/null; then
+  alias l='exa -l -h'
+  alias ls='exa -1'
+  alias lg='exa -l -h --git'
+  alias ll='exa -l -h -a'
+  alias lm='exa -l -h -s modified'
+  alias lr='exa -l -h -R'
+  alias lt='exa -l -h -T'
+  alias lx='exa -l -h -s extension'
+  alias lz='exa -l -h -s size'
+  alias tree='exa -T'
+else
+  alias ls='ls --color=tty -1'
+  alias l='ls -lh'
+  alias la='ls -lah'
+  alias ll='ls -lAh'
+  alias lx='ls -lAh -XB'  # Extension
+  alias lk='ls -lAh -Sr'  # File size
+  alias lt='ls -lAh -tur' # Access time
+  alias lc='ls -lAh -tcr' # File change time
+  alias lm='ls -lAh -tr'  # Modification time
+fi
+
+# Git.
+alias ga='git add'
+alias gam='git add --update'
+alias gap='git add --patch'
+alias gc='git commit --verbose'
+alias gcl='git clean --force'
+alias gcm='git commit --message'
+alias gco='git checkout'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gl='git pull'
+alias glg='git log --stat --abbrev-commit'
+alias glgc='git-log-compact'
+alias glgg='git log --graph --abbrev-commit'
+alias glgo='git log --oneline --abbrev-commit'
+alias glgp='git log --patch --abbrev-commit'
+alias gp='git push'
+alias gsh='git show'
+alias gsp='git status --porcelain'
+alias gst='git status'
+
+# Tmux.
+alias ta='tmux attach'
+alias tc='tmux choose-tree -s'
+alias td='tmux detach'
+alias tl='tmux list-sessions'
+alias tk='tmux kill-session'
+alias tn='tmux new-session'
+alias ts='tmux switch-client'
+
+# Neovim.
+if command -v nvim > /dev/null; then
+    alias vim=nvim
+    alias ex='nvim -e'
+    alias view='nvim -R'
+    alias vimdiff='nvim -d'
+fi
+
+# Copy and paste.
+if command -v pbcopy > /dev/null; then
+  alias copy='pbcopy'
+  alias paste='pbpaste'
+elif command -v xsel > /dev/null; then
+  alias copy='xsel --clipboard --input'
+  alias paste='xsel --clipboard --output'
+fi
+
+# Open app from command line.
+command -v xdg-open > /dev/null && alias open='xdg-open'

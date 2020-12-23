@@ -1,0 +1,147 @@
+# ============================================================================ #
+# ==== ENVIRONMENT ==== #
+
+# Global configuration.
+[ -f /etc/zshrc ] && source /etc/zshrc
+
+# Add user paths.
+! [[ "$PATH" =~ $HOME/.local/bin: ]] && PATH="$HOME/.local/bin:$PATH"
+! [[ "$PATH" =~ $HOME/bin: ]] && PATH="$HOME/bin:$PATH"
+export PATH
+
+# Use vim as default editor.
+set -o emacs
+command -v nvim > /dev/null && export EDITOR='nvim' || export EDITOR='vim'
+
+# Set less options.
+export LESS='-FXRi'
+
+# Configure conda.
+[ -f "$HOME/conda/etc/profile.d/conda.sh" ] && \
+  source "$HOME/conda/etc/profile.d/conda.sh" && \
+  conda activate base
+
+# Source fzf keybindings.
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Starship prompt.
+command -v starship > /dev/null && eval "$(starship init bash)"
+
+# Add aliases.
+[ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
+
+# iTerm2 integration
+[ $(uname) = Darwin ] && \
+  [ -f ~/.iterm2_shell_integration.zsh ] && \
+  source ~/.iterm2_shell_integration.zsh
+
+# Local config.
+[ -f "$HOME/.zshrc_local" ] && source "$HOME/.zshrc_local"
+
+# ============================================================================ #
+# ==== OPTIONS ==== #
+
+setopt noclobber            # Don't overwrite files if they exist.
+setopt interactive_comments # Allow comments in shell.
+setopt multios              # Multiple input and output redirections.
+setopt prompt_subst         # Required for fancy prompts.
+disable r                   # Use r to refer to the REPL for the language r.
+
+setopt extended_glob        # Extended globbing.
+unsetopt case_glob          # Case-insensitive globbing.
+
+setopt auto_pushd
+setopt auto_cd              # Change directory without cd.
+setopt pushd_ignore_dups    # Don't push multiples on the dirstack.
+setopt pushdminus
+
+# ============================================================================ #
+# ==== HISTORY ==== #
+
+if [ -z "$HISTFILE" ]; then
+  HISTFILE=$HOME/.zsh_history
+fi
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+# Partial term history search.
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^p" up-line-or-beginning-search
+bindkey "^n" down-line-or-beginning-search
+
+setopt append_history           # Allow multiple terminal sessions to all append
+                                # to one zsh command history.
+
+setopt extended_history         # Save timestamp of command and duration.
+
+setopt inc_append_history       # Add comamnds as they are typed, don't wait
+                                # until shell exit.
+
+setopt hist_expire_dups_first   # When trimming history, lose oldest duplicates
+                                # first.
+
+setopt hist_ignore_dups         # Do not write events to history that are
+                                # duplicates of previous events.
+
+setopt hist_ignore_space        # Remove command line from history list when
+                                # first character on the line is a space.
+
+setopt hist_find_no_dups        # When searching history don't display results
+                                # already cycled through twice.
+
+setopt hist_reduce_blanks       # Remove extra blanks from each command line
+                                # being added to history.
+
+setopt hist_verify              # Don't execute, just expand history.
+
+setopt share_history            # Imports new commands and appends typed
+                                # commands to history.
+
+# ============================================================================ #
+# ==== COMPLETION ==== #
+
+autoload -Uz compinit
+compinit
+
+WORDCHARS=''                    # Sets characters as part of words. No
+                                # characters indicates .-_/ separate words.
+
+zstyle ':completion:*' menu select                          # Menu in tab completion.
+
+zstyle ':completion:*' list-colors ''                       # Colors in menu.
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
+                                    'r:|[._-]=* r:|=*' \
+                                    'l:|=* r:|=*'           # Case-insensitive.
+
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'     # Shows match type.
+
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+
+zstyle -e ':completion:*:hosts' hosts 'reply=(
+  ${${${(@M)${(f)"$(<${HOME}/.ssh/config)"}:#Host *}#Host }:#*[*?]*}
+  ${(s: :)${(ps:\t:)${${(f)~~"$(</etc/hosts)"}%%\#*}#*[[:blank:]]}}
+)'                                                  # Hostnames completion.
+
+zstyle ':completion:*:*:*:users' ignored-patterns '_*'
+
+bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] to move
+                                                    # through the completion
+                                                    # menu backwards.
+
+setopt always_to_end            # When completing from the middle of a word,
+                                # move the cursor to the end of the word.
+
+setopt auto_menu                # Show completion menu on successive tab press.
+                                # Needs unsetop menu_complete to work.
+
+setopt auto_name_dirs           # Any parameter that is set to the absolute name
+                                # of a directory immediately becomes a name for
+                                # that directory.
+
+setopt complete_in_word         # Allow completion from within a word/phrase.
+
+unsetopt menu_complete          # Do not autoselect the first completion entry.

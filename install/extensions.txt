@@ -1,0 +1,15 @@
+alefragnani.Bookmarks
+artdiniz.quitcontrol-vscode
+eamodio.gitlens
+DavidAnson.vscode-markdownlint
+ionutvmi.path-autocomplete
+mhutchie.git-graph
+ms-python.python
+ms-python.vscode-pylance
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-ssh-edit
+redhat.vscode-yaml
+ryu1kn.partial-diff
+stkb.rewrap
+timonwong.shellcheck
+vscodevim.vim

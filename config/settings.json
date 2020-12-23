@@ -1,18 +1,5 @@
 {
-    // cSpell
-    "cSpell.language": "en-GB",
-    "cSpell.dictionaryDefinitions": [
-        {
-            "name": "MyDictionary", "path": "/Users/daniel/Library/Application Support/Code/User/dictionary.txt"
-        }
-    ],
-    "cSpell.dictionaries": [
-        "MyDictionary"
-    ],
-
     // editor
-    "editor.fontFamily": "Inconsolata",
-    "editor.fontSize": 13,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [
@@ -24,13 +11,6 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "files.exclude": {
-        "**/__pycache__": true,
-        "**/.tags": true
-    },
-
-    // fortran
-    "fortran.symbols": [],
 
     // latex-workshop
     "latex-workshop.bind.altKeymap.enabled": true,
@@ -43,6 +23,7 @@
     },
 
     // python
+    "python.defaultInterpreterPath": "${env:CONDA_PYTHON_EXE}",
     "python.formatting.blackArgs": [
         "--skip-string-normalization"
     ],
@@ -53,7 +34,6 @@
     "python.linting.mypyEnabled": true,
     "python.linting.pylintEnabled": false,
     "python.linting.pydocstyleEnabled": true,
-    "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
     "python.terminal.launchArgs": [
         "-m",
         "IPython"
@@ -62,20 +42,19 @@
     // remote via ssh
     "remote.SSH.useLocalServer": false,
 
-    // restructuredtext
-    "restructuredtext.linter.extraArgs": [
-        "--max-line-length 80"
-    ],
-
     // search
     "search.useGlobalIgnoreFiles": true,
 
     // terminal
     "terminal.external.osxExec": "iTerm.App",
-    "terminal.integrated.fontFamily": "Inconsolata for Powerline",
-    "terminal.integrated.fontSize": 13,
-    "terminal.integrated.lineHeight": 1.2,
     "terminal.integrated.macOptionIsMeta": true,
+    "terminal.integrated.shell.linux": "/usr/bin/fish",
+    "terminal.integrated.commandsToSkipShell": [
+        "-workbench.action.quickOpen",
+        "-workbench.action.terminal.focusFind",
+        "-workbench.action.terminal.toggleFindCaseSensitive",
+        "-workbench.action.togglePanel"
+    ],
 
     // vim
     "vim.easymotion": true,
@@ -238,40 +217,6 @@
 
     // window
     "window.newWindowDimensions": "inherit",
-
-    // write-good
-    "write-good.languages": [
-        "markdown",
-        "latex",
-        "restructuredtext"
-    ],
-
-    // workbench
-    "workbench.colorTheme": "Monokai",
-
-    // [FortranFreeForm]
-    "[FortranFreeForm]": {
-        "editor.tabSize": 2,
-        "editor.rulers": [
-            90
-        ],
-    },
-
-    // [git-commit]
-    "[git-commit]": {
-        "editor.rulers": [
-            72,
-            50
-        ]
-    },
-
-    // [julia]
-    "julia.enableTelemetry": true,
-
-    // [markdown]
-    "[markdown]": {
-        "editor.wordWrap": "wordWrapColumn"
-    },
 
     // [python]
     "[python]": {

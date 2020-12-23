@@ -31,4 +31,5 @@ __pycache__
 *.o
 
 # Ctags
+tags
 .tags

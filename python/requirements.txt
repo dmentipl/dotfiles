@@ -1,3 +1,0 @@
-blackcellmagic
-fortran-language-server
-Nikola[extras]
