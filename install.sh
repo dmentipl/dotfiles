@@ -21,7 +21,7 @@ is_macos () {
 
 set_mac_defaults () {
   printf -- '\n--- setting macOS defaults\n'
-  bash install/macOS_defaults.sh
+  bash install/mac.sh
 }
 
 install_with_apt () {
