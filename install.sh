@@ -97,7 +97,11 @@ install_starship () {
     return
   else
     printf -- '\n--- installing starship\n'
-    curl -fsSL https://starship.rs/install.sh | bash
+    curl -fsSL https://starship.rs/install.sh > tmp.sh
+    chmod +x tmp.sh
+    mkdir ~/bin
+    bash tmp.sh --yes --bin-dir=~/bin
+    rm tmp.sh
   fi
 }
 
