@@ -26,7 +26,7 @@ set_mac_defaults () {
 
 install_with_apt () {
   printf -- '\n--- installing applications with apt\n'
-  pkgs=$(<install/pkglist.txt)
+  readarary pkgs < install/pkglist.txt
   for pkg in "${pkgs[@]}"; do
     sudo apt install -y "$pkg"
   done
@@ -35,7 +35,7 @@ install_with_apt () {
 install_with_dnf () {
   if command -v dnf > /dev/null; then
     printf -- '\n--- installing applications with dnf\n'
-    pkgs=$(<install/pkglist.txt)
+    readarary pkgs < install/pkglist.txt
     for pkg in "${pkgs[@]}"; do
       sudo dnf install -y "$pkg"
     done
