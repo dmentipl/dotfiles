@@ -2,7 +2,7 @@ bat
 colordiff
 curl
 exa
-fd
+fd-find
 ffmpeg
 fish
 git
