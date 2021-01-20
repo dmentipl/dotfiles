@@ -12,9 +12,10 @@ neovim
 pv
 ripgrep
 shellcheck
+ShellCheck
 sponge
 tmux
-trash
+trash-cli
 vim
 wget
 zsh
