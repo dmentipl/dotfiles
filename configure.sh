@@ -10,6 +10,7 @@ bool_fish=false
 bool_zsh=false
 bool_git=false
 bool_starship=false
+bool_code=false
 bool_vim=false
 bool_neovim=false
 bool_tmux=false
@@ -20,6 +21,10 @@ log_file=.configure.log
 red_color="\033[1;31m"
 green_color="\033[1;32m"
 no_color="\033[0m"
+
+is_macos () {
+  [[ "$(uname)" == 'Darwin' ]]
+}
 
 tick () {
   printf "${green_color}\xE2\x9C\x94${no_color}\n"
@@ -81,6 +86,11 @@ configure_starship () {
   _cp config/starship.toml ~/.config/starship.toml
 }
 
+configure_code () {
+  is_macos \
+    && _cp config/settings.json ~/Library/Application\ Support/Code/User/settings.json
+}
+
 configure_vim () {
   _mkdir ~/.vim/{swp,undo} \
     && _cp config/vimrc ~/.vimrc \
@@ -109,6 +119,7 @@ configure () {
   configure_zsh && bool_zsh=true;
   configure_git && bool_git=true;
   configure_starship && bool_starship=true;
+  configure_code && bool_code=true;
   configure_vim && bool_vim=true;
   configure_neovim && bool_neovim=true;
   configure_tmux && bool_tmux=true;
@@ -122,6 +133,7 @@ summary () {
   printf 'Configured zsh........... '; $bool_zsh && tick || cross
   printf 'Configured git........... '; $bool_git && tick || cross
   printf 'Configured starship...... '; $bool_starship && tick || cross
+  printf 'Configured code.......... '; $bool_code && tick || cross
   printf 'Configured vim........... '; $bool_vim && tick || cross
   printf 'Configured neovim........ '; $bool_neovim && tick || cross
   printf 'Configured tmux.......... '; $bool_tmux && tick || cross
