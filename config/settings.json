@@ -218,6 +218,9 @@
     // window
     "window.newWindowDimensions": "inherit",
 
+    // workbench
+    "workbench.colorTheme": "Monokai",
+
     // [python]
     "[python]": {
         "editor.rulers": [
