@@ -14,7 +14,6 @@ bool_code=false
 bool_vim=false
 bool_neovim=false
 bool_tmux=false
-bool_conda=false
 
 log_file=.configure.log
 
@@ -107,10 +106,6 @@ configure_tmux () {
   _cp config/tmux.conf ~/.tmux.conf
 }
 
-configure_conda () {
-  _cp config/condarc ~/.condarc
-}
-
 configure () {
   printf '========== Configuring ==========\n\n'
   {
@@ -123,7 +118,6 @@ configure () {
   configure_vim && bool_vim=true;
   configure_neovim && bool_neovim=true;
   configure_tmux && bool_tmux=true;
-  configure_conda && bool_conda=true;
   } >> $log_file 2>&1
 }
 
@@ -137,7 +131,6 @@ summary () {
   printf 'Configured vim........... '; $bool_vim && tick || cross
   printf 'Configured neovim........ '; $bool_neovim && tick || cross
   printf 'Configured tmux.......... '; $bool_tmux && tick || cross
-  printf 'Configured conda......... '; $bool_conda && tick || cross
   printf '\nSee %s for details.\n' $log_file
 }
 

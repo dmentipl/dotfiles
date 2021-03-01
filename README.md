@@ -10,7 +10,7 @@ This is a set of dotfiles appropriate for macOS and Linux machines (including re
 
 The main aim is to have the following installed and configured:
 
-> bash, code, conda, fish, fzf, git, neovim, starship, tmux, vim, zsh
+> bash, code, fish, fzf, git, neovim, starship, tmux, vim, zsh
 
 See below for further details about these applications.
 
@@ -37,7 +37,6 @@ config
 ├── abbr.fish
 ├── aliases
 ├── bashrc
-├── condarc
 ├── config.fish
 ├── gitconfig
 ├── gitignore
@@ -68,10 +67,6 @@ Further details
 ### Applications
 
 The bootstrap script will attempt to install the following applications (amongst others).
-
-- Conda
-
-> Package, dependency and environment management for any language: <https://docs.conda.io/>.
 
 - Fish
 
