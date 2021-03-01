@@ -2,8 +2,6 @@
 #
 # Install software.
 
-conda_dir=$HOME/conda
-
 [[ "$(dirname $0)" == '.' ]] || \
   { printf 'Must run script in directory... Exiting!\n'; exit 1; }
 
@@ -13,6 +11,10 @@ is_ubuntu () {
 
 is_fedora () {
   [[ "$(uname)" == 'Linux' ]] && [[ "$(lsb_release -is)" == 'Fedora' ]]
+}
+
+is_linux () {
+  [[ "$(uname)" == 'Linux' ]]
 }
 
 is_macos () {
@@ -105,23 +107,6 @@ install_starship () {
   fi
 }
 
-install_conda () {
-  if command -v conda > /dev/null; then
-    printf -- '\n--- conda already installed... skipping\n'
-    return
-  else
-    printf -- '\n--- installing conda\n'
-    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-      && bash Miniconda3-latest-Linux-x86_64.sh -b -p "$conda_dir" \
-      && rm Miniconda3-latest-Linux-x86_64.sh
-  fi
-}
-
-uninstall_conda () {
-  printf -- '\n--- uninstalling conda\n'
-  rm -rf "$conda_dir"
-}
-
 main () {
   printf '========== Installing ==========\n\n'
   if is_macos; then
@@ -133,7 +118,6 @@ main () {
   is_fedora && install_with_dnf
   install_fzf
   install_starship
-  install_conda
   install_vim_plug
 }
 
