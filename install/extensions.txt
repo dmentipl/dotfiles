@@ -3,6 +3,7 @@ artdiniz.quitcontrol-vscode
 eamodio.gitlens
 DavidAnson.vscode-markdownlint
 ionutvmi.path-autocomplete
+lextudio.restructuredtext
 mhutchie.git-graph
 ms-python.python
 ms-python.vscode-pylance
