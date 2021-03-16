@@ -101,8 +101,8 @@ install_starship () {
     printf -- '\n--- installing starship\n'
     curl -fsSL https://starship.rs/install.sh > tmp.sh
     chmod +x tmp.sh
-    mkdir ~/bin
-    bash tmp.sh --yes --bin-dir=~/bin
+    mkdir "$HOME/bin"
+    bash tmp.sh --yes --bin-dir="$HOME/bin"
     rm tmp.sh
   fi
 }
