@@ -29,7 +29,6 @@ brew 'wget'
 
 cask 'dropbox'
 cask 'flux'
-cask 'google-chrome'
 cask 'istat-menus'
 cask 'iterm2'
 cask 'julia'
@@ -40,7 +39,6 @@ cask 'private-internet-access'
 cask 'spotify'
 cask 'visual-studio-code'
 cask 'vlc'
-cask 'whatsapp'
 cask 'xquartz'
 
 mas 'Gestimer', id: 990588172
