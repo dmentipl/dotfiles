@@ -25,6 +25,7 @@ brew 'shellcheck'
 brew 'tmux'
 brew 'tokei'
 brew 'trash'
+brew 'saulpw/vd/visidata'
 brew 'wget'
 
 cask 'dropbox'

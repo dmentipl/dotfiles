@@ -22,5 +22,6 @@ tmux
 tokei
 trash-cli
 vim
+visidata
 wget
 zsh
