@@ -1,0 +1,86 @@
+# -- CONFIG --
+
+$AUTO_CD = True
+$CASE_SENSITIVE_COMPLETIONS = False
+
+# -- XONTRIBS --
+
+xontrib load abbrevs
+xontrib load fzf-widgets
+xontrib load pipeliner
+xontrib load prompt_starship
+xontrib load sh
+
+# -- FZF --
+
+$fzf_history_binding = "c-r"
+$fzf_file_binding = "c-t"
+$fzf_dir_binding = "c-g"
+$fzf_find_command = "fd"
+$fzf_find_dirs_command = "fd -t d"
+
+# -- ABBREVS --
+
+abbrevs['chown'] = 'chown -R'
+abbrevs['cp'] = 'cp -i -r'
+abbrevs['diff'] = 'colordiff'
+abbrevs['df'] = 'df -H'
+abbrevs['du'] = 'du -chs'
+abbrevs['e'] = 'exit'
+abbrevs['j'] = 'jobs -l'
+abbrevs['mkdir'] = 'mkdir -pv'
+abbrevs['mv'] = 'mv -i'
+abbrevs['path'] = 'echo $PATH | tr " " "\n"'
+abbrevs['pgrep'] = 'pgrep -a -l'
+abbrevs['rg'] = 'rg -S'
+abbrevs['scp'] = 'scp -r'
+abbrevs['ssh'] = 'ssh -Y'
+abbrevs['which'] = 'which -a'
+
+# Use trash not rm.
+abbrevs['bin'] = 'trash'
+abbrevs['rm'] = 'printf "%s\n" "Use bin instead, or \\rm for real rm if required."'
+
+# List directory contents.
+abbrevs['l'] = 'exa -l -h'
+abbrevs['ls'] = 'exa -1'
+abbrevs['lg'] = 'exa -l -h --git'
+abbrevs['ll'] = 'exa -l -h -a'
+abbrevs['lm'] = 'exa -l -h -s modified'
+abbrevs['lr'] = 'exa -l -h -R'
+abbrevs['lt'] = 'exa -l -h -T'
+abbrevs['lx'] = 'exa -l -h -s extension'
+abbrevs['lz'] = 'exa -l -h -s size'
+abbrevs['tree'] = 'exa -T'
+
+# Git.
+abbrevs['ga'] = 'git add'
+abbrevs['gam'] = 'git add --update'
+abbrevs['gap'] = 'git add --patch'
+abbrevs['gc'] = 'git commit --verbose'
+abbrevs['gco'] = 'git checkout'
+abbrevs['gd'] = 'git diff'
+abbrevs['gds'] = 'git diff --staged'
+abbrevs['gl'] = 'git pull'
+abbrevs['glg'] = 'git log --stat --abbrev-commit'
+abbrevs['glgo'] = 'git log --oneline --graph'
+abbrevs['glgp'] = 'git log --patch --abbrev-commit'
+abbrevs['gp'] = 'git push'
+abbrevs['gsh'] = 'git show'
+abbrevs['gst'] = 'git status'
+abbrevs['gr'] = 'git log -1 --relative-date --stat --abbrev-commit'
+
+# Tmux.
+abbrevs['ta'] = 'tmux attach'
+abbrevs['tc'] = 'tmux choose-tree -s'
+abbrevs['td'] = 'tmux detach'
+abbrevs['tl'] = 'tmux list-sessions'
+abbrevs['tk'] = 'tmux kill-session'
+abbrevs['tn'] = 'tmux new-session'
+abbrevs['ts'] = 'tmux switch-client'
+
+# Neovim.
+abbrevs['vim'] = 'nvim'
+abbrevs['ex'] = 'nvim -e'
+abbrevs['view'] = 'nvim -R'
+abbrevs['vimdiff'] = 'nvim -d'
