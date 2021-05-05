@@ -1,22 +1,27 @@
 format = """\
-    $time\
-    [$hostname]("bold blue")\
-    in $directory\
+    $conda\
+    $hostname\
+    $directory\
     $git_branch\
     $git_state\
     $git_status\
-    $conda\
-    $env_var\
     $cmd_duration\
     $line_break\
     $jobs\
-    $battery\
     $character\
     """
 
+[cmd_duration]
+format = " [⤳ $duration](bold #f3ad10) "
+
 [conda]
-symbol = "🅒 "
+format = "[$symbol$environment]($style) [•](242) "
 ignore_base = false
 
-[time]
-disabled = false
+[git_branch]
+format = "[•](242) [$symbol$branch]($style) "
+
+[hostname]
+format = "[$hostname]($style) [•](242) "
+ssh_only = false
+style = "bold red"
