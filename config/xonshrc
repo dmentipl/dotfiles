@@ -23,7 +23,7 @@ $fzf_find_dirs_command = "fd -t d"
 
 abbrevs['chown'] = 'chown -R'
 abbrevs['cp'] = 'cp -i -r'
-abbrevs['diff'] = 'colordiff'
+if $(command -v colordiff): abbrevs['diff'] = 'colordiff'
 abbrevs['df'] = 'df -H'
 abbrevs['du'] = 'du -chs'
 abbrevs['e'] = 'exit'
@@ -32,26 +32,40 @@ abbrevs['mkdir'] = 'mkdir -pv'
 abbrevs['mv'] = 'mv -i'
 abbrevs['path'] = 'echo $PATH | tr " " "\n"'
 abbrevs['pgrep'] = 'pgrep -a -l'
-abbrevs['rg'] = 'rg -S'
+if $(command -v rg): abbrevs['rg'] = 'rg -S'
 abbrevs['scp'] = 'scp -r'
 abbrevs['ssh'] = 'ssh -Y'
 abbrevs['which'] = 'which -a'
 
 # Use trash not rm.
-abbrevs['bin'] = 'trash'
-abbrevs['rm'] = 'printf "%s\n" "Use bin instead, or \\rm for real rm if required."'
+if $(command -v trash):
+    abbrevs['bin'] = 'trash'
+    abbrevs['rm'] = 'printf "%s\n" "Use bin instead, or \\rm for real rm if required."'
+else:
+    abbrevs['rm'] = 'rm -R'
 
 # List directory contents.
-abbrevs['l'] = 'exa -l -h'
-abbrevs['ls'] = 'exa -1'
-abbrevs['lg'] = 'exa -l -h --git'
-abbrevs['ll'] = 'exa -l -h -a'
-abbrevs['lm'] = 'exa -l -h -s modified'
-abbrevs['lr'] = 'exa -l -h -R'
-abbrevs['lt'] = 'exa -l -h -T'
-abbrevs['lx'] = 'exa -l -h -s extension'
-abbrevs['lz'] = 'exa -l -h -s size'
-abbrevs['tree'] = 'exa -T'
+if $(command -v exa):
+    abbrevs['l'] = 'exa -l -h'
+    abbrevs['ls'] = 'exa -1'
+    abbrevs['lg'] = 'exa -l -h --git'
+    abbrevs['ll'] = 'exa -l -h -a'
+    abbrevs['lm'] = 'exa -l -h -s modified'
+    abbrevs['lr'] = 'exa -l -h -R'
+    abbrevs['lt'] = 'exa -l -h -T'
+    abbrevs['lx'] = 'exa -l -h -s extension'
+    abbrevs['lz'] = 'exa -l -h -s size'
+    abbrevs['tree'] = 'exa -T'
+else:
+  abbrevs['ls'] = 'ls --color=tty -1'
+  abbrevs['l'] = 'ls -lh'
+  abbrevs['la'] = 'ls -lah'
+  abbrevs['ll'] = 'ls -lAh'
+  abbrevs['lx'] = 'ls -lAh -XB'  # Extension
+  abbrevs['lk'] = 'ls -lAh -Sr'  # File size
+  abbrevs['lt'] = 'ls -lAh -tur' # Access time
+  abbrevs['lc'] = 'ls -lAh -tcr' # File change time
+  abbrevs['lm'] = 'ls -lAh -tr'  # Modification time
 
 # Git.
 abbrevs['ga'] = 'git add'
@@ -80,7 +94,19 @@ abbrevs['tn'] = 'tmux new-session'
 abbrevs['ts'] = 'tmux switch-client'
 
 # Neovim.
-abbrevs['vim'] = 'nvim'
-abbrevs['ex'] = 'nvim -e'
-abbrevs['view'] = 'nvim -R'
-abbrevs['vimdiff'] = 'nvim -d'
+if $(command -v nvim):
+    abbrevs['vim'] = 'nvim'
+    abbrevs['ex'] = 'nvim -e'
+    abbrevs['view'] = 'nvim -R'
+    abbrevs['vimdiff'] = 'nvim -d'
+
+# Copy and paste.
+if $(command -v pbcopy):
+  abbrevs['copy'] = 'pbcopy'
+  abbrevs['paste'] = 'pbpaste'
+elif $(command -v xsel):
+  abbrevs['copy'] = 'xsel --clipboard --input'
+  abbrevs['paste'] = 'xsel --clipboard --output'
+
+# Open app from command line.
+if $(command -v xdg-open): abbrevs['open'] = 'xdg-open'
