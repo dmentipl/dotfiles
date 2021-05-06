@@ -3,6 +3,7 @@ format = """\
     $hostname\
     $directory\
     $git_branch\
+    $git_commit\
     $git_state\
     $git_status\
     $cmd_duration\
@@ -20,6 +21,16 @@ ignore_base = false
 
 [git_branch]
 format = "[•](242) [$symbol$branch]($style) "
+style = "bold #f3ad10"
+
+[git_commit]
+style = "bold #f3ad10"
+
+[git_state]
+style = "bold #f3ad10"
+
+[git_status]
+style = "bold #f3ad10"
 
 [hostname]
 format = "[$hostname]($style) [•](242) "
