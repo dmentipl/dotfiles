@@ -1,3 +1,10 @@
+# -- ENV --
+
+source-bash --seterrprevcmd "" /etc/profile
+
+$PATH.insert(0, '~/.local/bin')
+$PATH.insert(0, '~/bin')
+
 # -- CONFIG --
 
 $AUTO_CD = True
