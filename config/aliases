@@ -1,7 +1,6 @@
 alias chown='chown -R'
 alias cp='cp -i -r'
 alias d='dirs -v | head -10'
-command -v colordiff > /dev/null && alias diff=colordiff
 alias df='df -H'
 alias du='du -chs'
 alias e=exit

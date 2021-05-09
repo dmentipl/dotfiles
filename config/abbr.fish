@@ -1,6 +1,5 @@
 abbr --add --global chown 'chown -R'
 abbr --add --global cp 'cp -i -r'
-command -v colordiff > /dev/null && abbr --add --global diff colordiff
 abbr --add --global df 'df -H'
 abbr --add --global du 'du -chs'
 abbr --add --global e exit
