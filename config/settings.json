@@ -1,29 +1,24 @@
 {
-    // editor
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.rulers": [
+            88
+        ]
+    },
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [
         80
     ],
     "editor.tabCompletion": "on",
-
-    // files
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-
-    // latex-workshop
     "latex-workshop.bind.altKeymap.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.chktex.enabled": true,
-
-    // markdownlint
-    "markdownlint.config": {
-        "MD003": { "style": "setext_with_atx" }
-    },
-
-    // python
-    "python.defaultInterpreterPath": "${env:CONDA_PYTHON_EXE}",
     "python.formatting.blackArgs": [
         "--skip-string-normalization"
     ],
@@ -32,112 +27,98 @@
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.linting.mypyEnabled": true,
-    "python.linting.pylintEnabled": false,
     "python.linting.pydocstyleEnabled": true,
-    "python.terminal.launchArgs": [
-        "-m",
-        "IPython"
-    ],
-
-    // remote via ssh
+    "python.linting.pylintEnabled": false,
+    "python.terminal.activateEnvironment": false,
     "remote.SSH.useLocalServer": false,
-
-    // search
     "search.useGlobalIgnoreFiles": true,
-
-    // terminal
-    "terminal.external.osxExec": "iTerm.App",
     "terminal.integrated.macOptionIsMeta": true,
-    "terminal.integrated.shell.linux": "/usr/bin/fish",
     "terminal.integrated.commandsToSkipShell": [
         "-workbench.action.quickOpen",
         "-workbench.action.terminal.focusFind",
         "-workbench.action.terminal.toggleFindCaseSensitive",
         "-workbench.action.togglePanel"
     ],
-
-    // vim
+    "terminal.integrated.inheritEnv": false,
     "vim.easymotion": true,
-    "vim.enableNeovim": true,
     "vim.hlsearch": true,
     "vim.insertModeKeyBindings": [
         {
+            "after": [
+                "<Esc>"
+            ],
             "before": [
                 "f",
                 "d"
-            ],
-            "after": [
-                "<Esc>"
             ]
         }
     ],
     "vim.leader": "<space>",
-    "vim.neovimPath": "/usr/local/bin/nvim",
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": [
-                "j"
-            ],
             "after": [
                 "g",
                 "j"
+            ],
+            "before": [
+                "j"
             ]
         },
         {
-            "before": [
-                "k"
-            ],
             "after": [
                 "g",
                 "k"
+            ],
+            "before": [
+                "k"
             ]
         },
         {
-            "before": [
-                "$"
-            ],
             "after": [
                 "g",
                 "$"
+            ],
+            "before": [
+                "$"
             ]
         },
         {
-            "before": [
-                "^"
-            ],
             "after": [
                 "g",
                 "^"
+            ],
+            "before": [
+                "^"
             ]
         },
         {
-            "before": [
-                "0"
-            ],
             "after": [
                 "g",
                 "0"
+            ],
+            "before": [
+                "0"
             ]
         },
         {
-            "before": [
-                "Y"
-            ],
             "after": [
                 "y",
                 "$"
+            ],
+            "before": [
+                "Y"
             ]
         },
         {
-            "before": [
-                "J"
-            ],
             "after": [
                 "m",
                 "z",
                 "J",
                 "`",
                 "z"
+            ],
+            "before": [
+                "J"
             ]
         },
         {
@@ -178,12 +159,12 @@
     "vim.useSystemClipboard": true,
     "vim.visualModeKeyBindingsNonRecursive": [
         {
+            "after": [
+                "<Esc>"
+            ],
             "before": [
                 "f",
                 "d"
-            ],
-            "after": [
-                "<Esc>"
             ]
         },
         {
@@ -203,31 +184,18 @@
             ]
         },
         {
-            "before": [
-                "p"
-            ],
             "after": [
                 "p",
                 "g",
                 "v",
                 "y"
+            ],
+            "before": [
+                "p"
             ]
         }
     ],
-
-    // window
     "window.newWindowDimensions": "inherit",
-
-    // workbench
     "workbench.colorTheme": "Monokai",
-
-    // [python]
-    "[python]": {
-        "editor.rulers": [
-            88
-        ],
-        "editor.defaultFormatter": "ms-python.python",
-        "editor.formatOnSave": true,
-        "editor.formatOnPaste": true
-    }
+    "workbench.startupEditor": "newUntitledFile"
 }
