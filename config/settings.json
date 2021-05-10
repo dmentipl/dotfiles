@@ -32,7 +32,7 @@
     "python.terminal.activateEnvironment": false,
     "remote.SSH.useLocalServer": false,
     "search.useGlobalIgnoreFiles": true,
-    "terminal.integrated.macOptionIsMeta": true,
+    "terminal.integrated.allowChords": false,
     "terminal.integrated.commandsToSkipShell": [
         "-workbench.action.quickOpen",
         "-workbench.action.terminal.focusFind",
@@ -40,6 +40,7 @@
         "-workbench.action.togglePanel"
     ],
     "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.macOptionIsMeta": true,
     "vim.easymotion": true,
     "vim.hlsearch": true,
     "vim.insertModeKeyBindings": [
