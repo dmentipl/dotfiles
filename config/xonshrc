@@ -20,6 +20,9 @@ xontrib load sh
 
 # -- FZF --
 
+if p'~/.fzf.bash'.exists():
+    source-bash ~/.fzf.bash
+
 $fzf_history_binding = "c-r"
 $fzf_file_binding = "c-t"
 $fzf_dir_binding = "c-g"
@@ -62,15 +65,15 @@ if $(command -v exa):
     abbrevs['lz'] = 'exa -l -h -s size'
     abbrevs['tree'] = 'exa -T'
 else:
-  abbrevs['ls'] = 'ls --color=tty -1'
-  abbrevs['l'] = 'ls -lh'
-  abbrevs['la'] = 'ls -lah'
-  abbrevs['ll'] = 'ls -lAh'
-  abbrevs['lx'] = 'ls -lAh -XB'  # Extension
-  abbrevs['lk'] = 'ls -lAh -Sr'  # File size
-  abbrevs['lt'] = 'ls -lAh -tur' # Access time
-  abbrevs['lc'] = 'ls -lAh -tcr' # File change time
-  abbrevs['lm'] = 'ls -lAh -tr'  # Modification time
+    abbrevs['ls'] = 'ls --color=tty -1'
+    abbrevs['l'] = 'ls -lh'
+    abbrevs['la'] = 'ls -lah'
+    abbrevs['ll'] = 'ls -lAh'
+    abbrevs['lx'] = 'ls -lAh -XB'  # Extension
+    abbrevs['lk'] = 'ls -lAh -Sr'  # File size
+    abbrevs['lt'] = 'ls -lAh -tur' # Access time
+    abbrevs['lc'] = 'ls -lAh -tcr' # File change time
+    abbrevs['lm'] = 'ls -lAh -tr'  # Modification time
 
 # Git.
 abbrevs['ga'] = 'git add'
@@ -107,11 +110,11 @@ if $(command -v nvim):
 
 # Copy and paste.
 if $(command -v pbcopy):
-  abbrevs['copy'] = 'pbcopy'
-  abbrevs['paste'] = 'pbpaste'
+    abbrevs['copy'] = 'pbcopy'
+    abbrevs['paste'] = 'pbpaste'
 elif $(command -v xsel):
-  abbrevs['copy'] = 'xsel --clipboard --input'
-  abbrevs['paste'] = 'xsel --clipboard --output'
+    abbrevs['copy'] = 'xsel --clipboard --input'
+    abbrevs['paste'] = 'xsel --clipboard --output'
 
 # Open app from command line.
 if $(command -v xdg-open): abbrevs['open'] = 'xdg-open'
