@@ -48,7 +48,7 @@ abbrevs['which'] = 'which -a'
 # Use trash not rm.
 if $(command -v trash):
     abbrevs['bin'] = 'trash'
-    abbrevs['rm'] = 'printf "%s\n" "Use bin instead, or \\rm for real rm if required."'
+    abbrevs['rm'] = '"Use bin instead, or /bin/rm for real rm if required."'
 else:
     abbrevs['rm'] = 'rm -R'
 
@@ -118,3 +118,8 @@ elif $(command -v xsel):
 
 # Open app from command line.
 if $(command -v xdg-open): abbrevs['open'] = 'xdg-open'
+
+# -- LOCAL --
+
+if p'~/.xonshrc_local'.exists():
+    source '~/.xonshrc_local'
