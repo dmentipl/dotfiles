@@ -1,12 +1,25 @@
+# Aliases from Scott Nonnenberg:
+# https://gist.github.com/scottnonnenberg/fefa3f65fdb3715d25882f3023b31c29
+
 [user]
-    email = ${EMAIL}
-    name = Daniel Mentiplay
+  email = ${EMAIL}
+  name = Daniel Mentiplay
+
+[alias]
+  prune = fetch --prune
+  stash-all = stash save --include-untracked
+  undo = reset --soft HEAD^
+
 [core]
-    excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
+
+[merge]
+  conflictstlye = diff3
+  ff = only
+
 [push]
-    default = simple
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
+  default = simple
+  followTags = true
+
+[status]
+  showUntrackedFiles = all
