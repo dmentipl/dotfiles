@@ -23,3 +23,6 @@
 
 [status]
   showUntrackedFiles = all
+
+[url "git@github.com:"]
+  insteadOf = gh:
