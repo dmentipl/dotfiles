@@ -5,11 +5,6 @@
   email = ${EMAIL}
   name = Daniel Mentiplay
 
-[alias]
-  prune = fetch --prune
-  stash-all = stash save --include-untracked
-  undo = reset --soft HEAD^
-
 [core]
   excludesfile = ~/.gitignore
 
