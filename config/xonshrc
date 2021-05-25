@@ -10,15 +10,11 @@ $PATH.insert(0, '~/bin')
 $AUTO_CD = True
 $CASE_SENSITIVE_COMPLETIONS = False
 
-# -- XONTRIBS --
-
 xontrib load abbrevs
 xontrib load fzf-widgets
 xontrib load pipeliner
 xontrib load prompt_starship
 xontrib load sh
-
-# -- FZF --
 
 if p'~/.fzf.bash'.exists():
     source-bash ~/.fzf.bash
@@ -28,6 +24,11 @@ $fzf_file_binding = "c-t"
 $fzf_dir_binding = "c-g"
 $fzf_find_command = "fd"
 $fzf_find_dirs_command = "fd -t d"
+
+# -- LOCAL --
+
+if p'~/.xonshrc_local'.exists():
+    source '~/.xonshrc_local'
 
 # -- ABBREVS --
 
@@ -76,35 +77,37 @@ else:
     abbrevs['lm'] = 'ls -lAh -tr'
 
 # Git.
-abbrevs['ga'] = 'git add'
-abbrevs['gam'] = 'git add --update'
-abbrevs['gap'] = 'git add --patch'
-abbrevs['gb'] = 'git branch'
-abbrevs['go'] = 'git checkout'
-abbrevs['gc'] = 'git commit --verbose'
-abbrevs['gd'] = 'git diff'
-abbrevs['gds'] = 'git diff --staged'
-abbrevs['gf'] = 'git fetch --prune'
-abbrevs['gg'] = 'git log --stat --abbrev-commit'
-abbrevs['ggo'] = 'git log --oneline --graph --abbrev-commit'
-abbrevs['ggp'] = 'git log --patch --abbrev-commit'
-abbrevs['gl'] = 'git pull'
-abbrevs['gp'] = 'git push'
-abbrevs['gr'] = 'git rebase'
-abbrevs['gm'] = 'git remote --verbose'
-abbrevs['gmu'] = 'git remote add upstream'
-abbrevs['gx'] = 'git reset --soft HEAD^'
-abbrevs['gt'] = 'git stash --include-untracked'
-abbrevs['gs'] = 'git status'
+if $(command -v git):
+    abbrevs['ga'] = 'git add'
+    abbrevs['gam'] = 'git add --update'
+    abbrevs['gap'] = 'git add --patch'
+    abbrevs['gb'] = 'git branch'
+    abbrevs['go'] = 'git checkout'
+    abbrevs['gc'] = 'git commit --verbose'
+    abbrevs['gd'] = 'git diff'
+    abbrevs['gds'] = 'git diff --staged'
+    abbrevs['gf'] = 'git fetch --prune'
+    abbrevs['gg'] = 'git log --stat --abbrev-commit'
+    abbrevs['ggo'] = 'git log --oneline --graph --abbrev-commit'
+    abbrevs['ggp'] = 'git log --patch --abbrev-commit'
+    abbrevs['gl'] = 'git pull'
+    abbrevs['gp'] = 'git push'
+    abbrevs['gr'] = 'git rebase'
+    abbrevs['gm'] = 'git remote --verbose'
+    abbrevs['gmu'] = 'git remote add upstream'
+    abbrevs['gx'] = 'git reset --soft HEAD^'
+    abbrevs['gt'] = 'git stash --include-untracked'
+    abbrevs['gs'] = 'git status'
 
 # Tmux.
-abbrevs['ta'] = 'tmux attach'
-abbrevs['tc'] = 'tmux choose-tree -s'
-abbrevs['td'] = 'tmux detach'
-abbrevs['tl'] = 'tmux list-sessions'
-abbrevs['tk'] = 'tmux kill-session'
-abbrevs['tn'] = 'tmux new-session'
-abbrevs['ts'] = 'tmux switch-client'
+if $(command -v tmux):
+    abbrevs['ta'] = 'tmux attach'
+    abbrevs['tc'] = 'tmux choose-tree -s'
+    abbrevs['td'] = 'tmux detach'
+    abbrevs['tl'] = 'tmux list-sessions'
+    abbrevs['tk'] = 'tmux kill-session'
+    abbrevs['tn'] = 'tmux new-session'
+    abbrevs['ts'] = 'tmux switch-client'
 
 # Neovim.
 if $(command -v nvim):
@@ -123,8 +126,3 @@ elif $(command -v xsel):
 
 # Open app from command line.
 if $(command -v xdg-open): abbrevs['open'] = 'xdg-open'
-
-# -- LOCAL --
-
-if p'~/.xonshrc_local'.exists():
-    source '~/.xonshrc_local'

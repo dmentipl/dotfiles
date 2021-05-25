@@ -44,35 +44,39 @@ else
 end
 
 # Git.
-abbr --add --global ga 'git add'
-abbr --add --global gam 'git add --update'
-abbr --add --global gap 'git add --patch'
-abbr --add --global gb 'git branch'
-abbr --add --global go 'git checkout'
-abbr --add --global gc 'git commit --verbose'
-abbr --add --global gd 'git diff'
-abbr --add --global gds 'git diff --staged'
-abbr --add --global gf 'git fetch --prune'
-abbr --add --global gg 'git log --stat --abbrev-commit'
-abbr --add --global ggo 'git log --oneline --graph --abbrev-commit'
-abbr --add --global ggp 'git log --patch --abbrev-commit'
-abbr --add --global gl 'git pull'
-abbr --add --global gp 'git push'
-abbr --add --global gr 'git rebase'
-abbr --add --global gm 'git remote --verbose'
-abbr --add --global gmu 'git remote add upstream'
-abbr --add --global gx 'git reset --soft HEAD^'
-abbr --add --global gt 'git stash --include-untracked'
-abbr --add --global gs 'git status'
+if command -v git > /dev/null
+    abbr --add --global ga 'git add'
+    abbr --add --global gam 'git add --update'
+    abbr --add --global gap 'git add --patch'
+    abbr --add --global gb 'git branch'
+    abbr --add --global go 'git checkout'
+    abbr --add --global gc 'git commit --verbose'
+    abbr --add --global gd 'git diff'
+    abbr --add --global gds 'git diff --staged'
+    abbr --add --global gf 'git fetch --prune'
+    abbr --add --global gg 'git log --stat --abbrev-commit'
+    abbr --add --global ggo 'git log --oneline --graph --abbrev-commit'
+    abbr --add --global ggp 'git log --patch --abbrev-commit'
+    abbr --add --global gl 'git pull'
+    abbr --add --global gp 'git push'
+    abbr --add --global gr 'git rebase'
+    abbr --add --global gm 'git remote --verbose'
+    abbr --add --global gmu 'git remote add upstream'
+    abbr --add --global gx 'git reset --soft HEAD^'
+    abbr --add --global gt 'git stash --include-untracked'
+    abbr --add --global gs 'git status'
+end
 
 # Tmux.
-abbr --add --global ta 'tmux attach'
-abbr --add --global tc 'tmux choose-tree -s'
-abbr --add --global td 'tmux detach'
-abbr --add --global tl 'tmux list-sessions'
-abbr --add --global tk 'tmux kill-session'
-abbr --add --global tn 'tmux new-session'
-abbr --add --global ts 'tmux switch-client'
+if command -v tmux > /dev/null
+    abbr --add --global ta 'tmux attach'
+    abbr --add --global tc 'tmux choose-tree -s'
+    abbr --add --global td 'tmux detach'
+    abbr --add --global tl 'tmux list-sessions'
+    abbr --add --global tk 'tmux kill-session'
+    abbr --add --global tn 'tmux new-session'
+    abbr --add --global ts 'tmux switch-client'
+end
 
 # Neovim.
 if command -v nvim > /dev/null

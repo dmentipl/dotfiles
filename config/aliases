@@ -48,35 +48,39 @@ else
 fi
 
 # Git.
-alias ga='git add'
-alias gam='git add --update'
-alias gap='git add --patch'
-alias gb='git branch'
-alias go='git checkout'
-alias gc='git commit --verbose'
-alias gd='git diff'
-alias gds='git diff --staged'
-alias gf='git fetch --prune'
-alias gg='git log --stat --abbrev-commit'
-alias ggo='git log --oneline --graph --abbrev-commit'
-alias ggp='git log --patch --abbrev-commit'
-alias gl='git pull'
-alias gp='git push'
-alias gr='git rebase'
-alias gm='git remote --verbose'
-alias gmu='git remote add upstream'
-alias gx='git reset --soft HEAD^'
-alias gt='git stash --include-untracked'
-alias gs='git status'
+if command -v git > /dev/null; then
+  alias ga='git add'
+  alias gam='git add --update'
+  alias gap='git add --patch'
+  alias gb='git branch'
+  alias go='git checkout'
+  alias gc='git commit --verbose'
+  alias gd='git diff'
+  alias gds='git diff --staged'
+  alias gf='git fetch --prune'
+  alias gg='git log --stat --abbrev-commit'
+  alias ggo='git log --oneline --graph --abbrev-commit'
+  alias ggp='git log --patch --abbrev-commit'
+  alias gl='git pull'
+  alias gp='git push'
+  alias gr='git rebase'
+  alias gm='git remote --verbose'
+  alias gmu='git remote add upstream'
+  alias gx='git reset --soft HEAD^'
+  alias gt='git stash --include-untracked'
+  alias gs='git status'
+fi
 
 # Tmux.
-alias ta='tmux attach'
-alias tc='tmux choose-tree -s'
-alias td='tmux detach'
-alias tl='tmux list-sessions'
-alias tk='tmux kill-session'
-alias tn='tmux new-session'
-alias ts='tmux switch-client'
+if command -v tmux > /dev/null; then
+  alias ta='tmux attach'
+  alias tc='tmux choose-tree -s'
+  alias td='tmux detach'
+  alias tl='tmux list-sessions'
+  alias tk='tmux kill-session'
+  alias tn='tmux new-session'
+  alias ts='tmux switch-client'
+fi
 
 # Neovim.
 if command -v nvim > /dev/null; then
