@@ -1,11 +1,11 @@
-# -- ENV --
+# -- ENVIRONMENT --
 
 source-bash --seterrprevcmd "" /etc/profile
 
 $PATH.insert(0, '~/.local/bin')
 $PATH.insert(0, '~/bin')
 
-# -- CONFIG --
+# -- CONFIGURATION --
 
 $AUTO_CD = True
 $CASE_SENSITIVE_COMPLETIONS = False
@@ -46,14 +46,12 @@ abbrevs['scp'] = 'scp -r'
 abbrevs['ssh'] = 'ssh -Y'
 abbrevs['which'] = 'which -a'
 
-# Use trash not rm.
 if $(command -v trash):
     abbrevs['bin'] = 'trash'
     abbrevs['rm'] = '"Use bin instead, or /bin/rm for real rm if required."'
 else:
     abbrevs['rm'] = 'rm -R'
 
-# List directory contents.
 if $(command -v exa):
     abbrevs['l'] = 'exa -l -h'
     abbrevs['ls'] = 'exa -1'
@@ -76,7 +74,6 @@ else:
     abbrevs['lc'] = 'ls -lAh -tcr'
     abbrevs['lm'] = 'ls -lAh -tr'
 
-# Git.
 if $(command -v git):
     abbrevs['ga'] = 'git add'
     abbrevs['gam'] = 'git add --update'
@@ -99,7 +96,6 @@ if $(command -v git):
     abbrevs['gt'] = 'git stash --include-untracked'
     abbrevs['gs'] = 'git status'
 
-# Tmux.
 if $(command -v tmux):
     abbrevs['ta'] = 'tmux attach'
     abbrevs['tc'] = 'tmux choose-tree -s'
@@ -109,14 +105,12 @@ if $(command -v tmux):
     abbrevs['tn'] = 'tmux new-session'
     abbrevs['ts'] = 'tmux switch-client'
 
-# Neovim.
 if $(command -v nvim):
     abbrevs['vim'] = 'nvim'
     abbrevs['ex'] = 'nvim -e'
     abbrevs['view'] = 'nvim -R'
     abbrevs['vimdiff'] = 'nvim -d'
 
-# Copy and paste.
 if $(command -v pbcopy):
     abbrevs['copy'] = 'pbcopy'
     abbrevs['paste'] = 'pbpaste'
@@ -124,5 +118,4 @@ elif $(command -v xsel):
     abbrevs['copy'] = 'xsel --clipboard --input'
     abbrevs['paste'] = 'xsel --clipboard --output'
 
-# Open app from command line.
 if $(command -v xdg-open): abbrevs['open'] = 'xdg-open'
