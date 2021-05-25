@@ -4,8 +4,6 @@
 set -gx PATH ~/.local/bin $PATH
 set -gx PATH ~/bin $PATH
 
-command -v nvim > /dev/null && set -gx EDITOR nvim || set -gx EDITOR vim
-
 test -e ~/conda/bin/conda && eval ~/conda/bin/conda "shell.fish" "hook" $argv | source
 function fish_right_prompt; end
 

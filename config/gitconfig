@@ -6,6 +6,7 @@
   name = Daniel Mentiplay
 
 [core]
+  editor = vim
   excludesfile = ~/.gitignore
 
 [merge]

@@ -7,9 +7,6 @@
 ! [[ "$PATH" =~ $HOME/bin: ]] && PATH="$HOME/bin:$PATH"
 export PATH
 
-set -o emacs
-command -v nvim > /dev/null && export EDITOR='nvim' || export EDITOR='vim'
-
 [ -f "$HOME/conda/etc/profile.d/conda.sh" ] && \
   source "$HOME/conda/etc/profile.d/conda.sh" && \
   conda activate base
