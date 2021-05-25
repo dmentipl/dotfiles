@@ -1,45 +1,31 @@
 # ============================================================================ #
-# ==== ENVIRONMENT ==== #
+# ==== CONFIGURATION ==== #
 
-# Global configuration.
 [ -f /etc/zshrc ] && source /etc/zshrc
 
-# Add user paths.
 ! [[ "$PATH" =~ $HOME/.local/bin: ]] && PATH="$HOME/.local/bin:$PATH"
 ! [[ "$PATH" =~ $HOME/bin: ]] && PATH="$HOME/bin:$PATH"
 export PATH
 
-# Use vim as default editor.
 set -o emacs
 command -v nvim > /dev/null && export EDITOR='nvim' || export EDITOR='vim'
 
-# Set less options.
-export LESS='-FXRi'
-
-# Configure conda.
 [ -f "$HOME/conda/etc/profile.d/conda.sh" ] && \
   source "$HOME/conda/etc/profile.d/conda.sh" && \
   conda activate base
 
-# Source fzf keybindings.
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Starship prompt.
-command -v starship > /dev/null && eval "$(starship init bash)"
+command -v starship > /dev/null && eval "$(starship init zsh)"
 
-# Add aliases.
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 
-# iTerm2 integration
-[ $(uname) = Darwin ] && \
-  [ -f ~/.iterm2_shell_integration.zsh ] && \
-  source ~/.iterm2_shell_integration.zsh
-
-# Local config.
 [ -f "$HOME/.zshrc_local" ] && source "$HOME/.zshrc_local"
 
 # ============================================================================ #
-# ==== OPTIONS ==== #
+# ==== SETTINGS ==== #
+
+## GENERAL OPTIONS ##
 
 setopt noclobber            # Don't overwrite files if they exist.
 setopt interactive_comments # Allow comments in shell.
@@ -55,8 +41,7 @@ setopt auto_cd              # Change directory without cd.
 setopt pushd_ignore_dups    # Don't push multiples on the dirstack.
 setopt pushdminus
 
-# ============================================================================ #
-# ==== HISTORY ==== #
+## HISTORY ##
 
 if [ -z "$HISTFILE" ]; then
   HISTFILE=$HOME/.zsh_history
@@ -100,8 +85,7 @@ setopt hist_verify              # Don't execute, just expand history.
 setopt share_history            # Imports new commands and appends typed
                                 # commands to history.
 
-# ============================================================================ #
-# ==== COMPLETION ==== #
+## COMPLETION ##
 
 autoload -Uz compinit
 compinit

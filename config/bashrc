@@ -1,41 +1,25 @@
 # ============================================================================ #
-# ==== ENVIRONMENT ==== #
+# ==== CONFIGURATION ==== #
 
-# Global configuration.
 [ -f /etc/bashrc ] && source /etc/bashrc
 
-# Add user paths.
 ! [[ "$PATH" =~ $HOME/.local/bin: ]] && PATH="$HOME/.local/bin:$PATH"
 ! [[ "$PATH" =~ $HOME/bin: ]] && PATH="$HOME/bin:$PATH"
 export PATH
 
-# Use vim as default editor.
 set -o emacs
 command -v nvim > /dev/null && export EDITOR='nvim' || export EDITOR='vim'
 
-# Set less options.
-export LESS='-FXRi'
-
-# Configure conda.
 [ -f "$HOME/conda/etc/profile.d/conda.sh" ] && \
   source "$HOME/conda/etc/profile.d/conda.sh" && \
   conda activate base
 
-# Source fzf keybindings.
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-# Starship prompt.
 command -v starship > /dev/null && eval "$(starship init bash)"
 
-# Add aliases.
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 
-# iTerm2 integration
-[ $(uname) = Darwin ] && \
-  [ -f ~/.iterm2_shell_integration.bash ] && \
-  source ~/.iterm2_shell_integration.bash
-
-# Local config.
 [ -f "$HOME/.bashrc_local" ] && source "$HOME/.bashrc_local"
 
 # ============================================================================ #

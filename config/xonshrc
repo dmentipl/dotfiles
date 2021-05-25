@@ -1,11 +1,10 @@
-# -- ENVIRONMENT --
+# ============================================================================ #
+# ==== CONFIGURATION ==== #
 
 source-bash --seterrprevcmd "" /etc/profile
 
 $PATH.insert(0, '~/.local/bin')
 $PATH.insert(0, '~/bin')
-
-# -- CONFIGURATION --
 
 $AUTO_CD = True
 $CASE_SENSITIVE_COMPLETIONS = False
@@ -18,19 +17,17 @@ xontrib load sh
 
 if p'~/.fzf.bash'.exists():
     source-bash ~/.fzf.bash
-
-$fzf_history_binding = "c-r"
-$fzf_file_binding = "c-t"
-$fzf_dir_binding = "c-g"
-$fzf_find_command = "fd"
-$fzf_find_dirs_command = "fd -t d"
-
-# -- LOCAL --
+    $fzf_history_binding = "c-r"
+    $fzf_file_binding = "c-t"
+    $fzf_dir_binding = "c-g"
+    $fzf_find_command = "fd"
+    $fzf_find_dirs_command = "fd -t d"
 
 if p'~/.xonshrc_local'.exists():
     source '~/.xonshrc_local'
 
-# -- ABBREVS --
+# ============================================================================ #
+# ==== ABBREVIATIONS ==== #
 
 abbrevs['chown'] = 'chown -R'
 abbrevs['cp'] = 'cp -i -r'
