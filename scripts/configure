@@ -10,8 +10,8 @@ import sys
 RED = "\033[1;31m"
 GREEN = "\033[1;32m"
 NOCOLOR = "\033[0m"
-TICK = f"{GREEN}\xE2\x9C\x94{NOCOLOR}"
-CROSS = f"{RED}\xE2\x9C\x97{NOCOLOR}"
+TICK = f"{GREEN}\u2713{NOCOLOR}"
+CROSS = f"{RED}\u2718{NOCOLOR}"
 
 CONFIG = pathlib.Path(__file__).parent.parent / "config"
 
@@ -63,9 +63,9 @@ def setup_app(name, files, extra, backup):
         if extra:
             extra_config(name=name)
     except:
-        print("failure!")
+        print(CROSS)
     else:
-        print("success!")
+        print(TICK)
 
 
 def parse_args():
