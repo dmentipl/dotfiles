@@ -35,7 +35,6 @@ def install_homebrew():
 
 
 def install_with_brew():
-
     try:
         subprocess.run(["brew", "bundle", "--file", INSTALL / "Brewfile"])
     except FileNotFoundError:
@@ -65,6 +64,7 @@ def install_with_dnf():
 
 
 def install_fzf():
+    fzf_dir = pathlib.Path("~/.fzf").expanduser()
     try:
         subprocess.run(["fzf", "--version"], capture_output=True)
     except FileNotFoundError:
@@ -75,26 +75,26 @@ def install_fzf():
                 "--depth",
                 "1",
                 "https://github.com/junegunn/fzf.git",
-                "~/.fzf",
+                fzf_dir,
             ]
         )
-        subprocess.run(["~/.fzf/install"])
+        subprocess.run([fzf_dir / "install"])
 
 
 def install_starship():
     try:
         subprocess.run(["starship"], capture_output=True)
     except FileNotFoundError:
-        bin = pathlib.Path("~/bin").expanduser()
-        if not bin.exists():
-            bin.mkdir()
+        bin_dir = pathlib.Path("~/bin").expanduser()
+        if not bin_dir.exists():
+            bin_dir.mkdir()
         TMPFILE = pathlib.Path("tmp.sh")
         with open(TMPFILE, "w") as fp:
             subprocess.run(
                 ["curl", "-fsSL", "https://starship.rs/install.sh"], stdout=fp
             )
         subprocess.run(["chmod", "+x", TMPFILE])
-        subprocess.run(["bash", TMPFILE, "--yes", f"--bin-dir={bin}"])
+        subprocess.run(["bash", TMPFILE, "--yes", f"--bin-dir={bin_dir}"])
         TMPFILE.unlink()
 
 
