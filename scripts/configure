@@ -135,21 +135,26 @@ def parse_args():
 
 def main():
     apps, copy_only, envfile, backup = parse_args()
+    if apps == []:
+        print("No apps selected for configuration")
     config_dict = get_config(envfile=envfile)
     errors = {}
     for app, files in APPS.items():
         if app in apps:
-            errors[app] = setup_app(
+            error = setup_app(
                 name=app,
                 files=files,
                 copy_only=copy_only,
                 config_dict=config_dict,
                 backup=backup,
             )
-    print("")
-    for app, error in errors.items():
-        if error:
-            print(f"{app} failed with error:  \n{error}")
+            if error:
+                errors[app] = error
+    if errors:
+        print("")
+        for app, error in errors.items():
+            if error:
+                print(f"{app} failed with error:\n  {error}")
 
 
 if __name__ == "__main__":
