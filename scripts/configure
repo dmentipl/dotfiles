@@ -38,7 +38,11 @@ ENV_REQUIRED = ["git"]
 
 
 def _git(conf):
-    subprocess.run(["git", "config", "--global", "user.email", conf["email"]])
+    try:
+        email = conf["email"]
+    except Exception:
+        raise Exception("config missing required field 'email'")
+    subprocess.run(["git", "config", "--global", "user.email", email])
 
 
 def _neovim(conf):
@@ -152,9 +156,14 @@ def main():
                 errors[app] = error
     if errors:
         print("")
+        if envfile.exists():
+            print(f"[INFO] envfile '{envfile}'")
+        else:
+            print(f"[ERROR] envfile '{envfile}' does not exist")
         for app, error in errors.items():
             if error:
-                print(f"{app} failed with error:\n  {error}")
+                print(f"[ERROR] {app} - {error}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
