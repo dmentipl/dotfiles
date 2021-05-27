@@ -2,6 +2,7 @@
 """Configure dotfiles."""
 
 import argparse
+import configparser
 import pathlib
 import shutil
 import subprocess
@@ -33,6 +34,28 @@ APPS = {
     "zsh": [("aliases", "~/.aliases"), ("zshrc", "~/.zshrc")],
 }
 
+ENV_REQUIRED = ["git"]
+
+
+def _git(conf):
+    subprocess.run(["git", "config", "--global", "user.email", conf["email"]])
+
+
+def _neovim(conf):
+    subprocess.run(["nvim", "+PlugInstall", "+qall"])
+
+
+def _vim(conf):
+    pathlib.Path("~/.vim/swp").expanduser().mkdir(parents=True, exist_ok=True)
+    pathlib.Path("~/.vim/undo").expanduser().mkdir(parents=True, exist_ok=True)
+    subprocess.run(["vim", "+PlugInstall", "+qall"])
+
+
+def get_config(envfile):
+    config = configparser.ConfigParser()
+    config.read(envfile)
+    return config._sections
+
 
 def copy_dotfile(src, dst, backup):
     src = CONFIG / src
@@ -44,26 +67,27 @@ def copy_dotfile(src, dst, backup):
     shutil.copy(src, dst)
 
 
-def extra_config(name):
-    if name == "vim":
-        pathlib.Path("~/.vim/swp").expanduser().mkdir(parents=True, exist_ok=True)
-        pathlib.Path("~/.vim/undo").expanduser().mkdir(parents=True, exist_ok=True)
-        subprocess.run(["vim", "+PlugInstall", "+qall"])
+def extra_config(name, config_dict):
+    if name == "git":
+        _git(config_dict.get(name))
     elif name == "neovim":
-        subprocess.run(["nvim", "+PlugInstall", "+qall"])
+        _neovim(config_dict.get(name))
+    elif name == "vim":
+        _vim(config_dict.get(name))
 
 
-def setup_app(name, files, extra, backup):
+def setup_app(name, files, copy_only, config_dict, backup):
     ldots = 30 - len(name)
     print(f"Configuring {name} {ldots * '.'} ", end="")
     try:
         for file in files:
             src, dst = file
             copy_dotfile(src=src, dst=dst, backup=backup)
-        if extra:
-            extra_config(name=name)
-    except:
+        if not copy_only:
+            extra_config(name=name, config_dict=config_dict)
+    except Exception as e:
         print(CROSS)
+        return e
     else:
         print(TICK)
 
@@ -89,24 +113,43 @@ def parse_args():
         help="backup existing dotfiles",
     )
     parser.add_argument(
-        "-e",
-        "--extra",
+        "-c",
+        "--copy-only",
         action="store_true",
-        help="do extra configuration",
+        help="only copy dotfiles, no extra config",
+    )
+    parser.add_argument(
+        "-e",
+        "--env",
+        type=pathlib.Path,
+        help="path to env file [default: .env]",
+        default=pathlib.Path(".env"),
     )
     args = parser.parse_args()
     if args.all:
         apps = list(APPS.keys())
     else:
         apps = args.apps
-    return apps, args.extra, args.backup
+    return apps, args.copy_only, args.env, args.backup
 
 
 def main():
-    apps, extra, backup = parse_args()
+    apps, copy_only, envfile, backup = parse_args()
+    config_dict = get_config(envfile=envfile)
+    errors = {}
     for app, files in APPS.items():
         if app in apps:
-            setup_app(name=app, files=files, extra=extra, backup=backup)
+            errors[app] = setup_app(
+                name=app,
+                files=files,
+                copy_only=copy_only,
+                config_dict=config_dict,
+                backup=backup,
+            )
+    print("")
+    for app, error in errors.items():
+        if error:
+            print(f"{app} failed with error:  \n{error}")
 
 
 if __name__ == "__main__":
