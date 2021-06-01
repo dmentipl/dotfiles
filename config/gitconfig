@@ -9,6 +9,9 @@
   editor = vim
   excludesfile = ~/.gitignore
 
+[init]
+  defaultBranch = main
+
 [merge]
   conflictstlye = diff3
   ff = only
