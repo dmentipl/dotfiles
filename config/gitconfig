@@ -1,6 +1,3 @@
-# Aliases from Scott Nonnenberg:
-# https://gist.github.com/scottnonnenberg/fefa3f65fdb3715d25882f3023b31c29
-
 [user]
 	name = Daniel Mentiplay
 
@@ -9,7 +6,7 @@
 	excludesfile = ~/.gitignore
 
 [init]
-  defaultBranch = main
+	defaultBranch = main
 
 [merge]
 	conflictstlye = diff3
