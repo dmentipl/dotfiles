@@ -83,7 +83,7 @@ if $(command -v git):
     abbrevs['gds'] = 'git diff --staged'
     abbrevs['gf'] = 'git fetch --prune'
     abbrevs['gg'] = 'git log --stat --abbrev-commit'
-    abbrevs['ggo'] = 'git log --oneline --graph --abbrev-commit'
+    abbrevs['ggo'] ='git log --graph --pretty=format:"%C(red)%h%C(reset) %C(yellow)%d%C(reset) %s %C(green)(%cr)%C(reset) %C(blue)<%an>%C(reset)" --abbrev-commit'
     abbrevs['ggp'] = 'git log --patch --abbrev-commit'
     abbrevs['gm'] = 'git merge'
     abbrevs['gl'] = 'git pull'

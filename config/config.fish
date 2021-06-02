@@ -69,7 +69,7 @@ if command -v git > /dev/null
   abbr --add --global gds 'git diff --staged'
   abbr --add --global gf 'git fetch --prune'
   abbr --add --global gg 'git log --stat --abbrev-commit'
-  abbr --add --global ggo 'git log --oneline --graph --abbrev-commit'
+  abbr --add --global ggo 'git log --graph --pretty=format:"%C(red)%h%C(reset) %C(yellow)%d%C(reset) %s %C(green)(%cr)%C(reset) %C(blue)<%an>%C(reset)" --abbrev-commit'
   abbr --add --global ggp 'git log --patch --abbrev-commit'
   abbr --add --global gm 'git merge'
   abbr --add --global gl 'git pull'
