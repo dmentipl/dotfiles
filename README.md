@@ -17,23 +17,40 @@ See below for further details about these applications.
 Usage
 -----
 
-Clone this repository locally (or download a tarball/zip archive). You can then run:
+Clone this repository locally (or download a tarball/zip archive). You can then run the following scripts.
 
-1. `install` script to install applications,
-2. `configure` script to configure dotfiles.
+1. Run the installation script to set up Homebrew (as required) and install applications with brew, apt, or dnf, with
 
-The latter is particular is useful to reconfigure dotfiles after making changes.
+    ```bash
+    ./install
+    ```
+
+2. Run the configuration script to configure dotfiles, i.e. copy them to the appropriate place in the user's home directory, e.g., with
+
+    ```bash
+    ./configure --all
+    ```
+
+The latter is particular is useful to reconfigure dotfiles after making changes. See also the help in the configuration script.
 
 Structure
 ---------
 
 ### Config
 
-The dotfiles live in the `config` directory.
+The dotfiles live in the `config` directory; examples include `gitconfig`, `tmux.conf`, and `vimrc`.
 
 ### Install
 
-Files relating to setup and installation live in the `install` directory. `Brewfile` contains programs and casks for Homebrew to install. The `extensions.txt` file contains a list of VS Code extensions. The `pkglist.txt` files contains programs to install via apt or dnf.
+Files relating to setup and installation live in the `install` directory.
+
+- `Brewfile` contains programs and casks for Homebrew to install.
+- The `extensions.txt` file contains a list of VS Code extensions.
+- The `pkglist.txt` files contains programs to install via apt or dnf.
+
+### Scripts
+
+The installation and configuration scripts live here.
 
 Further details
 ---------------
@@ -90,7 +107,7 @@ Change caps lock to control.
 
 Download and install colorschemes manually from <https://iterm2colorschemes.com/>. I like 'Monokai Soda'.
 
-The `mac.sh` file in the `install` directory contains a collection of nice-to-have defaults that you would otherwise set using System Preferences. This is derived from <https://github.com/mathiasbynens/dotfiles>.
+The `mac.sh` file in the `install` directory contains a collection of nice-to-have defaults that you would otherwise set using System Preferences. This is derived from [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
 
 ### Requirements
 
