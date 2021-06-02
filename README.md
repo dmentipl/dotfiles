@@ -10,7 +10,7 @@ This is a set of dotfiles appropriate for macOS and Linux machines (including re
 
 The main aim is to have the following installed and configured:
 
-> bash, code, fish, fzf, git, neovim, starship, tmux, vim, zsh
+> bash, code, fish, fzf, git, neovim, starship, tmux, vim, xonsh, zsh
 
 See below for further details about these applications.
 
@@ -20,10 +20,10 @@ Usage
 Clone this repository locally (or download a tarball/zip archive). Then run the bootstrap script and follow the prompts.
 
 ```bash
-./bootstrap.sh
+./scripts/bootstrap.sh
 ```
 
-You can separately run the `install.sh` and `configure.sh` scripts to install applications and configure dotfiles, respectively. The latter is particular is useful to reconfigure dotfiles after making changes.
+You can separately run the `install` and `configure` Python scripts to install applications and configure dotfiles, respectively. The latter is particular is useful to reconfigure dotfiles after making changes.
 
 Structure
 ---------
@@ -32,34 +32,9 @@ Structure
 
 The dotfiles live in the `config` directory.
 
-```
-config
-├── abbr.fish
-├── aliases
-├── bashrc
-├── config.fish
-├── gitconfig
-├── gitignore
-├── settings.json
-├── starship.toml
-├── tmux.conf
-├── vimrc
-└── zshrc
-```
-
 ### Install
 
-Files relating to setup and installation live in the `install` directory.
-
-```
-install
-├── Brewfile
-├── extensions.txt
-├── mac.sh
-└── pkglist.txt
-```
-
-`Brewfile` contains programs and casks for Homebrew to install. The `extensions.txt` file contains a list of VS Code extensions. The `pkglist.txt` files contains programs to install via apt or dnf.
+Files relating to setup and installation live in the `install` directory. `Brewfile` contains programs and casks for Homebrew to install. The `extensions.txt` file contains a list of VS Code extensions. The `pkglist.txt` files contains programs to install via apt or dnf.
 
 Further details
 ---------------
@@ -94,6 +69,10 @@ The bootstrap script will attempt to install the following applications (amongst
 
 > A terminal multiplexer: <https://github.com/tmux/tmux/wiki>.
 
+- xonsh
+
+> Python-powered shell: <https://xon.sh/>
+
 - VS Code
 
 > Microsoft open source code editor: <https://code.visualstudio.com/>.
@@ -113,3 +92,7 @@ Change caps lock to control.
 Download and install colorschemes manually from <https://iterm2colorschemes.com/>. I like 'Monokai Soda'.
 
 The `mac.sh` file in the `install` directory contains a collection of nice-to-have defaults that you would otherwise set using System Preferences. This is derived from <https://github.com/mathiasbynens/dotfiles>.
+
+### Requirements
+
+The installation and configuration scripts require Python 3.5+. Installation of software may require sudo privilege.
