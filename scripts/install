@@ -5,6 +5,9 @@ import pathlib
 import subprocess
 import sys
 
+# TODO: add argparse and options for installing.
+# TODO: is it possible to write tests for this?
+
 INSTALL = pathlib.Path(__file__).parent.parent / "install"
 
 
