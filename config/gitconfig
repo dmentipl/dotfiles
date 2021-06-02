@@ -1,27 +1,23 @@
-# Aliases from Scott Nonnenberg:
-# https://gist.github.com/scottnonnenberg/fefa3f65fdb3715d25882f3023b31c29
-
 [user]
-  email = ${EMAIL}
-  name = Daniel Mentiplay
+	name = Daniel Mentiplay
 
 [core]
-  editor = vim
-  excludesfile = ~/.gitignore
+	editor = vim
+	excludesfile = ~/.gitignore
 
 [init]
-  defaultBranch = main
+	defaultBranch = main
 
 [merge]
-  conflictstlye = diff3
-  ff = only
+	conflictstlye = diff3
+	ff = only
 
 [push]
-  default = simple
-  followTags = true
+	default = simple
+	followTags = true
 
 [status]
-  showUntrackedFiles = all
+	showUntrackedFiles = all
 
 [url "git@github.com:"]
-  insteadOf = gh:
+	insteadOf = gh:
