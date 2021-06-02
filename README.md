@@ -17,13 +17,12 @@ See below for further details about these applications.
 Usage
 -----
 
-Clone this repository locally (or download a tarball/zip archive). Then run the bootstrap script and follow the prompts.
+Clone this repository locally (or download a tarball/zip archive). You can then run:
 
-```bash
-./scripts/bootstrap.sh
-```
+1. `install` script to install applications,
+2. `configure` script to configure dotfiles.
 
-You can separately run the `install` and `configure` Python scripts to install applications and configure dotfiles, respectively. The latter is particular is useful to reconfigure dotfiles after making changes.
+The latter is particular is useful to reconfigure dotfiles after making changes.
 
 Structure
 ---------
@@ -41,7 +40,7 @@ Further details
 
 ### Applications
 
-The bootstrap script will attempt to install the following applications (amongst others).
+The installation script will attempt to install the following applications (amongst others).
 
 - Fish
 
