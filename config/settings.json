@@ -19,9 +19,6 @@
     "latex-workshop.bind.altKeymap.enabled": true,
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.chktex.enabled": true,
-    "python.formatting.blackArgs": [
-        "--skip-string-normalization"
-    ],
     "python.formatting.provider": "black",
     "python.languageServer": "Pylance",
     "python.linting.enabled": true,
