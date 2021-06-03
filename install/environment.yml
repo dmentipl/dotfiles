@@ -1,0 +1,19 @@
+# Conda packages for my base environment.
+#
+# mamba install --file base.yml
+# conda install --file base.yml
+#
+black
+flake8
+ipython
+isort
+jupyterlab
+jupytext
+mypy
+pip
+pycodestyle
+pydocstyle
+pylint
+pytest
+sphinx
+xonsh
