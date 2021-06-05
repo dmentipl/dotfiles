@@ -40,7 +40,7 @@ def linux_distro():
         output = run(["lsb_release", "-is"], capture_output=True)
     except FileNotFoundError:
         return ""
-    return output.stdout.decode().lower()
+    return output.stdout.decode().lower().strip()
 
 
 def is_installed(app):
