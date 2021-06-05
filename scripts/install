@@ -8,6 +8,12 @@ import sys
 # TODO: add argparse and options for installing.
 # TODO: is it possible to write tests for this?
 
+RED = "\033[1;31m"
+GREEN = "\033[1;32m"
+NOCOLOR = "\033[0m"
+TICK = f"{GREEN}\u2713{NOCOLOR}"
+CROSS = f"{RED}\u2718{NOCOLOR}"
+
 INSTALL = pathlib.Path(__file__).parent.parent / "install"
 
 
@@ -48,22 +54,40 @@ def install_with_brew():
 def install_code_extensions():
     with open(INSTALL / "extensions.txt", "r") as fp:
         exts = [line.strip() for line in fp.readlines()]
+    results = []
     for ext in exts:
-        subprocess.run(["code", "--install-extension", ext])
+        result = subprocess.run(["code", "--install-extension", ext])
+        results.append(result.returncode)
+    if any(r != 0 for r in results):
+        print(CROSS)
+        return
+    print(TICK)
 
 
 def install_with_apt():
     with open(INSTALL / "pkglist.txt", "r") as fp:
         pkgs = [line.strip() for line in fp.readlines()]
+    results = []
     for pkg in pkgs:
-        subprocess.run(["sudo", "apt", "install", "-y", pkg])
+        result = subprocess.run(["sudo", "apt", "install", "-y", pkg])
+        results.append(result.returncode)
+    if any(r != 0 for r in results):
+        print(CROSS)
+        return
+    print(TICK)
 
 
 def install_with_dnf():
     with open(INSTALL / "pkglist.txt", "r") as fp:
         pkgs = [line.strip() for line in fp.readlines()]
+    results = []
     for pkg in pkgs:
-        subprocess.run(["sudo", "dnf", "install", "-y", pkg])
+        result = subprocess.run(["sudo", "dnf", "install", "-y", pkg])
+        results.append(result.returncode)
+    if any(r != 0 for r in results):
+        print(CROSS)
+        return
+    print(TICK)
 
 
 def install_fzf():
@@ -71,7 +95,7 @@ def install_fzf():
     try:
         subprocess.run(["fzf", "--version"], capture_output=True)
     except FileNotFoundError:
-        subprocess.run(
+        result = subprocess.run(
             [
                 "git",
                 "clone",
@@ -82,6 +106,10 @@ def install_fzf():
             ]
         )
         subprocess.run([fzf_dir / "install"])
+        if result.returncode == 0:
+            print(CROSS)
+            return
+        print(TICK)
 
 
 def install_starship():
@@ -97,12 +125,17 @@ def install_starship():
                 ["curl", "-fsSL", "https://starship.rs/install.sh"], stdout=fp
             )
         subprocess.run(["chmod", "+x", TMPFILE])
-        subprocess.run(["bash", TMPFILE, "--yes", f"--bin-dir={bin_dir}"])
+        result = subprocess.run(["bash", TMPFILE, "--yes", f"--bin-dir={bin_dir}"])
         TMPFILE.unlink()
+        if result.returncode == 0:
+            print(CROSS)
+            return
+        print(TICK)
 
 
-def install_vim_plug():
-    subprocess.run(
+def install_vim_plug_vim():
+    print("Installing vim-plug for Vim...", end="")
+    result = subprocess.run(
         [
             "curl",
             "-fLo",
@@ -111,14 +144,26 @@ def install_vim_plug():
             "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
         ]
     )
-    subprocess.run(
+    if result.returncode == 0:
+        print(CROSS)
+        return
+    print(TICK)
+
+
+def install_vim_plug_nvim():
+    print("Installing vim-plug for Neovim...", end="")
+    result = subprocess.run(
         [
             "sh",
             "-c",
-            "'curl -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim"
+            '\'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim'
             " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'",
         ]
     )
+    if result.returncode == 0:
+        print(CROSS)
+        return
+    print(TICK)
 
 
 def main():
@@ -135,7 +180,8 @@ def main():
         raise RuntimeError("unsupported platform")
     install_fzf()
     install_starship()
-    install_vim_plug()
+    install_vim_plug_vim()
+    install_vim_plug_nvim()
 
 
 if __name__ == "__main__":
