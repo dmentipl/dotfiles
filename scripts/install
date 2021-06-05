@@ -2,6 +2,7 @@
 """Install software."""
 
 from pathlib import Path
+from shutil import which
 from subprocess import CalledProcessError, run
 from sys import platform
 
@@ -44,9 +45,9 @@ def linux_distro():
 
 
 def is_installed(app):
-    if run(["command", "-v", app], capture_output=True).returncode == 0:
-        return True
-    return False
+    if which(app) is None:
+        return False
+    return True
 
 
 def get_system():
