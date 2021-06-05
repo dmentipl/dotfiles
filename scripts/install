@@ -175,9 +175,9 @@ APPS = dict(
 )
 
 INSTALLERS = dict(
-    macos=["brew", "code"],
-    fedora=["code", "dnf"],
-    ubuntu=["apt", "code"],
+    macos=["brew", "code", "nvim", "vim"],
+    fedora=["code", "dnf", "nvim", "vim"],
+    ubuntu=["apt", "code", "nvim", "vim"],
 )
 
 INSTALL_APP = dict(
