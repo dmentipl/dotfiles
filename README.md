@@ -1,21 +1,18 @@
-dotfiles
-========
+# dotfiles
 
 > dotfiles for macOS and Linux machines
 
-Description
------------
+## Description
 
-This is a set of dotfiles appropriate for macOS and Linux machines (including remote machines where I may not have root access).
+This is a set of dotfiles and installation scripts appropriate for machines running macOS and Linux. These files are useful for me ([@dmentipl](https://github.com/dmentipl)). *Perhaps* they are useful for you.
 
 The main aim is to have the following installed and configured:
 
 > bash, code, fish, fzf, git, neovim, starship, tmux, vim, xonsh, zsh
 
-See below for further details about these applications.
+See below for further details about these applications. Note that, for Linux machines, the focus is on command line applications and *not* desktop.
 
-Usage
------
+## Usage
 
 Clone this repository locally (or download a tarball/zip archive). You can then run the following scripts.
 
@@ -33,8 +30,11 @@ Clone this repository locally (or download a tarball/zip archive). You can then 
 
 The latter is particular is useful to reconfigure dotfiles after making changes. See also the help in the configuration script.
 
-Structure
----------
+## Requirements
+
+The installation and configuration scripts require Python 3.5+. Installation of software may require sudo privilege.
+
+## Structure
 
 ### Config
 
@@ -52,10 +52,7 @@ Files relating to setup and installation live in the `install` directory.
 
 The installation and configuration scripts live here.
 
-Further details
----------------
-
-### Applications
+## Further details
 
 The installation script will attempt to install the following applications (amongst others).
 
@@ -93,7 +90,7 @@ The installation script will attempt to install the following applications (amon
 
 > Microsoft open source code editor: <https://code.visualstudio.com/>.
 
-### macOS specific
+## macOS specific
 
 To install the Xcode command line tools (which include git and other basic programs) run:
 
@@ -109,6 +106,19 @@ Download and install colorschemes manually from <https://iterm2colorschemes.com/
 
 The `mac.sh` file in the `install` directory contains a collection of nice-to-have defaults that you would otherwise set using System Preferences. This is derived from [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
 
-### Requirements
+### Desktop applications
 
-The installation and configuration scripts require Python 3.5+. Installation of software may require sudo privilege.
+One could add these as "casks" to the Brewfile and let Homebrew install these. However, I install the following applications "manually".
+
+- Brave
+- Dropbox
+- Flux
+- Gestimer
+- iStat Menus
+- iTerm
+- KeepingYouAwake
+- Notion
+- ProtonVPN
+- Signal
+- Spotify
+- VS Code
