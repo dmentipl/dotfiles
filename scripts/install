@@ -97,36 +97,6 @@ def install_with_dnf():
     install_with_helper(file=INSTALL_DIR / "pkglist.txt", command="sudo dnf install -y")
 
 
-def install_with_nvim():
-    path = Path("~/.local/share/nvim/site/autoload/plug.vim").expanduser()
-    run(
-        [
-            "sh",
-            "-c",
-            f"curl -fLo {path} "
-            "--create-dirs "
-            "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
-        ],
-        check=True,
-    )
-
-
-def install_with_vim():
-    Path("~/.vim/swp").expanduser().mkdir(parents=True, exist_ok=True)
-    Path("~/.vim/undo").expanduser().mkdir(parents=True, exist_ok=True)
-    path = Path("~/.vim/autoload/plug.vim").expanduser()
-    run(
-        [
-            "curl",
-            "-fLo",
-            path,
-            "--create-dirs",
-            "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
-        ],
-        check=True,
-    )
-
-
 # ------------------------------------------------------------------------------------ #
 # Install app
 
@@ -172,26 +142,56 @@ def install_starship():
     TMPFILE.unlink()
 
 
+def install_vim_plug():
+    # Neovim (nvim)
+    path = Path("~/.local/share/nvim/site/autoload/plug.vim").expanduser()
+    run(
+        [
+            "sh",
+            "-c",
+            f"curl -fLo {path} "
+            "--create-dirs "
+            "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
+        ],
+        check=True,
+    )
+    # Vim
+    path = Path("~/.vim/autoload/plug.vim").expanduser()
+    Path("~/.vim/swp").expanduser().mkdir(parents=True, exist_ok=True)
+    Path("~/.vim/undo").expanduser().mkdir(parents=True, exist_ok=True)
+    run(
+        [
+            "curl",
+            "-fLo",
+            path,
+            "--create-dirs",
+            "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
+        ],
+        check=True,
+    )
+
+
 # ------------------------------------------------------------------------------------ #
 
 SYSTEM = get_system()
 
 APPS = dict(
-    macos=["brew", "fzf", "starship"],
-    fedora=["fzf", "starship"],
-    ubuntu=["fzf", "starship"],
+    macos=["brew", "fzf", "starship", "vim_plug"],
+    fedora=["fzf", "starship", "vim_plug"],
+    ubuntu=["fzf", "starship", "vim_plug"],
 )
 
 INSTALLERS = dict(
-    macos=["brew", "code", "nvim", "vim"],
-    fedora=["code", "dnf", "nvim", "vim"],
-    ubuntu=["apt", "code", "nvim", "vim"],
+    macos=["brew", "code"],
+    fedora=["code", "dnf"],
+    ubuntu=["apt", "code"],
 )
 
 INSTALL_APP = dict(
     brew=install_brew,
     fzf=install_fzf,
     starship=install_starship,
+    vim_plug=install_vim_plug,
 )
 
 INSTALL_WITH = dict(
@@ -199,8 +199,6 @@ INSTALL_WITH = dict(
     brew=install_with_brew,
     code=install_with_code,
     dnf=install_with_dnf,
-    nvim=install_with_nvim,
-    vim=install_with_vim,
 )
 
 # ------------------------------------------------------------------------------------ #
