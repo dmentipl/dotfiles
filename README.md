@@ -6,13 +6,13 @@ dotfiles
 Description
 -----------
 
-This is a set of dotfiles appropriate for macOS and Linux machines (including remote machines where I may not have root access).
+This is a set of dotfiles and installation scripts appropriate for machines running macOS and Linux. These files are useful for me ([@dmentipl](https://github.com/dmentipl)). *Perhaps* they are useful for you.
 
 The main aim is to have the following installed and configured:
 
 > bash, code, fish, fzf, git, neovim, starship, tmux, vim, xonsh, zsh
 
-See below for further details about these applications.
+See below for further details about these applications. Note that, for Linux machines, the focus is on command line applications and *not* desktop.
 
 Usage
 -----
@@ -108,6 +108,24 @@ Change caps lock to control.
 Download and install colorschemes manually from <https://iterm2colorschemes.com/>. I like 'Monokai Soda'.
 
 The `mac.sh` file in the `install` directory contains a collection of nice-to-have defaults that you would otherwise set using System Preferences. This is derived from [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
+
+
+#### Applications
+
+One could add these as "casks" to the Brewfile and let Homebrew install these. However, I install the following applications "manually".
+
+- Brave
+- Dropbox
+- Flux
+- Gestimer
+- iStat Menus
+- iTerm
+- KeepingYouAwake
+- Notion
+- ProtonVPN
+- Signal
+- Spotify
+- VS Code
 
 ### Requirements
 
