@@ -50,8 +50,6 @@ def _neovim(conf):
 
 
 def _vim(conf):
-    pathlib.Path("~/.vim/swp").expanduser().mkdir(parents=True, exist_ok=True)
-    pathlib.Path("~/.vim/undo").expanduser().mkdir(parents=True, exist_ok=True)
     subprocess.run(["vim", "+PlugInstall", "+qall"])
 
 

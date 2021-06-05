@@ -1,19 +1,43 @@
 #!/usr/bin/env python3
 """Install software."""
 
-import pathlib
-import subprocess
-import sys
+from pathlib import Path
+from subprocess import CalledProcessError, run
+from sys import platform
 
 # TODO: add argparse and options for installing.
 # TODO: is it possible to write tests for this?
 
-INSTALL = pathlib.Path(__file__).parent.parent / "install"
+BOLD = "\033[1m"
+RESET = "\033[0m"
+RED = "\033[1;31m"
+GREEN = "\033[1;32m"
+YELLOW = "\033[1;33m"
+GREY = "\033[1;90m"
+
+TICK = f"{GREEN}\u2713{RESET}"
+CROSS = f"{RED}\u2718{RESET}"
+ARROW = f"{YELLOW}\u27BE{RESET}"
+
+INSTALL_DIR = Path(__file__).parent.parent / "install"
+
+
+# ------------------------------------------------------------------------------------ #
+# Utility
+
+
+def printer(msg, status):
+    print(f"{status}  {BOLD}{GREY}{msg}{RESET}")
+
+
+def read_lines(file):
+    with open(file, "r") as fp:
+        return [line.strip() for line in fp.readlines()]
 
 
 def is_linux_distro(distro):
     try:
-        output = subprocess.run(["lsb_release", "-is"], capture_output=True)
+        output = run(["lsb_release", "-is"], capture_output=True)
     except FileNotFoundError:
         return False
     if output.stdout.decode().lower() == distro.lower():
@@ -21,121 +45,190 @@ def is_linux_distro(distro):
     return False
 
 
-def set_mac_defaults():
-    subprocess.run(["bash", INSTALL / "mac.sh"])
+def is_installed(app):
+    if run(["command", "-v", app], capture_output=True).returncode == 0:
+        return True
+    return False
 
 
-def install_homebrew():
-    subprocess.run(
+def get_system():
+    if platform == "darwin":
+        return "macos"
+    elif platform == "linux":
+        if is_linux_distro("Ubuntu"):
+            return "ubuntu"
+        if is_linux_distro("Fedora"):
+            return "fedora"
+    else:
+        raise RuntimeError("unsupported platform")
+
+
+# ------------------------------------------------------------------------------------ #
+# Install with
+
+
+def install_with_apt():
+    pkgs = read_lines(INSTALL_DIR / "pkglist.txt")
+    for pkg in pkgs:
+        run(["sudo", "apt", "install", "-y", pkg], check=True)
+
+
+def install_with_brew():
+    run(["brew", "bundle", "--file", INSTALL_DIR / "Brewfile"], check=True)
+
+
+def install_with_code():
+    exts = read_lines(INSTALL_DIR / "extensions.txt")
+    for ext in exts:
+        run(["code", "--install-extension", ext], check=True)
+
+
+def install_with_dnf():
+    pkgs = read_lines(INSTALL_DIR / "pkglist.txt")
+    for pkg in pkgs:
+        run(["sudo", "dnf", "install", "-y", pkg], check=True)
+
+
+def install_with_nvim():
+    path = Path("~/.local/share/nvim/site/autoload/plug.vim").expanduser()
+    run(
+        [
+            "sh",
+            "-c",
+            f"curl -fLo {path} "
+            "--create-dirs "
+            "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
+        ],
+        check=True,
+    )
+
+
+def install_with_vim():
+    Path("~/.vim/swp").expanduser().mkdir(parents=True, exist_ok=True)
+    Path("~/.vim/undo").expanduser().mkdir(parents=True, exist_ok=True)
+    path = Path("~/.vim/autoload/plug.vim").expanduser()
+    run(
+        [
+            "curl",
+            "-fLo",
+            path,
+            "--create-dirs",
+            "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
+        ],
+        check=True,
+    )
+
+
+# ------------------------------------------------------------------------------------ #
+# Install app
+
+
+def install_brew():
+    run(
         [
             "/usr/bin/ruby",
             "-e",
             "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)",
-        ]
+        ],
+        check=True,
     )
-    subprocess.run(["brew", "update"])
-    subprocess.run(["brew", "doctor"])
-
-
-def install_with_brew():
-    try:
-        subprocess.run(["brew", "bundle", "--file", INSTALL / "Brewfile"])
-    except FileNotFoundError:
-        install_homebrew()
-        subprocess.run(["brew", "bundle", "--file", INSTALL / "Brewfile"])
-
-
-def install_code_extensions():
-    with open(INSTALL / "extensions.txt", "r") as fp:
-        exts = [line.strip() for line in fp.readlines()]
-    for ext in exts:
-        subprocess.run(["code", "--install-extension", ext])
-
-
-def install_with_apt():
-    with open(INSTALL / "pkglist.txt", "r") as fp:
-        pkgs = [line.strip() for line in fp.readlines()]
-    for pkg in pkgs:
-        subprocess.run(["sudo", "apt", "install", "-y", pkg])
-
-
-def install_with_dnf():
-    with open(INSTALL / "pkglist.txt", "r") as fp:
-        pkgs = [line.strip() for line in fp.readlines()]
-    for pkg in pkgs:
-        subprocess.run(["sudo", "dnf", "install", "-y", pkg])
+    run(["brew", "update"], check=True)
+    run(["brew", "doctor"], check=True)
 
 
 def install_fzf():
-    fzf_dir = pathlib.Path("~/.fzf").expanduser()
-    try:
-        subprocess.run(["fzf", "--version"], capture_output=True)
-    except FileNotFoundError:
-        subprocess.run(
-            [
-                "git",
-                "clone",
-                "--depth",
-                "1",
-                "https://github.com/junegunn/fzf.git",
-                fzf_dir,
-            ]
-        )
-        subprocess.run([fzf_dir / "install"])
+    path = Path("~/.fzf").expanduser()
+    run(
+        [
+            "git",
+            "clone",
+            "--depth",
+            "1",
+            "https://github.com/junegunn/fzf.git",
+            path,
+        ],
+        check=True,
+    )
+    run([path / "install"], check=True)
 
 
 def install_starship():
-    try:
-        subprocess.run(["starship"], capture_output=True)
-    except FileNotFoundError:
-        bin_dir = pathlib.Path("~/bin").expanduser()
-        if not bin_dir.exists():
-            bin_dir.mkdir()
-        TMPFILE = pathlib.Path("tmp.sh")
-        with open(TMPFILE, "w") as fp:
-            subprocess.run(
-                ["curl", "-fsSL", "https://starship.rs/install.sh"], stdout=fp
-            )
-        subprocess.run(["chmod", "+x", TMPFILE])
-        subprocess.run(["bash", TMPFILE, "--yes", f"--bin-dir={bin_dir}"])
-        TMPFILE.unlink()
+    path = Path("~/bin").expanduser()
+    if not path.exists():
+        path.mkdir()
+    TMPFILE = Path("tmp.sh")
+    with open(TMPFILE, "w") as fp:
+        run(["curl", "-fsSL", "https://starship.rs/install.sh"], stdout=fp, check=True)
+    run(["chmod", "+x", TMPFILE], check=True)
+    run(["bash", TMPFILE, "--yes", f"--bin-dir={path}"], check=True)
+    TMPFILE.unlink()
 
 
-def install_vim_plug():
-    subprocess.run(
-        [
-            "curl",
-            "-fLo",
-            "~/.vim/autoload/plug.vim",
-            "--create-dirs",
-            "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
-        ]
-    )
-    subprocess.run(
-        [
-            "sh",
-            "-c",
-            "'curl -fLo \"${XDG_DATA_HOME:-$HOME/.local/share}\"/nvim/site/autoload/plug.vim"
-            " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'",
-        ]
-    )
+# ------------------------------------------------------------------------------------ #
+
+SYSTEM = get_system()
+
+APPS = dict(
+    macos=["brew", "fzf", "starship"],
+    fedora=["fzf", "starship"],
+    ubuntu=["fzf", "starship"],
+)
+
+INSTALLERS = dict(
+    macos=["brew", "code", "nvim", "vim"],
+    fedora=["code", "dnf", "nvim", "vim"],
+    ubuntu=["apt", "code", "nvim", "vim"],
+)
+
+INSTALL_APP = dict(
+    brew=install_brew,
+    fzf=install_fzf,
+    starship=install_starship,
+)
+
+INSTALL_WITH = dict(
+    apt=install_with_apt,
+    brew=install_with_brew,
+    code=install_with_code,
+    dnf=install_with_dnf,
+    nvim=install_with_nvim,
+    vim=install_with_vim,
+)
+
+# ------------------------------------------------------------------------------------ #
+
+
+def install_app(app):
+    INSTALL_APP[app]()
+
+
+def install_with(installer):
+    INSTALL_WITH[installer]()
 
 
 def main():
-    if sys.platform == "darwin":
-        set_mac_defaults()
-        install_with_brew()
-        install_code_extensions()
-    elif sys.platform == "linux":
-        if is_linux_distro("Ubuntu"):
-            install_with_apt()
-        if is_linux_distro("Fedora"):
-            install_with_dnf()
-    else:
-        raise RuntimeError("unsupported platform")
-    install_fzf()
-    install_starship()
-    install_vim_plug()
+    apps = APPS[SYSTEM]
+    installers = INSTALLERS[SYSTEM]
+
+    for app in apps:
+        if not is_installed(app):
+            printer(msg=f"installing {app}", status=ARROW)
+            try:
+                install_app(app)
+            except CalledProcessError:
+                printer(msg=f"failed to install {app}", status=CROSS)
+            else:
+                printer(msg=f"installed {app}", status=TICK)
+        else:
+            printer(msg=f"{app} already installed", status=TICK)
+
+    for installer in installers:
+        if is_installed(installer):
+            printer(msg=f"installing with {installer}", status=ARROW)
+            install_with(installer)
+            printer(msg=f"installed with {installer}", status=TICK)
+        else:
+            printer(msg=f"{installer} not available, skipping", status=CROSS)
 
 
 if __name__ == "__main__":
