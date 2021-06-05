@@ -45,6 +45,14 @@ def _git(conf):
     subprocess.run(["git", "config", "--global", "user.email", email])
 
 
+def _neovim(conf):
+    subprocess.run(["nvim", "+PlugInstall", "+qall"])
+
+
+def _vim(conf):
+    subprocess.run(["vim", "+PlugInstall", "+qall"])
+
+
 def get_config(envfile):
     config = configparser.ConfigParser()
     config.read(envfile)
@@ -64,6 +72,10 @@ def copy_dotfile(src, dst, backup):
 def extra_config(name, config_dict):
     if name == "git":
         _git(config_dict.get(name))
+    elif name == "neovim":
+        _neovim(config_dict.get(name))
+    elif name == "vim":
+        _vim(config_dict.get(name))
 
 
 def setup_app(name, files, copy_only, config_dict, backup):
