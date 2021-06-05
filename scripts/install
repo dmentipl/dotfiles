@@ -22,8 +22,17 @@ ARROW = f"{YELLOW}\u27BE{RESET}"
 INSTALL_DIR = Path(__file__).parent.parent / "install"
 
 
+# ------------------------------------------------------------------------------------ #
+# Utility
+
+
 def printer(msg, status):
     print(f"{status}  {BOLD}{GREY}{msg}{RESET}")
+
+
+def read_lines(file):
+    with open(file, "r") as fp:
+        return [line.strip() for line in fp.readlines()]
 
 
 def is_linux_distro(distro):
@@ -42,9 +51,20 @@ def is_installed(app):
     return False
 
 
-def read_lines(file):
-    with open(file, "r") as fp:
-        return [line.strip() for line in fp.readlines()]
+def get_system():
+    if platform == "darwin":
+        return "macos"
+    elif platform == "linux":
+        if is_linux_distro("Ubuntu"):
+            return "ubuntu"
+        if is_linux_distro("Fedora"):
+            return "fedora"
+    else:
+        raise RuntimeError("unsupported platform")
+
+
+# ------------------------------------------------------------------------------------ #
+# Install with
 
 
 def install_with_apt():
@@ -99,6 +119,10 @@ def install_with_vim():
     run(["vim", "+PlugInstall", "+qall"])
 
 
+# ------------------------------------------------------------------------------------ #
+# Install app
+
+
 def install_brew():
     run(
         [
@@ -140,21 +164,7 @@ def install_starship():
     TMPFILE.unlink()
 
 
-def configure_macos():
-    run(["bash", INSTALL_DIR / "mac.sh"], check=True)
-
-
-def get_system():
-    if platform == "darwin":
-        return "macos"
-    elif platform == "linux":
-        if is_linux_distro("Ubuntu"):
-            return "ubuntu"
-        if is_linux_distro("Fedora"):
-            return "fedora"
-    else:
-        raise RuntimeError("unsupported platform")
-
+# ------------------------------------------------------------------------------------ #
 
 SYSTEM = get_system()
 
@@ -168,10 +178,6 @@ INSTALLERS = dict(
     macos=["brew", "code"],
     fedora=["code", "dnf"],
     ubuntu=["apt", "code"],
-)
-
-CONFIGURE = dict(
-    macos=configure_macos,
 )
 
 INSTALL_APP = dict(
@@ -189,17 +195,26 @@ INSTALL_WITH = dict(
     vim=install_with_vim,
 )
 
+# ------------------------------------------------------------------------------------ #
+
+
+def install_app(app):
+    INSTALL_APP[app]()
+
+
+def install_with(installer):
+    INSTALL_WITH[installer]()
+
 
 def main():
     apps = APPS[SYSTEM]
     installers = INSTALLERS[SYSTEM]
-    configure = CONFIGURE[SYSTEM]
 
     for app in apps:
         if not is_installed(app):
             printer(msg=f"installing {app}", status=ARROW)
             try:
-                INSTALL_APP[app]()
+                install_app(app)
             except CalledProcessError:
                 printer(msg=f"failed to install {app}", status=CROSS)
             else:
@@ -210,12 +225,10 @@ def main():
     for installer in installers:
         if is_installed(installer):
             printer(msg=f"installing with {installer}", status=ARROW)
-            INSTALL_WITH[installer]()
+            install_with(installer)
             printer(msg=f"installed with {installer}", status=TICK)
         else:
             printer(msg=f"{installer} not available, skipping", status=CROSS)
-
-    configure()
 
 
 if __name__ == "__main__":
