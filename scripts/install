@@ -70,23 +70,23 @@ def get_system():
 def install_with_apt():
     pkgs = read_lines(INSTALL_DIR / "pkglist.txt")
     for pkg in pkgs:
-        run(["sudo", "apt", "install", "-y", pkg])
+        run(["sudo", "apt", "install", "-y", pkg], check=True)
 
 
 def install_with_brew():
-    run(["brew", "bundle", "--file", INSTALL_DIR / "Brewfile"])
+    run(["brew", "bundle", "--file", INSTALL_DIR / "Brewfile"], check=True)
 
 
 def install_with_code():
     exts = read_lines(INSTALL_DIR / "extensions.txt")
     for ext in exts:
-        run(["code", "--install-extension", ext])
+        run(["code", "--install-extension", ext], check=True)
 
 
 def install_with_dnf():
     pkgs = read_lines(INSTALL_DIR / "pkglist.txt")
     for pkg in pkgs:
-        run(["sudo", "dnf", "install", "-y", pkg])
+        run(["sudo", "dnf", "install", "-y", pkg], check=True)
 
 
 def install_with_nvim():
@@ -98,7 +98,8 @@ def install_with_nvim():
             f"'curl -fLo {path} "
             "--create-dirs "
             "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'",
-        ]
+        ],
+        check=True,
     )
 
 
@@ -113,7 +114,8 @@ def install_with_vim():
             path,
             "--create-dirs",
             "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
-        ]
+        ],
+        check=True,
     )
 
 
