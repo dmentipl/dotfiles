@@ -35,14 +35,12 @@ def read_lines(file):
         return [line.strip() for line in fp.readlines()]
 
 
-def is_linux_distro(distro):
+def linux_distro():
     try:
         output = run(["lsb_release", "-is"], capture_output=True)
     except FileNotFoundError:
-        return False
-    if output.stdout.decode().lower() == distro.lower():
-        return True
-    return False
+        return ""
+    return output.stdout.decode().lower()
 
 
 def is_installed(app):
@@ -55,12 +53,10 @@ def get_system():
     if platform == "darwin":
         return "macos"
     elif platform == "linux":
-        if is_linux_distro("Ubuntu"):
-            return "ubuntu"
-        if is_linux_distro("Fedora"):
-            return "fedora"
-    else:
-        raise RuntimeError("unsupported platform")
+        ld = linux_distro()
+        if ld in ["fedora", "ubuntu"]:
+            return ld
+    raise RuntimeError("unsupported platform")
 
 
 # ------------------------------------------------------------------------------------ #
