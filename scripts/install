@@ -42,9 +42,13 @@ def is_installed(app):
     return False
 
 
+def read_lines(file):
+    with open(file, "r") as fp:
+        return [line.strip() for line in fp.readlines()]
+
+
 def install_with_apt():
-    with open(INSTALL_DIR / "pkglist.txt", "r") as fp:
-        pkgs = [line.strip() for line in fp.readlines()]
+    pkgs = read_lines(INSTALL_DIR / "pkglist.txt")
     for pkg in pkgs:
         run(["sudo", "apt", "install", "-y", pkg])
 
@@ -54,15 +58,13 @@ def install_with_brew():
 
 
 def install_with_code():
-    with open(INSTALL_DIR / "extensions.txt", "r") as fp:
-        exts = [line.strip() for line in fp.readlines()]
+    exts = read_lines(INSTALL_DIR / "extensions.txt")
     for ext in exts:
         run(["code", "--install-extension", ext])
 
 
 def install_with_dnf():
-    with open(INSTALL_DIR / "pkglist.txt", "r") as fp:
-        pkgs = [line.strip() for line in fp.readlines()]
+    pkgs = read_lines(INSTALL_DIR / "pkglist.txt")
     for pkg in pkgs:
         run(["sudo", "dnf", "install", "-y", pkg])
 
