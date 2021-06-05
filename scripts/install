@@ -2,7 +2,7 @@
 """Install software."""
 
 from pathlib import Path
-from subprocess import run
+from subprocess import CalledProcessError, run
 from sys import platform
 
 # TODO: add argparse and options for installing.
@@ -105,10 +105,11 @@ def install_brew():
             "/usr/bin/ruby",
             "-e",
             "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)",
-        ]
+        ],
+        check=True,
     )
-    run(["brew", "update"])
-    run(["brew", "doctor"])
+    run(["brew", "update"], check=True)
+    run(["brew", "doctor"], check=True)
 
 
 def install_fzf():
@@ -121,9 +122,10 @@ def install_fzf():
             "1",
             "https://github.com/junegunn/fzf.git",
             path,
-        ]
+        ],
+        check=True,
     )
-    run([path / "install"])
+    run([path / "install"], check=True)
 
 
 def install_starship():
@@ -132,14 +134,14 @@ def install_starship():
         path.mkdir()
     TMPFILE = Path("tmp.sh")
     with open(TMPFILE, "w") as fp:
-        run(["curl", "-fsSL", "https://starship.rs/install.sh"], stdout=fp)
-    run(["chmod", "+x", TMPFILE])
-    run(["bash", TMPFILE, "--yes", f"--bin-dir={path}"])
+        run(["curl", "-fsSL", "https://starship.rs/install.sh"], stdout=fp, check=True)
+    run(["chmod", "+x", TMPFILE], check=True)
+    run(["bash", TMPFILE, "--yes", f"--bin-dir={path}"], check=True)
     TMPFILE.unlink()
 
 
 def configure_macos():
-    run(["bash", INSTALL_DIR / "mac.sh"])
+    run(["bash", INSTALL_DIR / "mac.sh"], check=True)
 
 
 def get_system():
@@ -196,8 +198,12 @@ def main():
     for app in apps:
         if not is_installed(app):
             printer(msg=f"installing {app}", status=ARROW)
-            INSTALL_APP[app]()
-            printer(msg=f"installed {app}", status=TICK)
+            try:
+                INSTALL_APP[app]()
+            except CalledProcessError:
+                printer(msg=f"failed to install {app}", status=CROSS)
+            else:
+                printer(msg=f"installed {app}", status=TICK)
         else:
             printer(msg=f"{app} already installed", status=TICK)
 
