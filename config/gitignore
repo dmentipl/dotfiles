@@ -8,14 +8,7 @@
 .Trashes
 Icon
 
-# Vim
-.*.un~
-*.swp
-*.xmark.*
-%*
-.lvimrc
-
-# VS Code
+# Editor
 .vscode
 
 # Python
@@ -24,12 +17,3 @@ __pycache__
 .ipynb_checkpoints*
 .pytest_cache
 .mypy_cache
-
-# Fortran
-*.mod
-*.smod
-*.o
-
-# Ctags
-tags
-.tags
