@@ -9,7 +9,10 @@ ipython
 isort
 jupyterlab
 jupytext
+matplotlib
 mypy
+numpy
+pandas
 pip
 pycodestyle
 pydocstyle
