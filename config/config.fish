@@ -1,6 +1,7 @@
 # ============================================================================ #
 # ==== CONFIGURATION ==== #
 
+set -gx PATH ~/.fzf/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx PATH ~/bin $PATH
 
