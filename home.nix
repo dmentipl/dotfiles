@@ -44,11 +44,34 @@
     zsh
   ];
 
-  home.file.".config/fish/config.fish".source = ../../repos/dotfiles/config/config.fish;
-  home.file.".gitconfig".source = ../../repos/dotfiles/config/gitconfig;
-  home.file.".gitignore".source = ../../repos/dotfiles/config/gitignore;
-  home.file.".config/starship.toml".source = ../../repos/dotfiles/config/starship.toml;
-  home.file.".tmux.conf".source = ../../repos/dotfiles/config/tmux.conf;
-  home.file.".config/nvim/init.nvim".source = ../../repos/dotfiles/config/vimrc;
-  home.file."/Users/daniel/Library/Application Support/Code/User/settings.json".source = ../../repos/dotfiles/config/settings.json;
+  home.file = {
+    fish = {
+      source = ../../repos/dotfiles/config/config.fish;
+      target = ".config/fish/config.fish";
+    };
+    gitconfig = {
+      source = ../../repos/dotfiles/config/gitconfig;
+      target = ".gitconfig";
+    };
+    gitignore = {
+      source = ../../repos/dotfiles/config/gitignore;
+      target = ".gitignore";
+    };
+    nvim = {
+      source = ../../repos/dotfiles/config/vimrc;
+      target = ".config/nvim/init.nvim";
+    };
+    starship = {
+      source = ../../repos/dotfiles/config/starship.toml;
+      target = ".config/starship.toml";
+    };
+    tmux = {
+      source = ../../repos/dotfiles/config/tmux.conf;
+      target = ".tmux.conf";
+    };
+    vscode = {
+      source = ../../repos/dotfiles/config/settings.json;
+      target = "Library/Application Support/Code/User/settings.json";
+    };
+  };
 }
