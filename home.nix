@@ -22,8 +22,10 @@
   # changes in each release.
   home.stateVersion = "21.11";
   home.packages = with pkgs; [
+    bash
     bat
-    dust
+    curl
+    du-dust
     exa
     fd
     fish
@@ -31,12 +33,15 @@
     git
     htop
     neovim
+    pandoc
     ripgrep
     sd
     starship
     tmux
     trash-cli
     vscode
+    wget
+    zsh
   ];
 
   home.file.".config/fish/config.fish".source = ../../repos/dotfiles/config/config.fish;
