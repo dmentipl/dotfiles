@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
-{
+let
+
+  repo = ../../repos/dotfiles/config;
+
+in {
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -46,32 +51,33 @@
 
   home.file = {
     fish = {
-      source = ../../repos/dotfiles/config/config.fish;
+      source = repo + /config.fish;
       target = ".config/fish/config.fish";
     };
     gitconfig = {
-      source = ../../repos/dotfiles/config/gitconfig;
+      source = repo + /gitconfig;
       target = ".gitconfig";
     };
     gitignore = {
-      source = ../../repos/dotfiles/config/gitignore;
+      source = repo + /gitignore;
       target = ".gitignore";
     };
     nvim = {
-      source = ../../repos/dotfiles/config/vimrc;
+      source = repo + /vimrc;
       target = ".config/nvim/init.nvim";
     };
     starship = {
-      source = ../../repos/dotfiles/config/starship.toml;
+      source = repo + /starship.toml;
       target = ".config/starship.toml";
     };
     tmux = {
-      source = ../../repos/dotfiles/config/tmux.conf;
+      source = repo + /tmux.conf;
       target = ".tmux.conf";
     };
     vscode = {
-      source = ../../repos/dotfiles/config/settings.json;
+      source = repo + /settings.json;
       target = "Library/Application Support/Code/User/settings.json";
     };
   };
+
 }
