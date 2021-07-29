@@ -1,60 +1,66 @@
 # dotfiles
 
-> dotfiles for macOS and Linux machines
+> dotfiles for macOS and Linux machines with nix
 
 ## Description
 
-This is a set of dotfiles and installation scripts appropriate for machines running macOS and Linux. These files are useful for me ([@dmentipl](https://github.com/dmentipl)). *Perhaps* they are useful for you.
+This is a set of dotfiles and installation scripts appropriate for machines running macOS and Linux using [nix](https://nixos.org/).
 
 The main aim is to have the following installed and configured:
 
-> bash, code, fish, fzf, git, neovim, starship, tmux, vim, xonsh, zsh
+> fish, fzf, git, neovim, starship, tmux, vscode
 
-See below for further details about these applications. Note that, for Linux machines, the focus is on command line applications and *not* desktop.
+*Plus a handful of command line tools.
 
-## Usage
+### Caveat
 
-Clone this repository locally (or download a tarball/zip archive). You can then run the following scripts.
-
-1. Run the installation script to set up Homebrew (as required) and install applications with brew, apt, or dnf, with
-
-    ```bash
-    ./install
-    ```
-
-2. Run the configuration script to configure dotfiles, i.e. copy them to the appropriate place in the user's home directory, e.g., with
-
-    ```bash
-    ./configure --all
-    ```
-
-The latter is particular is useful to reconfigure dotfiles after making changes. See also the help in the configuration script.
+These files are useful to me ([@dmentipl](https://github.com/dmentipl)). They *might* be useful to you.
 
 ## Requirements
 
-The installation and configuration scripts require Python 3.5+. Installation of software may require sudo privilege.
+There are two main requirements:
 
-## Structure
+1. Nix; see <https://nixos.org/guides/install-nix.html>.
+2. Home-manager; see <https://github.com/nix-community/home-manager#installation>.
 
-### Config
+For nix binaries to be available on the path:
 
-The dotfiles live in the `config` directory; examples include `gitconfig`, `tmux.conf`, and `vimrc`.
+```bash
+cp config/profile ~/.profile  # for bash
+cp config/profile ~/.zprofile  # for zsh
+```
 
-### Install
+## Usage
 
-Files relating to setup and installation live in the `install` directory.
+1. Clone this repository locally (or download a tarball/zip archive) to
 
-- `Brewfile` contains programs and casks for Homebrew to install.
-- The `extensions.txt` file contains a list of VS Code extensions.
-- The `pkglist.txt` files contains programs to install via apt or dnf.
+    ```bash
+    ~/repos/dotfiles
+    ```
 
-### Scripts
+2. Symlink `home.nix` to `~/.config/nixpkgs`:
 
-The installation and configuration scripts live here.
+    ```bash
+    ln -s ~/repos/dotfiles/home.nix ~/.config/nixpkgs/home.nix
+    ```
+
+3. Run home-manager:
+
+    ```bash
+    home-manager switch
+    ```
+
+Each time you make a change to `home.nix` or any other file you need to run the home-manager switch command.
 
 ## Further details
 
-The installation script will attempt to install the following applications (amongst others).
+### Repo
+
+The dotfiles live in the `config` directory; examples include `gitconfig`, `tmux.conf`, and `vimrc`.
+
+### Applications
+
+Using this repo will install and configure these applications (amongst others).
 
 - Fish
 
@@ -64,15 +70,9 @@ The installation script will attempt to install the following applications (amon
 
 > The fuzzy command-line finder: <https://github.com/junegunn/fzf>.
 
-- Homebrew
-
-> The missing package manager for macOS: <https://brew.sh/>.
-
 - Neovim
 
 > Hyper-extensible Vim-base text editor: <https://neovim.io/>.
-
-> Minimalist Vim plugin manager: <https://github.com/junegunn/vim-plug>.
 
 - Starship
 
@@ -81,10 +81,6 @@ The installation script will attempt to install the following applications (amon
 - tmux
 
 > A terminal multiplexer: <https://github.com/tmux/tmux/wiki>.
-
-- xonsh
-
-> Python-powered shell: <https://xon.sh/>
 
 - VS Code
 
@@ -102,22 +98,21 @@ Change caps lock to control.
 
 > System Preferences > Keyboard > Keyboard (Modifier Keys): remap caps lock to control.
 
-Download and install colorschemes manually from <https://iterm2colorschemes.com/>. I like 'Monokai Soda'.
+Download and install color schemes manually from <https://iterm2colorschemes.com/>. I like 'Monokai Soda'.
 
-The `mac.sh` file in the `install` directory contains a collection of nice-to-have defaults that you would otherwise set using System Preferences. This is derived from [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
+The `mac.sh` file in the `config` directory contains a collection of nice-to-have defaults that you would otherwise set using System Preferences. This is derived from [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
 
 ### Desktop applications
 
-One could add these as "casks" to the Brewfile and let Homebrew install these. However, I install the following applications "manually".
+I install the following applications "manually".
 
 - Brave
-- Dropbox
 - Flux
 - Gestimer
 - iStat Menus
 - iTerm
 - KeepingYouAwake
-- Notion
+- Obsidian
 - ProtonVPN
 - Signal
 - Spotify

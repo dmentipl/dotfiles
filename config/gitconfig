@@ -1,8 +1,9 @@
 [user]
 	name = Daniel Mentiplay
+	email = daniel.mentiplay@protonmail.com
 
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore
 
 [init]
