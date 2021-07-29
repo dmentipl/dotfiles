@@ -1,12 +1,12 @@
 # dotfiles
 
-> dotfiles for macOS and Linux machines
+> dotfiles for macOS and Linux machines with nix
 
 ## Description
 
 This is a set of dotfiles and installation scripts appropriate for machines running macOS and Linux using [nix](https://nixos.org/).
 
-The main aim is to have the following* installed and configured:
+The main aim is to have the following installed and configured:
 
 > fish, fzf, git, neovim, starship, tmux, vscode
 
