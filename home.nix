@@ -67,8 +67,8 @@ in {
       target = ".gitignore";
     };
     nvim = {
-      source = repo + /vimrc;
-      target = ".config/nvim/init.nvim";
+      source = repo + /init.lua;
+      target = ".config/nvim/init.lua";
     };
     starship = {
       source = repo + /starship.toml;
