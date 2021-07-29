@@ -1,9 +1,6 @@
 # ============================================================================ #
 # ==== CONFIGURATION ==== #
 
-set -gx PATH ~/.local/bin $PATH
-set -gx PATH ~/bin $PATH
-
 test -e ~/conda/bin/conda && eval ~/conda/bin/conda "shell.fish" "hook" $argv | source
 function fish_right_prompt; end
 
