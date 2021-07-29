@@ -45,6 +45,7 @@ in {
     tmux
     trash-cli
     vscode
+    watch
     wget
     zsh
   ];
