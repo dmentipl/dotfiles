@@ -31,7 +31,7 @@ abbr --add --global which 'which -a'
 
 if command -v trash > /dev/null
   abbr --add --global bin trash
-  abbr --add --global rm 'printf "%s\n" "Use bin instead, or \\rm for real rm if required."'
+  abbr --add --global rm 'printf "%s\n" "Use trash instead, or /bin/rm if required."'
 else
   abbr --add --global rm 'rm -R'
 end
