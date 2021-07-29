@@ -54,6 +54,10 @@ in {
       source = repo + /config.fish;
       target = ".config/fish/config.fish";
     };
+    fish-function = {
+      source = repo + /extract.fish;
+      target = ".config/fish/functions/extract.fish";
+    };
     gitconfig = {
       source = repo + /gitconfig;
       target = ".gitconfig";
