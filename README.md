@@ -18,18 +18,30 @@ These files are useful to me ([@dmentipl](https://github.com/dmentipl)). They *m
 
 ## Requirements
 
-There are two requirements:
+There are two main requirements:
 
 1. Nix; see <https://nixos.org/guides/install-nix.html>.
 2. Home-manager; see <https://github.com/nix-community/home-manager#installation>.
 
+For nix binaries to be available on the path:
+
+```bash
+cp config/profile ~/.profile  # for bash
+cp config/profile ~/.zprofile  # for zsh
+```
+
 ## Usage
 
-1. Clone this repository locally (or download a tarball/zip archive).
-2. Copy `home.nix` to `.config/nixpkgs`:
+1. Clone this repository locally (or download a tarball/zip archive) to
 
     ```bash
-    cp home.nix ~/.config/nixpkgs
+    ~/repos/dotfiles
+    ```
+
+2. Symlink `home.nix` to `~/.config/nixpkgs`:
+
+    ```bash
+    ln -s ~/repos/dotfiles/home.nix ~/.config/nixpkgs/home.nix
     ```
 
 3. Run home-manager:
@@ -37,6 +49,8 @@ There are two requirements:
     ```bash
     home-manager switch
     ```
+
+Each time you make a change to `home.nix` or any other file you need to run the home-manager switch command.
 
 ## Further details
 
@@ -93,13 +107,12 @@ The `mac.sh` file in the `config` directory contains a collection of nice-to-hav
 I install the following applications "manually".
 
 - Brave
-- Dropbox
 - Flux
 - Gestimer
 - iStat Menus
 - iTerm
 - KeepingYouAwake
-- Notion
+- Obsidian
 - ProtonVPN
 - Signal
 - Spotify
