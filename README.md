@@ -49,7 +49,9 @@ Each time you make a change to `home.nix` or any other file you need to run the 
 
 ### Managed by nix and home-manager
 
-Nix and home-manager install applications as listed in `home.nix`. They also manage the dotfiles in `config` and symlink them to the correct locations.
+Nix and home-manager install applications as listed in [`home.nix`](home.nix), for example: bat, dust, exa, fd, fish, fzf, htop, jq, neovim, pandoc, procs, ripgrep, sd, starship, tmux, trash, and vscode.
+
+Nix and home-manager also symlink the dotfiles in [`config`](config) to the appropriate locations. This includes dotfiles, for example, such as `config.fish`, `gitconfig`, `init.lua`, `settings.json` (for vscode), `starship.toml`, and `tmux.conf`.
 
 ### Not managed by nix and home-manager
 
@@ -71,14 +73,22 @@ The following are not (yet) managed by nix and home-manager.
 
 - Neovim extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
 
-    ```bash
+    ```fish
     git clone --depth=1 https://github.com/savq/paq-nvim.git \
         "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
     ```
 
   Then run `:PaqInstall` inside Neovim.
 
-## macOS specific
+- [Marp](https://marpit.marp.app/) for markdown slides. Install the stand-alone binary as follows (choosing the latest version number)
+
+    ```fish
+    wget https://github.com/marp-team/marp-cli/releases/download/v1.2.0/marp-cli-v1.2.0-mac.tar.gz
+    extract marp-cli-v1.2.0-mac.tar.gz
+    mv marp ~/bin
+    ```
+
+### macOS
 
 To install the Xcode command line tools (which include git and other basic programs) run:
 
