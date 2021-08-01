@@ -55,9 +55,21 @@ Nix and home-manager install applications as listed in `home.nix`. They also man
 
 The following are not (yet) managed by nix and home-manager.
 
-- macOS defaults; see `install/mac.sh`.
-- VS Code extensions; see `install/extensions.json`.
-- Neovim extensions: install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
+- macOS defaults. See `install/mac.sh` for details. To set defaults, run the script as follows
+
+    ```bash
+    bash install/mac.sh
+    ```
+
+- VS Code extensions. See `install/extensions.json` for the list of "recommended" extensions. Install with the following fish-shell snippet
+
+    ```fish
+    for ext in (jq .recommendations[] -r install/extensions.json)
+      code --install-extension $ext
+    end
+    ```
+
+- Neovim extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
 
     ```bash
     git clone --depth=1 https://github.com/savq/paq-nvim.git \

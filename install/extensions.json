@@ -1,5 +1,6 @@
 {
   "recommendations": [
+    "bbenoist.nix",
     "bungcip.better-toml",
     "eamodio.gitlens",
     "DavidAnson.vscode-markdownlint",
