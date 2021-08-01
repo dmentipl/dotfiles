@@ -107,4 +107,3 @@ I install the following applications "manually".
 - Signal
 - Spotify
 - Transmission
-- VS Code

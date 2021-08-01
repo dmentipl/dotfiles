@@ -48,6 +48,7 @@ in {
     starship
     tmux
     trash-cli
+    vscode
     watch
     wget
     zsh
