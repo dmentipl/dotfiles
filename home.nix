@@ -42,6 +42,7 @@ in {
     jq
     neovim
     pandoc
+    procs
     ripgrep
     sd
     starship
