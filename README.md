@@ -4,17 +4,9 @@
 
 ## Description
 
-This is a set of dotfiles and installation scripts appropriate for machines running macOS and Linux using [nix](https://nixos.org/).
+This is a set of dotfiles and installation scripts appropriate for machines running macOS and Linux using [nix](https://nixos.org/) and [home-manager](https://github.com/nix-community/home-manager).
 
-The main aim is to have the following installed and configured:
-
-> fish, fzf, git, neovim, starship, tmux, vscode
-
-*Plus a handful of command line tools.
-
-### Caveat
-
-These files are useful to me ([@dmentipl](https://github.com/dmentipl)). They *might* be useful to you.
+A small caveat: these files are useful to me ([@dmentipl](https://github.com/dmentipl)); they *might* also be useful to you.
 
 ## Requirements
 
@@ -23,11 +15,13 @@ There are two main requirements:
 1. Nix; see <https://nixos.org/guides/install-nix.html>.
 2. Home-manager; see <https://github.com/nix-community/home-manager#installation>.
 
-*Note*: for nix binaries to be available on the path run the following.
+*Note*: if the nix command is not on the path run the following.
 
 ```bash
 . ~/.nix-profile/etc/profile.d/nix.sh
 ```
+
+After installation, home-manager will ensure nix is properly configured.
 
 ## Usage
 
@@ -53,37 +47,24 @@ Each time you make a change to `home.nix` or any other file you need to run the 
 
 ## Further details
 
-### Repo
+### Managed by nix and home-manager
 
-The dotfiles live in the `config` directory; examples include `gitconfig`, `tmux.conf`, and `vimrc`.
+Nix and home-manager install applications as listed in `home.nix`. They also manage the dotfiles in `config` and symlink them to the correct locations.
 
-### Applications
+### Not managed by nix and home-manager
 
-Using this repo will install and configure these applications (amongst others).
+The following are not (yet) managed by nix and home-manager.
 
-- Fish
+- macOS defaults; see `install/mac.sh`.
+- VS Code extensions; see `install/extensions.json`.
+- Neovim extensions: install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
 
-> fish is a smart and user-friendly command line shell for Linux, macOS, and the rest of the family <https://fishshell.com/>.
+    ```bash
+    git clone --depth=1 https://github.com/savq/paq-nvim.git \
+        "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
+    ```
 
-- fzf
-
-> The fuzzy command-line finder: <https://github.com/junegunn/fzf>.
-
-- Neovim
-
-> Hyper-extensible Vim-base text editor: <https://neovim.io/>.
-
-- Starship
-
-> The cross-shell prompt for astronauts <https://starship.rs>.
-
-- tmux
-
-> A terminal multiplexer: <https://github.com/tmux/tmux/wiki>.
-
-- VS Code
-
-> Microsoft open source code editor: <https://code.visualstudio.com/>.
+  Then run `:PaqInstall` inside Neovim.
 
 ## macOS specific
 
@@ -99,7 +80,7 @@ Change caps lock to control.
 
 Download and install color schemes manually from <https://iterm2colorschemes.com/>. I like 'Monokai Soda'.
 
-The `mac.sh` file in the `config` directory contains a collection of nice-to-have defaults that you would otherwise set using System Preferences. This is derived from [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
+The `mac.sh` shell script contains a collection of nice-to-have defaults that you would otherwise set using System Preferences. This is derived from [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
 
 ### Desktop applications
 
