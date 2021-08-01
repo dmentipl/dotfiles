@@ -99,8 +99,6 @@ The `mac.sh` shell script contains a collection of nice-to-have defaults that yo
 I install the following applications "manually".
 
 - Brave
-- Flux
-- Gestimer
 - iStat Menus
 - iTerm
 - KeepingYouAwake
@@ -108,4 +106,5 @@ I install the following applications "manually".
 - ProtonVPN
 - Signal
 - Spotify
+- Transmission
 - VS Code
