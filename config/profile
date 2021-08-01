@@ -1,5 +1,7 @@
+# Initialize Nix
 [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]] &&
     . ~/.nix-profile/etc/profile.d/nix.sh
 
+# User binaries
 [[ -d ~/.local/bin ]] && PATH="$HOME/.local/bin:$PATH"
 [[ -d ~/bin ]] && PATH="$HOME/bin:$PATH"

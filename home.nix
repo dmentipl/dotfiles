@@ -26,6 +26,8 @@ in {
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "21.11";
+
+  # Packages to install.
   home.packages = with pkgs; [
     bash
     bat
@@ -37,6 +39,7 @@ in {
     fzf
     git
     htop
+    jq
     neovim
     pandoc
     ripgrep
@@ -50,12 +53,21 @@ in {
     zsh
   ];
 
+  # Symlink these dotfiles.
   home.file = {
+    bash = {
+      source = repo + /profile;
+      target = ".profile";
+    };
     fish = {
       source = repo + /config.fish;
       target = ".config/fish/config.fish";
     };
-    fish-function = {
+    fish-conda-init = {
+      source = repo + /conda-init.fish;
+      target = ".config/fish/functions/conda-init.fish";
+    };
+    fish-extract = {
       source = repo + /extract.fish;
       target = ".config/fish/functions/extract.fish";
     };
@@ -82,6 +94,10 @@ in {
     vscode = {
       source = repo + /settings.json;
       target = "Library/Application Support/Code/User/settings.json";
+    };
+    zsh = {
+      source = repo + /profile;
+      target = ".zprofile";
     };
   };
 

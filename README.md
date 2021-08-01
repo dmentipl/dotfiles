@@ -23,11 +23,10 @@ There are two main requirements:
 1. Nix; see <https://nixos.org/guides/install-nix.html>.
 2. Home-manager; see <https://github.com/nix-community/home-manager#installation>.
 
-For nix binaries to be available on the path:
+*Note*: for nix binaries to be available on the path run the following.
 
 ```bash
-cp config/profile ~/.profile  # for bash
-cp config/profile ~/.zprofile  # for zsh
+. ~/.nix-profile/etc/profile.d/nix.sh
 ```
 
 ## Usage

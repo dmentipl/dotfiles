@@ -1,5 +1,6 @@
 format = """\
     $conda\
+    $nix_shell\
     $hostname\
     $directory\
     $git_branch\
@@ -19,8 +20,11 @@ format = " [⤳ $duration](bold #f3ad10) "
 format = "[$symbol$environment]($style) [•](242) "
 ignore_base = false
 
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style) [•](242) "
+
 [git_branch]
-format = "[•](242) [$symbol$branch]($style) "
+format = "[$symbol$branch]($style) "
 style = "bold #f3ad10"
 
 [git_commit]
@@ -36,3 +40,7 @@ style = "bold #f3ad10"
 format = "[$hostname]($style) [•](242) "
 ssh_only = false
 style = "bold red"
+
+[nix_shell]
+disabled = false
+format = '[$state( \($name\))](bold blue) [•](242) '

@@ -1,11 +1,10 @@
 # ============================================================================ #
 # ==== CONFIGURATION ==== #
 
-test -e ~/conda/bin/conda && eval ~/conda/bin/conda "shell.fish" "hook" $argv | source
-function fish_right_prompt; end
-
+# Initialize starship prompt
 command -v starship > /dev/null && starship init fish | source
 
+# Load local fish config
 test -e ~/.config/fish/local.fish && source ~/.config/fish/local.fish
 
 # ============================================================================ #
