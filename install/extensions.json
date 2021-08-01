@@ -1,5 +1,6 @@
 {
   "recommendations": [
+    "bierner.markdown-preview-github-styles",
     "bbenoist.nix",
     "bungcip.better-toml",
     "eamodio.gitlens",
