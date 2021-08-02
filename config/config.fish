@@ -4,6 +4,9 @@
 # Initialize starship prompt
 command -v starship > /dev/null && starship init fish | source
 
+# Initialize zoxide
+command -v zoxide > /dev/null && zoxide init fish | source
+
 # Load local fish config
 test -e ~/.config/fish/local.fish && source ~/.config/fish/local.fish
 

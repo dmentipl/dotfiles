@@ -51,6 +51,7 @@ in {
     vscode
     watch
     wget
+    zoxide
     zsh
   ];
 
