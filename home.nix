@@ -75,11 +75,11 @@ in {
     };
     gitconfig = {
       source = repo + /gitconfig;
-      target = ".gitconfig";
+      target = ".config/git/config";
     };
     gitignore = {
       source = repo + /gitignore;
-      target = ".gitignore";
+      target = ".config/git/ignore";
     };
     nvim = {
       source = repo + /init.lua;
@@ -91,7 +91,7 @@ in {
     };
     tmux = {
       source = repo + /tmux.conf;
-      target = ".tmux.conf";
+      target = ".config/tmux/tmux.conf";
     };
     vscode = {
       source = repo + /settings.json;
