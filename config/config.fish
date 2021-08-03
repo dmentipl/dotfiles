@@ -2,10 +2,10 @@
 # ==== CONFIGURATION ==== #
 
 # Initialize starship prompt
-command -v starship > /dev/null && starship init fish | source
+command -q starship && starship init fish | source
 
 # Initialize zoxide
-command -v zoxide > /dev/null && zoxide init fish | source
+command -q zoxide && zoxide init fish | source
 
 # Load local fish config
 test -e ~/.config/fish/local.fish && source ~/.config/fish/local.fish
@@ -17,25 +17,21 @@ abbr --add --global chown 'chown -R'
 abbr --add --global cp 'cp -i -r'
 abbr --add --global df 'df -H'
 abbr --add --global du 'du -chs'
-abbr --add --global e exit
-abbr --add --global j 'jobs -l'
+abbr --add --global e 'exit'
 abbr --add --global mkdir 'mkdir -pv'
 abbr --add --global mv 'mv -i'
-abbr --add --global path 'echo $PATH | tr " " "\n"'
-abbr --add --global pgrep 'pgrep -a -l'
-command -v rg > /dev/null && abbr --add --global rg 'rg -S'
+abbr --add --global path 'for path in $PATH; echo $path; end'
+command -q rg && abbr --add --global rg 'rg -S'
 abbr --add --global scp 'scp -r'
 abbr --add --global ssh 'ssh -Y'
 abbr --add --global which 'which -a'
 
-if command -v trash > /dev/null
-  abbr --add --global bin trash
-  abbr --add --global rm 'printf "%s\n" "Use trash instead, or /bin/rm if required."'
-else
-  abbr --add --global rm 'rm -R'
+if command -q trash
+  abbr --add --global bin 'trash'
+  abbr --add --global rm '# Use trash instead, or /bin/rm if required'
 end
 
-if command -v exa > /dev/null
+if command -q exa
   abbr --add --global l 'exa -l -h'
   abbr --add --global ls 'exa -1'
   abbr --add --global lg 'exa -l -h --git'
@@ -46,17 +42,9 @@ if command -v exa > /dev/null
   abbr --add --global lx 'exa -l -h -s extension'
   abbr --add --global lz 'exa -l -h -s size'
   abbr --add --global tree 'exa -T'
-else
-  abbr --add --global ls 'ls -1'
-  abbr --add --global l 'ls -lh'
-  abbr --add --global la 'ls -lah'
-  abbr --add --global ll 'ls -lAh'
-  abbr --add --global lx 'ls -lAh -XB'
-  abbr --add --global lk 'ls -lAh -Sr'
-  abbr --add --global lm 'ls -lAh -tr'
 end
 
-if command -v git > /dev/null
+if command -q git
   abbr --add --global ga 'git add'
   abbr --add --global gam 'git add --update'
   abbr --add --global gap 'git add --patch'
@@ -83,7 +71,7 @@ if command -v git > /dev/null
   abbr --add --global gs 'git status'
 end
 
-if command -v tmux > /dev/null
+if command -q tmux
   abbr --add --global ta 'tmux attach'
   abbr --add --global tc 'tmux choose-tree -s'
   abbr --add --global td 'tmux detach'
@@ -93,19 +81,14 @@ if command -v tmux > /dev/null
   abbr --add --global ts 'tmux switch-client'
 end
 
-if command -v nvim > /dev/null
-  abbr --add --global vim nvim
-  abbr --add --global ex 'nvim -e'
-  abbr --add --global view 'nvim -R'
-  abbr --add --global vimdiff 'nvim -d'
-end
+command -q nvim && abbr --add --global vim nvim
 
-if command -v pbcopy > /dev/null
+if command -q pbcopy
   abbr --add --global copy 'pbcopy'
   abbr --add --global paste 'pbpaste'
-else if command -v xsel > /dev/null
+else if command -q xsel
   abbr --add --global copy 'xsel --clipboard --input'
   abbr --add --global paste 'xsel --clipboard --output'
 end
 
-command -v xdg-open > /dev/null && abbr --add --global open xdg-open
+command -q xdg-open && abbr --add --global open xdg-open
