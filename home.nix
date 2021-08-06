@@ -1,13 +1,12 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 let
 
+  # userDirectory is /home/ in Linux or /Users/ in macOS.
   userDirectory = let
     inherit (lib.systems.elaborate { system = builtins.currentSystem; })
       isLinux;
   in if isLinux then "/home/" else "/Users/";
-
-  repo = ../../repos/dotfiles/config;
 
 in rec {
 
@@ -32,80 +31,9 @@ in rec {
   # changes in each release.
   home.stateVersion = "21.11";
 
-  # Packages to install.
-  home.packages = with pkgs; [
-    bash
-    bat
-    curl
-    du-dust
-    exa
-    fd
-    fish
-    fzf
-    git
-    htop
-    jq
-    neovim
-    pandoc
-    procs
-    ripgrep
-    sd
-    starship
-    tmux
-    trash-cli
-    vscode
-    watch
-    wget
-    zoxide
-    zsh
+  imports = [
+    ./base/base.nix
+    ./dev/python/python.nix
   ];
-
-  # Symlink these dotfiles.
-  home.file = {
-    bash = {
-      source = repo + /profile;
-      target = ".profile";
-    };
-    fish = {
-      source = repo + /config.fish;
-      target = ".config/fish/config.fish";
-    };
-    fish-conda-init = {
-      source = repo + /conda-init.fish;
-      target = ".config/fish/functions/conda-init.fish";
-    };
-    fish-extract = {
-      source = repo + /extract.fish;
-      target = ".config/fish/functions/extract.fish";
-    };
-    gitconfig = {
-      source = repo + /gitconfig;
-      target = ".config/git/config";
-    };
-    gitignore = {
-      source = repo + /gitignore;
-      target = ".config/git/ignore";
-    };
-    nvim = {
-      source = repo + /init.lua;
-      target = ".config/nvim/init.lua";
-    };
-    starship = {
-      source = repo + /starship.toml;
-      target = ".config/starship.toml";
-    };
-    tmux = {
-      source = repo + /tmux.conf;
-      target = ".config/tmux/tmux.conf";
-    };
-    vscode = {
-      source = repo + /settings.json;
-      target = "Library/Application Support/Code/User/settings.json";
-    };
-    zsh = {
-      source = repo + /profile;
-      target = ".zprofile";
-    };
-  };
 
 }
