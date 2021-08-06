@@ -6,7 +6,7 @@
 
 This is a set of dotfiles and installation scripts appropriate for machines running macOS and Linux using [nix](https://nixos.org/) and [home-manager](https://github.com/nix-community/home-manager).
 
-A small caveat: these files are useful to me ([@dmentipl](https://github.com/dmentipl)); they *might* also be useful to you.
+A small caveat: these files are useful to me, i.e. [@dmentipl](https://github.com/dmentipl); they *might* also be useful to you.
 
 ## Requirements
 
@@ -43,33 +43,35 @@ After installation, home-manager will ensure nix is properly configured.
     home-manager switch
     ```
 
-Each time you make a change to `home.nix` or any other file you need to run the home-manager switch command.
+Each time you make a change to `home.nix` or any other file you need to run the home-manager switch command to apply the new configuration.
 
 ## Further details
 
 ### Managed by nix and home-manager
 
-Nix and home-manager install applications as listed in [`home.nix`](home.nix), for example: bat, dust, exa, fd, fish, fzf, htop, jq, neovim, pandoc, procs, ripgrep, sd, starship, tmux, trash, and vscode.
+Nix and home-manager manage the installation of applications such as: bat, dust, exa, fd, fish, fzf, htop, jq, neovim, pandoc, procs, ripgrep, sd, starship, tmux, trash, and vscode. See [`home.nix`](home.nix) and files imported therein for further details.
 
-Nix and home-manager also symlink the dotfiles in [`config`](config) to the appropriate locations. This includes dotfiles, for example, such as `config.fish`, `gitconfig`, `init.lua`, `settings.json` (for vscode), `starship.toml`, and `tmux.conf`.
+Nix and home-manager also manages the configuration of those applications, including via symlinking of dotfiles to the appropriate locations in `$HOME`. This includes dotfiles such as `config.fish`, `git/config`, `init.lua`, `settings.json`, `starship.toml`, and `tmux.conf`, for example.
 
-### Not managed by nix and home-manager
+### Not managed by nix or home-manager
 
-The following are not (yet) managed by nix and home-manager.
+The following are not *yet* managed by nix or home-manager.
 
-- macOS defaults. See `install/mac.sh` for details. To set defaults, run the script as follows
+- macOS defaults. See `base/mac/mac.sh` for details. To set defaults, run the script as follows
 
     ```bash
     bash install/mac.sh
     ```
 
-- VS Code extensions. See `install/extensions.json` for the list of "recommended" extensions. Install with the following fish-shell snippet
+- VS Code extensions. Install with the following fish-shell snippet
 
     ```fish
     for ext in (jq .recommendations[] -r install/extensions.json)
       code --install-extension $ext
     end
     ```
+
+    See `base/vscode/extensions.json` for the list of "recommended" extensions.
 
 - Neovim extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
 
@@ -78,7 +80,7 @@ The following are not (yet) managed by nix and home-manager.
         "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
     ```
 
-  Then run `:PaqInstall` inside Neovim.
+  Then run `:PaqInstall` inside Neovim. See `base/nvim/init.lua` for the list of extensions.
 
 - [Marp](https://marpit.marp.app/) for markdown slides. Install the stand-alone binary as follows (choosing the latest version number)
 
@@ -87,6 +89,18 @@ The following are not (yet) managed by nix and home-manager.
     extract marp-cli-v1.2.0-mac.tar.gz
     mv marp ~/bin
     ```
+
+In addition, the following GUI applications that I use are not *yet* managed by nix or home-manager:
+
+- Brave
+- iStat Menus
+- iTerm
+- KeepingYouAwake
+- Obsidian
+- ProtonVPN
+- Signal
+- Spotify
+- Transmission
 
 ### macOS
 
@@ -101,19 +115,3 @@ Change caps lock to control.
 > System Preferences > Keyboard > Keyboard (Modifier Keys): remap caps lock to control.
 
 Download and install color schemes manually from <https://iterm2colorschemes.com/>. I like 'Monokai Soda'.
-
-The `mac.sh` shell script contains a collection of nice-to-have defaults that you would otherwise set using System Preferences. This is derived from [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles).
-
-### Desktop applications
-
-I install the following applications "manually".
-
-- Brave
-- iStat Menus
-- iTerm
-- KeepingYouAwake
-- Obsidian
-- ProtonVPN
-- Signal
-- Spotify
-- Transmission
