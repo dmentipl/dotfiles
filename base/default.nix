@@ -49,11 +49,11 @@ in {
       target = ".config/fish/functions/extract.fish";
     };
     gitconfig = {
-      source = dotfilesBase + /git/gitconfig;
+      source = dotfilesBase + /git/config;
       target = ".config/git/config";
     };
     gitignore = {
-      source = dotfilesBase + /git/gitignore;
+      source = dotfilesBase + /git/ignore;
       target = ".config/git/ignore";
     };
     nvim = {
