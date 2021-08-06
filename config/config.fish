@@ -1,6 +1,9 @@
 # ============================================================================ #
 # ==== CONFIGURATION ==== #
 
+# Bind ctrl-space
+bind -k nul accept-autosuggestion
+
 # Initialize starship prompt
 command -q starship && starship init fish | source
 
