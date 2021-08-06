@@ -1,10 +1,15 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
 
+  userDirectory = let
+    inherit (lib.systems.elaborate { system = builtins.currentSystem; })
+      isLinux;
+  in if isLinux then "/home/" else "/Users/";
+
   repo = ../../repos/dotfiles/config;
 
-in {
+in rec {
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -15,7 +20,7 @@ in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "daniel";
-  home.homeDirectory = "/Users/daniel";
+  home.homeDirectory = userDirectory + home.username;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
