@@ -32,8 +32,8 @@ in rec {
   home.stateVersion = "21.11";
 
   imports = [
-    ./base/base.nix
-    ./dev/python/python.nix
+    ./base
+    ./dev/python
   ];
 
 }
