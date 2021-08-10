@@ -4,7 +4,7 @@
 
 [core]
 	editor = nvim
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.config/git/ignore
 
 [init]
 	defaultBranch = main
