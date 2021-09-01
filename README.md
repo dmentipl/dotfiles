@@ -66,7 +66,7 @@ The following are not *yet* managed by nix or home-manager.
 - VS Code extensions. Install with the following fish-shell snippet
 
     ```fish
-    for ext in (jq .recommendations[] -r install/extensions.json)
+    for ext in (jq .recommendations[] -r base/vscode/extensions.json)
       code --install-extension $ext
     end
     ```

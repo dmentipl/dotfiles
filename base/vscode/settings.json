@@ -1,17 +1,4 @@
 {
-    "[markdown]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll.markdownlint": true
-        }
-    },
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.python",
-        "editor.formatOnPaste": true,
-        "editor.formatOnSave": true,
-        "editor.rulers": [
-            88
-        ]
-    },
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [
@@ -27,14 +14,6 @@
             "siblings_only": true
         }
     },
-    "python.formatting.provider": "black",
-    "python.languageServer": "Pylance",
-    "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.mypyEnabled": true,
-    "python.linting.pydocstyleEnabled": true,
-    "python.linting.pylintEnabled": false,
-    "python.terminal.activateEnvironment": false,
     "remote.SSH.useLocalServer": false,
     "search.useGlobalIgnoreFiles": true,
     "terminal.integrated.allowChords": false,
@@ -203,5 +182,10 @@
     ],
     "window.newWindowDimensions": "inherit",
     "workbench.colorTheme": "Monokai",
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "[markdown]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.markdownlint": true
+        }
+    }
 }
