@@ -25,6 +25,8 @@ After installation, home-manager will ensure nix is properly configured.
 
 ## Usage
 
+### Installation
+
 1. Clone this repository locally (or download a tarball/zip archive) to
 
     ```bash
@@ -43,7 +45,24 @@ After installation, home-manager will ensure nix is properly configured.
     home-manager switch
     ```
 
-Each time you make a change to `home.nix` or any other file you need to run the home-manager switch command to apply the new configuration.
+### Update
+
+Each time you make a configuration change in `home.nix` or its dependencies do the following.
+
+```bash
+home-manager switch
+```
+
+To update all nix packages do the following.
+
+```bash
+nix-channel --update
+
+# NOTE: this may take a while
+home-manager switch
+```
+
+This is analogous to `sudo apt upgrade`.
 
 ## Further details
 
