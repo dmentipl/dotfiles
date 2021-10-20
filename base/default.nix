@@ -68,9 +68,13 @@ in {
       source = dotfilesBase + /shell/tmux.conf;
       target = ".config/tmux/tmux.conf";
     };
-    vscode = {
+    vscode-settings = {
       source = dotfilesBase + /vscode/settings.json;
       target = "Library/Application Support/Code/User/settings.json";
+    };
+    vscode-keybindings = {
+      source = dotfilesBase + /vscode/keybindings.json;
+      target = "Library/Application Support/Code/User/keybindings.json";
     };
     zsh = {
       source = dotfilesBase + /shell/profile;
