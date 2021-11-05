@@ -16,6 +16,7 @@ in {
     fd
     fish
     fzf
+    gh
     git
     htop
     jq
