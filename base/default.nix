@@ -58,7 +58,7 @@ in {
       target = ".config/git/ignore";
     };
     nvim = {
-      source = dotfilesBase + /nvim/init.lua;
+      source = dotfilesBase + /editor/init.lua;
       target = ".config/nvim/init.lua";
     };
     starship = {
@@ -70,11 +70,11 @@ in {
       target = ".config/tmux/tmux.conf";
     };
     vscode-settings = {
-      source = dotfilesBase + /vscode/settings.json;
+      source = dotfilesBase + /editor/settings.json;
       target = "Library/Application Support/Code/User/settings.json";
     };
     vscode-keybindings = {
-      source = dotfilesBase + /vscode/keybindings.json;
+      source = dotfilesBase + /editor/keybindings.json;
       target = "Library/Application Support/Code/User/keybindings.json";
     };
     zsh = {
