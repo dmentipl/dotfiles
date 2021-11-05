@@ -76,10 +76,10 @@ Nix and home-manager also manages the configuration of those applications, inclu
 
 The following are not *yet* managed by nix or home-manager.
 
-- macOS defaults. See `base/mac/mac.sh` for details. To set defaults, run the script as follows
+- macOS defaults. See `base/os/mac.sh` for details. To set defaults, run the script as follows
 
     ```bash
-    bash install/mac.sh
+    bash mac.sh
     ```
 
 - VS Code extensions. Install with the following fish-shell snippet
