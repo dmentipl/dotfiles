@@ -20,7 +20,6 @@ abbr --add --global chown 'chown -R'
 abbr --add --global cp 'cp -i -r'
 abbr --add --global df 'df -H'
 abbr --add --global du 'du -chs'
-abbr --add --global e 'exit'
 abbr --add --global mkdir 'mkdir -pv'
 abbr --add --global mv 'mv -i'
 abbr --add --global path 'for path in $PATH; echo $path; end'
@@ -35,16 +34,15 @@ if command -q trash
 end
 
 if command -q exa
-  abbr --add --global l 'exa -l -h'
+  abbr --add --global l 'exa -l'
   abbr --add --global ls 'exa -1'
-  abbr --add --global lg 'exa -l -h --git'
-  abbr --add --global ll 'exa -l -h -a'
-  abbr --add --global lm 'exa -l -h -s modified'
-  abbr --add --global lr 'exa -l -h -R'
-  abbr --add --global lt 'exa -l -h -T'
-  abbr --add --global lx 'exa -l -h -s extension'
-  abbr --add --global lz 'exa -l -h -s size'
-  abbr --add --global tree 'exa -T'
+  abbr --add --global lg 'exa -l --git'
+  abbr --add --global ll 'exa -l -a'
+  abbr --add --global lm 'exa -l -s modified'
+  abbr --add --global lr 'exa -l -R'
+  abbr --add --global lt 'exa -T'
+  abbr --add --global lx 'exa -l -s extension'
+  abbr --add --global lz 'exa -l -s size'
 end
 
 if command -q git

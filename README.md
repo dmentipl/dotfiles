@@ -76,21 +76,21 @@ Nix and home-manager also manages the configuration of those applications, inclu
 
 The following are not *yet* managed by nix or home-manager.
 
-- macOS defaults. See `base/mac/mac.sh` for details. To set defaults, run the script as follows
+- macOS defaults. See `base/os/mac.sh` for details. To set defaults, run the script as follows
 
     ```bash
-    bash install/mac.sh
+    bash mac.sh
     ```
 
 - VS Code extensions. Install with the following fish-shell snippet
 
     ```fish
-    for ext in (jq .recommendations[] -r base/vscode/extensions.json)
+    for ext in (jq .recommendations[] -r base/editor/extensions.json)
       code --install-extension $ext
     end
     ```
 
-    See `base/vscode/extensions.json` for the list of "recommended" extensions.
+    See `base/editor/extensions.json` for the list of "recommended" extensions.
 
 - Neovim extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
 
@@ -99,7 +99,7 @@ The following are not *yet* managed by nix or home-manager.
         "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
     ```
 
-  Then run `:PaqInstall` inside Neovim. See `base/nvim/init.lua` for the list of extensions.
+  Then run `:PaqInstall` inside Neovim. See `base/editor/init.lua` for the list of extensions.
 
 - [Marp](https://marpit.marp.app/) for markdown slides. Install the stand-alone binary as follows (choosing the latest version number)
 
