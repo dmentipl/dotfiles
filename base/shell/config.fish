@@ -46,6 +46,7 @@ if command -q exa
 end
 
 if command -q git
+  abbr --add --global diff 'git diff --no-index'
   abbr --add --global ga 'git add'
   abbr --add --global gam 'git add --update'
   abbr --add --global gap 'git add --patch'
@@ -57,6 +58,7 @@ if command -q git
   abbr --add --global gc 'git commit --verbose'
   abbr --add --global gd 'git diff'
   abbr --add --global gds 'git diff --staged'
+  abbr --add --global gdt 'git diff --stat'
   abbr --add --global gf 'git fetch --all --prune'
   abbr --add --global gg 'git log --stat --abbrev-commit'
   abbr --add --global ggo 'git log --graph --pretty=format:"%C(red)%h%C(reset) %C(yellow)%d%C(reset) %s %C(green)(%cr)%C(reset) %C(blue)<%an>%C(reset)" --abbrev-commit'
