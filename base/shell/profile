@@ -1,6 +1,8 @@
 # Initialize Nix
-[[ -e ~/.nix-profile/etc/profile.d/nix.sh ]] &&
-    . ~/.nix-profile/etc/profile.d/nix.sh
+source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+export NIX_PATH=/nix/var/nix/profiles/per-user/root/channels/nixpkgs:/nix/var/nix/profiles/per-user/root/channels
+export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 
 # User binaries
 [[ -d ~/.local/bin ]] && PATH="$HOME/.local/bin:$PATH"
