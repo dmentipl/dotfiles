@@ -116,3 +116,10 @@ defaults write com.apple.screencapture type -string "png"
 
 # Disable shadow in screenshots.
 defaults write com.apple.screencapture disable-shadow -bool true
+
+# ---------------------------------------------------------------------------- #
+# Terminal
+
+# Use Ctrl-Tab and Ctrl-Shift-Tab to cycle iTerm tabs in order.
+defaults write com.googlecode.iterm2 GlobalKeyMap -dict-add 0x19-0x60000-0x30 '{ Action = 2; Label = ""; Text = ""; Version = 0; }'
+defaults write com.googlecode.iterm2 GlobalKeyMap -dict-add 0x9-0x40000-0x30 '{ Action = 0; Label = ""; Text = ""; Version = 0; }'
