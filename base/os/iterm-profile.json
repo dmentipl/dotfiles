@@ -1,0 +1,257 @@
+{
+  "Profiles": [
+    {
+      "Ambiguous Double Width": false,
+      "Ansi 0 Color": {
+        "Blue Component": 0.10051459074020386,
+        "Green Component": 0.10051288455724716,
+        "Red Component": 0.10051589459180832
+      },
+      "Ansi 1 Color": {
+        "Blue Component": 0.3728577196598053,
+        "Green Component": 0,
+        "Red Component": 0.9568350315093994
+      },
+      "Ansi 10 Color": {
+        "Blue Component": 0.14004382491111755,
+        "Green Component": 0.8792104721069336,
+        "Red Component": 0.5947334170341492
+      },
+      "Ansi 11 Color": {
+        "Blue Component": 0.3815441131591797,
+        "Green Component": 0.8363599181175232,
+        "Red Component": 0.8774813413619995
+      },
+      "Ansi 12 Color": {
+        "Blue Component": 0.9987757205963135,
+        "Green Component": 0.39599207043647766,
+        "Red Component": 0.6146889925003052
+      },
+      "Ansi 13 Color": {
+        "Blue Component": 0.3728577196598053,
+        "Green Component": 0,
+        "Red Component": 0.9568350315093994
+      },
+      "Ansi 14 Color": {
+        "Blue Component": 0.9206036329269409,
+        "Green Component": 0.8197720646858215,
+        "Red Component": 0.3441696763038635
+      },
+      "Ansi 15 Color": {
+        "Blue Component": 0.9359474778175354,
+        "Green Component": 0.9654953479766846,
+        "Red Component": 0.9653725624084473
+      },
+      "Ansi 2 Color": {
+        "Blue Component": 0.14004382491111755,
+        "Green Component": 0.8792104721069336,
+        "Red Component": 0.5947334170341492
+      },
+      "Ansi 3 Color": {
+        "Blue Component": 0.09980705380439758,
+        "Green Component": 0.5180569291114807,
+        "Red Component": 0.9809480905532837
+      },
+      "Ansi 4 Color": {
+        "Blue Component": 0.9987757205963135,
+        "Green Component": 0.39599207043647766,
+        "Red Component": 0.6146889925003052
+      },
+      "Ansi 5 Color": {
+        "Blue Component": 0.3728577196598053,
+        "Green Component": 0,
+        "Red Component": 0.9568350315093994
+      },
+      "Ansi 6 Color": {
+        "Blue Component": 0.9206036329269409,
+        "Green Component": 0.8197720646858215,
+        "Red Component": 0.3441696763038635
+      },
+      "Ansi 7 Color": {
+        "Blue Component": 0.7099304795265198,
+        "Green Component": 0.7714409232139587,
+        "Red Component": 0.7696096301078796
+      },
+      "Ansi 8 Color": {
+        "Blue Component": 0.2965214252471924,
+        "Green Component": 0.36959609389305115,
+        "Red Component": 0.3829454779624939
+      },
+      "Ansi 9 Color": {
+        "Blue Component": 0.3728577196598053,
+        "Green Component": 0,
+        "Red Component": 0.9568350315093994
+      },
+      "ASCII Anti Aliased": true,
+      "Automatically Log": false,
+      "Background Color": {
+        "Blue Component": 0.10051459074020386,
+        "Green Component": 0.10051288455724716,
+        "Red Component": 0.10051589459180832
+      },
+      "Background Image Is Tiled": false,
+      "Background Image Location": "",
+      "Badge Color": {
+        "Alpha Component": 0.5,
+        "Blue Component": 0,
+        "Color Space": "sRGB",
+        "Green Component": 0.1491314172744751,
+        "Red Component": 1
+      },
+      "Blend": 0.30000001192092896,
+      "Blink Allowed": false,
+      "Blinking Cursor": false,
+      "Blur": false,
+      "Blur Radius": 2,
+      "BM Growl": true,
+      "Bold Color": {
+        "Blue Component": 0.7099304795265198,
+        "Green Component": 0.7714409232139587,
+        "Red Component": 0.7696096301078796
+      },
+      "Character Encoding": 4,
+      "Close Sessions On End": true,
+      "Columns": 100,
+      "Command": "",
+      "Cursor Color": {
+        "Blue Component": 0.9264779686927795,
+        "Green Component": 0.9667491912841797,
+        "Red Component": 0.9655450582504272
+      },
+      "Cursor Guide Color": {
+        "Alpha Component": 0.25,
+        "Blue Component": 1,
+        "Color Space": "sRGB",
+        "Green Component": 0.9268307089805603,
+        "Red Component": 0.7021318674087524
+      },
+      "Cursor Text Color": {
+        "Blue Component": 0.7099304795265198,
+        "Green Component": 0.7714409232139587,
+        "Red Component": 0.7696096301078796
+      },
+      "Cursor Type": 2,
+      "Custom Command": "No",
+      "Custom Directory": "Recycle",
+      "Default Bookmark": "No",
+      "Disable Printing": false,
+      "Disable Smcup Rmcup": false,
+      "Disable Window Resizing": false,
+      "Flashing Bell": false,
+      "Foreground Color": {
+        "Blue Component": 0.7099304795265198,
+        "Green Component": 0.7714409232139587,
+        "Red Component": 0.7696096301078796
+      },
+      "Guid": "29038919-B333-4972-89B0-91A02B812C01",
+      "Has Hotkey": true,
+      "Hide After Opening": false,
+      "Horizontal Spacing": 1,
+      "HotKey Activated By Modifier": false,
+      "HotKey Alternate Shortcuts": [],
+      "HotKey Characters": "†",
+      "HotKey Characters Ignoring Modifiers": "t",
+      "HotKey Key Code": 17,
+      "HotKey Modifier Activation": 0,
+      "HotKey Modifier Flags": 1572864,
+      "HotKey Window Animates": true,
+      "HotKey Window AutoHides": true,
+      "HotKey Window Dock Click Action": 0,
+      "HotKey Window Floats": false,
+      "HotKey Window Reopens On Activation": false,
+      "Idle Code": 0,
+      "Initial Text": "",
+      "Jobs to Ignore": [
+        "rlogin",
+        "slogin",
+        "ssh",
+        "telnet"
+      ],
+      "Link Color": {
+        "Alpha Component": 1,
+        "Blue Component": 0.734233021736145,
+        "Color Space": "sRGB",
+        "Green Component": 0.3591606020927429,
+        "Red Component": 0
+      },
+      "Log Directory": "",
+      "Minimum Contrast": 0,
+      "Mouse Reporting": true,
+      "Name": "default",
+      "Non Ascii Font": "FiraCode-Regular 12",
+      "Non-ASCII Anti Aliased": true,
+      "Normal Font" : "FiraCode-Regular 12",
+      "Option Key Sends": 2,
+      "Prompt Before Closing 2": 0,
+      "Right Option Key Sends": 0,
+      "Rows": 66,
+      "Screen": -2,
+      "Scrollback in Alternate Screen": true,
+      "Scrollback Lines": 0,
+      "Scrollback With Status Bar": false,
+      "Selected Text Color": {
+        "Blue Component": 0.7099304795265198,
+        "Green Component": 0.7714409232139587,
+        "Red Component": 0.7696096301078796
+      },
+      "Selection Color": {
+        "Blue Component": 0.20521116256713867,
+        "Green Component": 0.2052076756954193,
+        "Red Component": 0.20521381497383118
+      },
+      "Semantic History": {
+        "action": "best editor",
+        "editor": "com.sublimetext.3",
+        "text": ""
+      },
+      "Send Code When Idle": false,
+      "Session Close Undo Timeout": 15,
+      "Set Local Environment Vars": true,
+      "Shortcut": "",
+      "Show Status Bar": true,
+      "Silence Bell": true,
+      "Smart Cursor Color": true,
+      "Space": 0,
+      "Status Bar Layout": {
+        "advanced configuration": {
+          "algorithm": 0,
+          "font": ".AppleSystemUIFont 12"
+        },
+        "components": [
+          {
+            "class": "iTermStatusBarJobComponent",
+            "configuration": {
+              "knobs": {
+                "base: compression resistance": 1,
+                "base: priority": 5,
+                "maxwidth": 1.7976931348623157e+308,
+                "minwidth": 0
+              },
+              "layout advanced configuration dictionary value": {
+                "algorithm": 0,
+                "font": ".AppleSystemUIFont 12"
+              }
+            }
+          }
+        ]
+      },
+      "Sync Title": false,
+      "Tags": [],
+      "Terminal Type": "xterm-256color",
+      "Transparency": 0,
+      "Triggers": [],
+      "Unicode Version": 9,
+      "Unlimited Scrollback": true,
+      "Use Bold Font": true,
+      "Use Bright Bold": false,
+      "Use Canonical Parser": false,
+      "Use HFS Plus Mapping": false,
+      "Use Italic Font": true,
+      "Use Non-ASCII Font": false,
+      "Vertical Spacing": 1,
+      "Visual Bell": true,
+      "Window Type": 0,
+      "Working Directory": "/Users/dmentipl"
+    }
+  ]
+}
