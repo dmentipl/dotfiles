@@ -56,6 +56,10 @@ in {
       source = dotfilesBase + /git/ignore;
       target = ".config/git/ignore";
     };
+    iterm = {
+      source = dotfilesBase + /os/iterm-profile.json;
+      target = "Library/Application Support/iTerm2/DynamicProfiles/iterm-profile.json";
+    };
     nvim = {
       source = dotfilesBase + /editor/init.lua;
       target = ".config/nvim/init.lua";
