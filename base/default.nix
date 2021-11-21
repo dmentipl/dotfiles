@@ -28,7 +28,6 @@ in {
     starship
     tmux
     trash-cli
-    vscode
     watch
     wget
     zoxide

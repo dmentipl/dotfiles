@@ -18,7 +18,7 @@ in rec {
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "daniel";
+  home.username = "dmentipl";
   home.homeDirectory = userDirectory + home.username;
 
   # This value determines the Home Manager release that your
