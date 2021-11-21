@@ -1,10 +1,10 @@
 # dotfiles
 
-> dotfiles for macOS (and Linux) machines with nix
+> dotfiles for macOS machines with nix
 
 ## Description
 
-This is a set of dotfiles and installation scripts appropriate for machines running macOS (and Linux) using [nix](https://nixos.org/) and [home-manager](https://github.com/nix-community/home-manager).
+This is a set of dotfiles and installation scripts appropriate for machines running macOS using [nix](https://nixos.org/) and [home-manager](https://github.com/nix-community/home-manager).
 
 A small caveat: these files are useful to me, i.e. [@dmentipl](https://github.com/dmentipl); they *might* also be useful to you.
 
@@ -106,9 +106,9 @@ The following are not managed by nix or home-manager.
     mv marp ~/bin
     ```
 
-### macOS
+## macOS
 
-#### Command line tools
+### Command line tools
 
 To install the Xcode command line tools (which include git and other basic programs) run:
 
@@ -116,7 +116,7 @@ To install the Xcode command line tools (which include git and other basic progr
 xcode-select --install
 ```
 
-#### ssh keys
+### ssh keys
 
 Generate a public-private key with the following.
 
@@ -148,15 +148,15 @@ ssh-add -K ~/.ssh/id_ed25519
 
 Then you can add the public key to, for example, GitHub via the web interface.
 
-#### macOS configuration
+### Configuration
 
-Configure macOS, e.g. Finder, the Dock, trackpad and keyboard. See [`mac.sh`](base/os/mac.sh) for details.
+Configure macOS, e.g. Finder, the Dock, trackpad and keyboard, terminal. See [`mac.sh`](base/os/mac.sh) for details.
 
 ```zsh
 base/os/mac.sh
 ```
 
-#### Graphical applications
+### Graphical applications
 
 I install that following applications manually.
 
@@ -175,6 +175,6 @@ I install the following utilities manually.
 - ProtonVPN
 - Sync
 
-#### Other
+### Font
 
 I like Fira Code font. Install manually from [here](https://github.com/tonsky/FiraCode).
