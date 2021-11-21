@@ -25,6 +25,7 @@ in {
     procs
     ripgrep
     sd
+    shellcheck
     starship
     tmux
     trash-cli
