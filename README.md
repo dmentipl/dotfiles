@@ -17,7 +17,7 @@ There are two main requirements:
 
 *Note*: if the nix command is not on the path run the following.
 
-```bash
+```zsh
 . ~/.nix-profile/etc/profile.d/nix.sh
 ```
 
@@ -29,19 +29,19 @@ After installation, home-manager will ensure nix is properly configured.
 
 1. Clone this repository locally (or download a tarball/zip archive) to
 
-    ```bash
+    ```zsh
     ~/repos/dotfiles
     ```
 
 2. Symlink `home.nix` to `~/.config/nixpkgs`:
 
-    ```bash
+    ```zsh
     ln -s ~/repos/dotfiles/home.nix ~/.config/nixpkgs/home.nix
     ```
 
 3. Run home-manager:
 
-    ```bash
+    ```zsh
     home-manager switch
     ```
 
@@ -49,13 +49,13 @@ After installation, home-manager will ensure nix is properly configured.
 
 Each time you make a configuration change in `home.nix` or its dependencies do the following.
 
-```bash
+```zsh
 home-manager switch
 ```
 
 To update all nix packages do the following.
 
-```bash
+```zsh
 nix-channel --update
 
 # NOTE: this may take a while
@@ -76,19 +76,20 @@ Nix and home-manager also manages the configuration of those applications, inclu
 
 The following are not managed by nix or home-manager.
 
-- VS Code extensions. Install with the following fish-shell snippet
+- VS Code extensions. Install with the following
 
-    ```fish
-    for ext in (jq .recommendations[] -r base/editor/extensions.json)
+    ```zsh
+    for ext in $(jq '.recommendations[]' -r base/editor/extensions.json)
+    do
       code --install-extension $ext
-    end
+    done
     ```
 
     See `base/editor/extensions.json` for the list of "recommended" extensions.
 
 - Neovim extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
 
-    ```bash
+    ```zsh
     git clone --depth=1 https://github.com/savq/paq-nvim.git \
         "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
     ```
@@ -97,7 +98,7 @@ The following are not managed by nix or home-manager.
 
 - [Marp](https://marpit.marp.app/) for markdown slides. Install the stand-alone binary as follows (choosing the latest version number)
 
-    ```bash
+    ```zsh
     OS=mac
     VERSION=v1.2.0
     wget "https://github.com/marp-team/marp-cli/releases/download/$VERSION/marp-cli-$VERSION-$OS.tar.gz"
