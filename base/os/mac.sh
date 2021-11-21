@@ -2,6 +2,8 @@
 #
 # Set macOS defaults. Tested on Monterey, i.e. macOS 12.0.
 #
+# Must logout (or restart) for some changes to take effect.
+#
 # Resources:
 #
 # - https://github.com/boochtek/mac_config
@@ -51,6 +53,9 @@ defaults write com.apple.dock autohide -bool true
 
 # Do not automatically rearrange spaces based on most recent use.
 defaults write com.apple.dock mru-spaces -bool false
+
+# Do not show recent applications
+defaults write com.apple.dock show-recents -bool false
 
 # ---------------------------------------------------------------------------- #
 # Finder
@@ -111,9 +116,3 @@ defaults write com.apple.screencapture type -string "png"
 
 # Disable shadow in screenshots.
 defaults write com.apple.screencapture disable-shadow -bool true
-
-# ---------------------------------------------------------------------------- #
-# Restart
-
-killall Dock
-killall Finder
