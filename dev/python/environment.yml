@@ -1,7 +1,7 @@
 # Conda packages for my base environment.
 #
-# mamba install --file base.yml
-# conda install --file base.yml
+# mamba install --file environment.yml
+# conda install --file environment.yml
 #
 black
 flake8
