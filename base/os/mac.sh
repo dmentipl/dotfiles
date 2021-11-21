@@ -1,15 +1,17 @@
-#!/usr/bin/env bash
+#!/bin/zsh
 #
-# Set macOS Monterey defaults.
+# Set macOS defaults. Tested on Monterey, i.e. macOS 12.0.
 #
-# https://github.com/mathiasbynens/dotfiles
-# https://github.com/boochtek/mac_config
+# Resources:
+#
+# - https://github.com/boochtek/mac_config
+# - https://github.com/mathiasbynens/dotfiles
+# - https://github.com/yannbertrand/macos-defaults
+
+# ---------------------------------------------------------------------------- #
 
 # Only run in macOS.
 [[ $(uname) = Darwin ]] || return 1
-
-# Ask for the administrator password upfront
-sudo -v
 
 # ---------------------------------------------------------------------------- #
 # Hostname
@@ -18,115 +20,100 @@ sudo -v
 sudo scutil --set HostName macbookpro
 
 # ---------------------------------------------------------------------------- #
-# Software update
-
-# Enable the automatic update check
-defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
-
-# Check for software updates daily, not just once per week
-defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-
-# Download newly available updates in background
-defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
-
-# Install System data files & security updates
-defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
-
-# ---------------------------------------------------------------------------- #
 # Trackpad
 
-# Enable tap to click. (Don't have to press down on the trackpad -- just tap it.)
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+# Enable tap to click.
+defaults read com.apple.AppleMultitouchTrackpad Clicking -bool true
 
-# Enable 3-finger drag. (Moving with 3 fingers in any window "chrome" moves the window.)
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+# Enable 3-finger drag.
+defaults read com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
 
 # Enable scroll-to-zoom with Ctrl (^) modifier key (and 2 fingers).
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad HIDScrollZoomModifierMask -int 262144
-defaults write com.apple.AppleMultitouchTrackpad HIDScrollZoomModifierMask -int 262144
+defaults read com.apple.universalaccess closeViewScrollWheelToggle -bool true
+defaults read com.apple.AppleMultitouchTrackpad HIDScrollZoomModifierMask -int 262144
 
 # ---------------------------------------------------------------------------- #
 # Keyboard
 
 # Automatically illuminate built-in MacBook keyboard in low light.
-defaults write com.apple.BezelServices kDim -bool false
+defaults read com.apple.BezelServices kDim -bool false
 
 # Set a blazingly fast keyboard repeat rate.
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-defaults write -g InitialKeyRepeat -int 15      # opts: 120,94,68,35,25,15
-defaults write -g KeyRepeat -int 2              # opts: 120,90,60,30,12,6,2
+defaults read NSGlobalDomain ApplePressAndHoldEnabled -bool false
+defaults read NSGlobalDomain InitialKeyRepeat -int 15      # opts: 120,94,68,35,25,15
+defaults read NSGlobalDomain KeyRepeat -int 2              # opts: 120,90,60,30,12,6,2
 
 # ---------------------------------------------------------------------------- #
 # Dock
 
-# Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
+# Automatically hide and show the Dock.
+defaults read com.apple.dock autohide -bool true
 
-# Do not automatically rearrange spaces based on most recent use
-defaults write com.apple.dock mru-spaces -bool false
+# Do not automatically rearrange spaces based on most recent use.
+defaults read com.apple.dock mru-spaces -bool false
 
 # ---------------------------------------------------------------------------- #
 # Finder
 
 # When opening a new window, start in the home directory.
-defaults write com.apple.finder NewWindowTargetPath "file://$HOME"
-
-# Finder: show all filename extensions
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults read com.apple.finder NewWindowTargetPath "file://$HOME"
 
 # Show hidden files.
-defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults read com.apple.finder AppleShowAllFiles -bool true
 
-# Finder: show status bar
-defaults write com.apple.finder ShowStatusBar -bool true
+# Finder: show status bar.
+defaults read com.apple.finder ShowStatusBar -bool true
 
-# Finder: show path bar
-defaults write com.apple.finder ShowPathbar -bool true
+# Finder: show path bar.
+defaults read com.apple.finder ShowPathbar -bool true
 
 # Warn before emptying the Trash.
-defaults write com.apple.finder WarnOnEmptyTrash -bool true
+defaults read com.apple.finder WarnOnEmptyTrash -bool true
 
 # Empty Trash securely by default.
-defaults write com.apple.finder EmptyTrashSecurely -bool true
-
-# Avoid creating .DS_Store files on network or USB volumes
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-
-# Use list view in all Finder windows by default
-# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
-
-# Show the ~/Library folder
-chflags nohidden ~/Library
-
-# Show the /Volumes folder
-sudo chflags nohidden /Volumes
+defaults read com.apple.finder EmptyTrashSecurely -bool true
 
 # Don't show any special icons on desktop.
-defaults write ShowExternalHardDrivesOnDesktop -bool false
-defaults write ShowHardDrivesOnDesktop -bool false
-defaults write ShowRemovableMediaOnDesktop -bool false
-defaults write ShowMountedServersOnDesktop -bool false
+defaults read com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults read com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults read com.apple.finder ShowRemovableMediaOnDesktop -bool false
+defaults read com.apple.finder ShowMountedServersOnDesktop -bool false
+
+# Use list view in all Finder windows by default.
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`.
+defaults read com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Finder: show all filename extensions.
+defaults read NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Avoid creating .DS_Store files on network or USB volumes.
+defaults read com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults read com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Show the ~/Library folder.
+chflags nohidden ~/Library
 
 # ---------------------------------------------------------------------------- #
 # Screensaver
 
-# Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+# Require password immediately after sleep or screen saver begins.
+defaults read com.apple.screensaver askForPassword -int 1
+defaults read com.apple.screensaver askForPasswordDelay -int 0
 
 # ---------------------------------------------------------------------------- #
 # Screenshots
 
-# Save screenshots to the desktop
-defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+# Save screenshots to the desktop.
+defaults read com.apple.screencapture location -string "${HOME}/Desktop"
 
-# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
-defaults write com.apple.screencapture type -string "png"
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF).
+defaults read com.apple.screencapture type -string "png"
 
-# Disable shadow in screenshots
-defaults write com.apple.screencapture disable-shadow -bool true
+# Disable shadow in screenshots.
+defaults read com.apple.screencapture disable-shadow -bool true
+
+# ---------------------------------------------------------------------------- #
+# Restart
+
+killall Dock
+killall Finder
