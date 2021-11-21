@@ -1,10 +1,10 @@
 # dotfiles
 
-> dotfiles for macOS and Linux machines with nix
+> dotfiles for macOS (and Linux) machines with nix
 
 ## Description
 
-This is a set of dotfiles and installation scripts appropriate for machines running macOS and Linux using [nix](https://nixos.org/) and [home-manager](https://github.com/nix-community/home-manager).
+This is a set of dotfiles and installation scripts appropriate for machines running macOS (and Linux) using [nix](https://nixos.org/) and [home-manager](https://github.com/nix-community/home-manager).
 
 A small caveat: these files are useful to me, i.e. [@dmentipl](https://github.com/dmentipl); they *might* also be useful to you.
 
@@ -74,13 +74,7 @@ Nix and home-manager also manages the configuration of those applications, inclu
 
 ### Not managed by nix or home-manager
 
-The following are not *yet* managed by nix or home-manager.
-
-- macOS defaults. See `base/os/mac.sh` for details. To set defaults, run the script as follows
-
-    ```bash
-    bash mac.sh
-    ```
+The following are not managed by nix or home-manager.
 
 - VS Code extensions. Install with the following fish-shell snippet
 
@@ -94,7 +88,7 @@ The following are not *yet* managed by nix or home-manager.
 
 - Neovim extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
 
-    ```fish
+    ```bash
     git clone --depth=1 https://github.com/savq/paq-nvim.git \
         "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
     ```
@@ -103,34 +97,83 @@ The following are not *yet* managed by nix or home-manager.
 
 - [Marp](https://marpit.marp.app/) for markdown slides. Install the stand-alone binary as follows (choosing the latest version number)
 
-    ```fish
-    wget https://github.com/marp-team/marp-cli/releases/download/v1.2.0/marp-cli-v1.2.0-mac.tar.gz
-    extract marp-cli-v1.2.0-mac.tar.gz
+    ```bash
+    OS=mac
+    VERSION=v1.2.0
+    wget "https://github.com/marp-team/marp-cli/releases/download/$VERSION/marp-cli-$VERSION-$OS.tar.gz"
+    tar -xf "marp-cli-$VERSION-$OS.tar.gz"
     mv marp ~/bin
     ```
 
-In addition, the following GUI applications that I use are not *yet* managed by nix or home-manager:
-
-- Brave
-- iStat Menus
-- iTerm
-- KeepingYouAwake
-- Obsidian
-- ProtonVPN
-- Signal
-- Spotify
-- Transmission
-
 ### macOS
+
+#### Command line tools
 
 To install the Xcode command line tools (which include git and other basic programs) run:
 
-```bash
+```zsh
 xcode-select --install
 ```
 
-Change caps lock to control.
+#### ssh keys
 
-> System Preferences > Keyboard > Keyboard (Modifier Keys): remap caps lock to control.
+Generate a public-private key with the following.
 
-Download and install color schemes manually from <https://iterm2colorschemes.com/>. I like 'Monokai Soda'.
+```zsh
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+Start the ssh-agent in the background.
+
+```zsh
+eval "$(ssh-agent -s)"
+```
+
+The following goes in `~/.ssh/config`.
+
+```text
+Host *
+  IgnoreUnknown UseKeychain
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+```
+
+Add the key to the ssh-agent.
+
+```zsh
+ssh-add -K ~/.ssh/id_ed25519
+```
+
+Then you can add the public key to, for example, GitHub via the web interface.
+
+#### macOS configuration
+
+Configure macOS, e.g. Finder, the Dock, trackpad and keyboard. See [`mac.sh`](base/os/mac.sh) for details.
+
+```zsh
+base/os/mac.sh
+```
+
+#### Graphical applications
+
+I install that following applications manually.
+
+- Brave
+- iTerm
+- Obsidian
+- Signal
+- Spotify
+- Transmission
+- VS Code
+
+I install the following utilities manually.
+
+- iStat Menus
+- KeepingYouAwake
+- ProtonVPN
+- Sync
+
+#### Other
+
+I like Fira Code font. Install manually from [here](https://github.com/tonsky/FiraCode).
