@@ -15,6 +15,8 @@
 #
 # These directories need to be on the $PATH to use Haskell after installation.
 #
+# See haskell-init.fish.
+#
 # The script is interactive and requires user input, for example, to choose to
 # install optional software.
 
