@@ -156,6 +156,11 @@ Configure macOS, e.g. Finder, the Dock, trackpad and keyboard, terminal. See [`m
 base/os/mac.sh
 ```
 
+#### Require password immediately
+
+1. System Preferences -> Security & Privacy -> General
+2. Tick `Require password` and set to `"Immediately"`
+
 #### Set caps lock key to no action
 
 1. Go to System Preferences -> Keyboard -> Modifier Keys...
