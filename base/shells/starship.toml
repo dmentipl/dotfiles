@@ -14,7 +14,7 @@ format = """\
     """
 
 [cmd_duration]
-format = " [⤳ $duration](bold #f3ad10) "
+format = " [⤳ $duration](bold 242) "
 
 [conda]
 format = "[$symbol$environment]($style) [•](242) "
@@ -25,16 +25,16 @@ format = "[$path]($style)[$read_only]($read_only_style) [•](242) "
 
 [git_branch]
 format = "[$symbol$branch]($style) "
-style = "bold #f3ad10"
+style = "bold yellow"
 
 [git_commit]
-style = "bold #f3ad10"
+style = "bold yellow"
 
 [git_state]
-style = "bold #f3ad10"
+style = "bold yellow"
 
 [git_status]
-style = "bold #f3ad10"
+style = "bold yellow"
 
 [hostname]
 format = "[$hostname]($style) [•](242) "

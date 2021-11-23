@@ -38,15 +38,15 @@ in {
   # Symlink these dotfiles.
   home.file = {
     bash = {
-      source = dotfilesBase + /shell/profile;
+      source = dotfilesBase + /shells/profile;
       target = ".profile";
     };
     fish = {
-      source = dotfilesBase + /shell/config.fish;
+      source = dotfilesBase + /shells/config.fish;
       target = ".config/fish/config.fish";
     };
     fish-extract = {
-      source = dotfilesBase + /shell/extract.fish;
+      source = dotfilesBase + /shells/extract.fish;
       target = ".config/fish/functions/extract.fish";
     };
     gitconfig = {
@@ -58,31 +58,31 @@ in {
       target = ".config/git/ignore";
     };
     iterm = {
-      source = dotfilesBase + /os/iterm-profile.json;
+      source = dotfilesBase + /terminals/iterm-profile.json;
       target = "Library/Application Support/iTerm2/DynamicProfiles/iterm-profile.json";
     };
     nvim = {
-      source = dotfilesBase + /editor/init.lua;
+      source = dotfilesBase + /editors/init.lua;
       target = ".config/nvim/init.lua";
     };
     starship = {
-      source = dotfilesBase + /shell/starship.toml;
+      source = dotfilesBase + /shells/starship.toml;
       target = ".config/starship.toml";
     };
     tmux = {
-      source = dotfilesBase + /shell/tmux.conf;
+      source = dotfilesBase + /shells/tmux.conf;
       target = ".config/tmux/tmux.conf";
     };
     vscode-settings = {
-      source = dotfilesBase + /editor/settings.json;
+      source = dotfilesBase + /editors/settings.json;
       target = "Library/Application Support/Code/User/settings.json";
     };
     vscode-keybindings = {
-      source = dotfilesBase + /editor/keybindings.json;
+      source = dotfilesBase + /editors/keybindings.json;
       target = "Library/Application Support/Code/User/keybindings.json";
     };
     zsh = {
-      source = dotfilesBase + /shell/profile;
+      source = dotfilesBase + /shells/profile;
       target = ".zprofile";
     };
   };

@@ -156,9 +156,19 @@ Configure macOS, e.g. Finder, the Dock, trackpad and keyboard, terminal. See [`m
 base/os/mac.sh
 ```
 
-### Graphical applications
+#### Set caps lock key to no action
 
-I install that following applications manually.
+1. Go to System Preferences -> Keyboard -> Modifier Keys...
+2. Set `Caps Lock Key` to `"No Action"`
+
+#### Turn on night shift
+
+1. System Preferences -> Displays -> Night Shift...
+2. Set `Schedule` to `"Sunset to Sunrise"`
+
+### Applications
+
+Install the following applications manually.
 
 - Brave
 - iTerm
@@ -168,7 +178,7 @@ I install that following applications manually.
 - Transmission
 - VS Code
 
-I install the following utilities manually.
+Install the following utilities manually.
 
 - iStat Menus
 - KeepingYouAwake

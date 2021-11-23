@@ -10,6 +10,7 @@
     "files.trimTrailingWhitespace": true,
     "editor.fontFamily": "'fira code', menlo, monaco, 'courier new', monospace",
     "editor.fontLigatures": true,
+    "editor.semanticHighlighting.enabled": true,
     "markdownlint.config": {
         "MD013": false,
         "MD024": {
@@ -183,7 +184,7 @@
         }
     ],
     "window.newWindowDimensions": "inherit",
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "GitHub Dark Dimmed",
     "workbench.startupEditor": "newUntitledFile",
     "[markdown]": {
         "editor.codeActionsOnSave": {
