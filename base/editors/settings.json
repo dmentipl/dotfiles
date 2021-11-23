@@ -41,8 +41,32 @@
             ]
         }
     ],
+    "vim.joinspaces": false,
     "vim.leader": "<space>",
     "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "after": [
+                "<leader>",
+                "<leader>",
+                "2",
+                "s"
+            ],
+            "before": [
+                "s"
+            ]
+        },
+        {
+            "after": [
+                "<plugys>",
+                "i",
+                "w"
+            ],
+            "before": [
+                "c",
+                "s",
+                "w"
+            ]
+        },
         {
             "after": [
                 "g",
@@ -142,7 +166,6 @@
             ]
         }
     ],
-    "vim.sneak": true,
     "vim.useCtrlKeys": true,
     "vim.useSystemClipboard": true,
     "vim.visualModeKeyBindingsNonRecursive": [
