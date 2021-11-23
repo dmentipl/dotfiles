@@ -1,6 +1,9 @@
 #!/bin/bash
 #
-# Install Mambaforge conda at ~/conda
+# Install Mambaforge conda at ~/conda.
+# From https://github.com/conda-forge/miniforge.
+#
+# Conda needs to be initialized. See conda-init.fish.
 
 if [[ $(uname) == Linux ]]; then
     OS=Linux
