@@ -144,21 +144,9 @@
         "Red Component": 0.7696096301078796
       },
       "Guid": "29038919-B333-4972-89B0-91A02B812C01",
-      "Has Hotkey": true,
+      "Has Hotkey": false,
       "Hide After Opening": false,
       "Horizontal Spacing": 1,
-      "HotKey Activated By Modifier": false,
-      "HotKey Alternate Shortcuts": [],
-      "HotKey Characters": "†",
-      "HotKey Characters Ignoring Modifiers": "t",
-      "HotKey Key Code": 17,
-      "HotKey Modifier Activation": 0,
-      "HotKey Modifier Flags": 1572864,
-      "HotKey Window Animates": true,
-      "HotKey Window AutoHides": true,
-      "HotKey Window Dock Click Action": 0,
-      "HotKey Window Floats": false,
-      "HotKey Window Reopens On Activation": false,
       "Idle Code": 0,
       "Initial Text": "",
       "Jobs to Ignore": [
@@ -252,6 +240,26 @@
       "Visual Bell": true,
       "Window Type": 0,
       "Working Directory": "/Users/dmentipl"
+    },
+    {
+      "Dynamic Profile Parent Name": "default",
+      "Guid": "ba19744f-6af3-434d-aaa6-0a48e0969958",
+      "Has Hotkey": true,
+      "HotKey Activated By Modifier": false,
+      "HotKey Alternate Shortcuts": [],
+      "HotKey Characters": "†",
+      "HotKey Characters Ignoring Modifiers": "t",
+      "HotKey Key Code": 17,
+      "HotKey Modifier Activation": 0,
+      "HotKey Modifier Flags": 1572864,
+      "HotKey Window Animates": true,
+      "HotKey Window AutoHides": true,
+      "HotKey Window Dock Click Action": 0,
+      "HotKey Window Floats": false,
+      "HotKey Window Reopens On Activation": false,
+      "Name": "hotkey",
+      "Space" : -1,
+      "Transparency": 0.1
     }
   ]
 }
