@@ -184,7 +184,7 @@
         }
     ],
     "window.newWindowDimensions": "inherit",
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "GitHub Dark Dimmed",
     "workbench.startupEditor": "newUntitledFile",
     "[markdown]": {
         "editor.codeActionsOnSave": {

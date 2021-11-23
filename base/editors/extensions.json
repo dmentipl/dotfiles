@@ -5,6 +5,7 @@
     "bungcip.better-toml",
     "eamodio.gitlens",
     "DavidAnson.vscode-markdownlint",
+    "GitHub.github-vscode-theme",
     "mhutchie.git-graph",
     "ms-vscode.wordcount",
     "ms-vscode-remote.remote-ssh",
