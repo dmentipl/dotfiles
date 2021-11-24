@@ -12,10 +12,6 @@ in {
       source = dotfilesDevPython + /conda-init.fish;
       target = ".config/fish/functions/conda-init.fish";
     };
-    flake8 = {
-      source = dotfilesDevPython + /flake8;
-      target = ".config/flake8";
-    };
   };
 
 }
