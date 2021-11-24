@@ -11,6 +11,11 @@
     "editor.fontFamily": "'fira code', menlo, monaco, 'courier new', monospace",
     "editor.fontLigatures": true,
     "editor.semanticHighlighting.enabled": true,
+    "[markdown]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.markdownlint": true
+        }
+    },
     "markdownlint.config": {
         "MD013": false,
         "MD024": {
@@ -55,6 +60,8 @@
                 "s"
             ]
         },
+        // Hacks for broken vim-surround plugin
+        // --->
         {
             "after": [
                 "<plugys>",
@@ -67,6 +74,19 @@
                 "w"
             ]
         },
+        {
+            "after": [
+                "<plugys>",
+                "i",
+                "W"
+            ],
+            "before": [
+                "c",
+                "s",
+                "W"
+            ]
+        },
+        // <---
         {
             "after": [
                 "g",
@@ -208,10 +228,5 @@
     ],
     "window.newWindowDimensions": "inherit",
     "workbench.colorTheme": "GitHub Dark Dimmed",
-    "workbench.startupEditor": "newUntitledFile",
-    "[markdown]": {
-        "editor.codeActionsOnSave": {
-            "source.fixAll.markdownlint": true
-        }
-    }
+    "workbench.startupEditor": "newUntitledFile"
 }
