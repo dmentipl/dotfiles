@@ -55,6 +55,8 @@
                 "s"
             ]
         },
+        // Hacks for broken vim-surround plugin
+        // --->
         {
             "after": [
                 "<plugys>",
@@ -67,6 +69,19 @@
                 "w"
             ]
         },
+        {
+            "after": [
+                "<plugys>",
+                "i",
+                "W"
+            ],
+            "before": [
+                "c",
+                "s",
+                "W"
+            ]
+        },
+        // <---
         {
             "after": [
                 "g",
