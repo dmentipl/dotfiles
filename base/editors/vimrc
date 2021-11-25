@@ -1,0 +1,106 @@
+"         ██╗   ██╗ ██╗ ███╗   ███╗ ██████╗   ██████╗
+"         ██║   ██║ ██║ ████╗ ████║ ██╔══██╗ ██╔════╝
+"         ██║   ██║ ██║ ██╔████╔██║ ██████╔╝ ██║
+"         ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║ ██╔══██╗ ██║
+"       ██╗╚████╔╝  ██║ ██║ ╚═╝ ██║ ██║  ██║ ╚██████╗
+"       ╚═╝ ╚═══╝   ╚═╝ ╚═╝     ╚═╝ ╚═╝  ╚═╝  ╚═════╝
+
+" ==============================================================================
+"   Settings
+" ==============================================================================
+
+set autoindent                       " Enable automatic indentation.
+set backspace=indent,eol,start       " Backspace works on everything.
+set colorcolumn=80                   " Colored column to see textwidth.
+set cursorline                       " Highlight the line with the cursor.
+set expandtab                        " Convert tabs to spaces.
+set history=1000                     " Remember the last thousand commands.
+set hlsearch                         " Highlight search terms.
+set ignorecase                       " Ignore case while searching.
+set incsearch                        " Highlight matches as you type.
+set laststatus=2                     " Always show the status line.
+set lazyredraw                       " Fixes slow scrolling with cursorline.
+set linebreak                        " Break on words not end of space.
+set modeline                         " Check files for modelines.
+set mouse=a                          " Enable mouse support.
+set mousehide                        " Hide the mouse cursor when typing.
+set noshowmode                       " Don't show the current mode.
+set nostartofline                    " Go to previous cursor location when
+                                     " switching between buffers.
+set nowrap                           " Don't wrap long lines.
+set number                           " Always show line numbers.
+set ruler                            " Enable the ruler.
+set scrolloff=8                      " Keep 8 lines above/below the cursor.
+set sidescrolloff=10                 " Keep 10 columns next to the cursor.
+set shiftwidth=4                     " Use four spaces when auto-indenting.
+set showcmd                          " Show partial command in status line.
+set showmatch                        " Briefly jump to matching brackets.
+set smartcase                        " Override the ignorecase option if
+                                     " the search has upper case characters.
+set smartindent                      " Smart autoindenting for new lines.
+set smarttab                         " Use shiftwidth when using <tab> in
+                                     " front of a line.
+set softtabstop=4                    " How many spaces should be inserted
+                                     " when hitting <tab> or backspace.
+set tabstop=4                        " Set <tab> to display four spaces.
+set textwidth=80                     " Maximum text length before a new line.
+set undodir=~/.vim/undo//            " Save undo history to this location.
+set undofile                         " Enable persistent undos.
+set undolevels=9999                  " Number of changes that can be undone.
+set undoreload=9999                  " Number of lines to save on buffer reload.
+set viminfo='20,\"50                 " Retain various info between sessions.
+set virtualedit=block                " Visual block mode can select blank space.
+set whichwrap=b,s,<,>,[,]            " Allow keys to move the cursor to the
+            " | | | | | |              previous/next line.
+            " | | | | | |
+            " | | | | | +------- ] Insert and Replace
+            " | | | | +--------- [ Insert and Replace
+            " | | | +----------- <right> Normal and Visual
+            " | | +------------- <left> Normal and Visual
+            " | +--------------- <space> Normal and Visual
+            " +----------------- <bs> Normal and Visual
+set wildmenu                         " Autocomplete commands.
+set wildmode=longest:full,full       " Autocomplete til the longest common
+                                     " string and the next full match.
+
+" ==============================================================================
+"   Key mappings
+" ==============================================================================
+
+" Paste last yank, make Y consistent with C and D.
+nnoremap Y y$
+
+" Move between editor lines rather than actual lines.
+vnoremap j gj
+vnoremap k gk
+vnoremap $ g$
+vnoremap ^ g^
+vnoremap 0 g0
+nnoremap j gj
+nnoremap k gk
+nnoremap $ g$
+nnoremap ^ g^
+nnoremap 0 g0
+
+" Reverse mappings for above.
+vnoremap gj j
+vnoremap gk k
+vnoremap g$ $
+vnoremap g^ ^
+vnoremap g0 0
+nnoremap gj j
+nnoremap gk k
+nnoremap g$ $
+nnoremap g^ ^
+nnoremap g0 0
+
+" Exit to normal mode.
+inoremap fd <esc>
+vnoremap fd <esc>
+
+" Stop cursor jumping when joining lines.
+nnoremap J mzJ`z
+
+" Moving lines.
+xnoremap < <gv
+xnoremap > >gv
