@@ -76,13 +76,13 @@ Nix and home-manager also manages the configuration of those applications, inclu
 
 The following are not managed by nix or home-manager.
 
-- Fisher for fish-shell. Install with the following
+- [Fisher](https://github.com/jorgebucaran/fisher) for fish-shell plugins. Install with the following
 
     ```fish
     curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
     ```
 
-- VS Code extensions. Install with the following
+- [VS Code](https://code.visualstudio.com/) extensions. Install with the following
 
     ```zsh
     for ext in $(jq '.recommendations[]' -r base/editor/extensions.json)
@@ -93,7 +93,7 @@ The following are not managed by nix or home-manager.
 
     See `base/editor/extensions.json` for the list of "recommended" extensions.
 
-- Neovim extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
+- [Neovim](https://neovim.io/) extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
 
     ```zsh
     git clone --depth=1 https://github.com/savq/paq-nvim.git \
@@ -102,9 +102,12 @@ The following are not managed by nix or home-manager.
 
   Then run `:PaqInstall` inside Neovim. See `base/editor/init.lua` for the list of extensions.
 
-### Other CLI applications
+### Other applications and utilities
 
-- [Marp](https://marpit.marp.app/) for markdown slides: install the stand-alone binary from GitHub repo [releases](https://github.com/marp-team/marp-cli/releases/).
+- [fzf.fish](https://github.com/PatrickF1/fzf.fish) for fzf fish-shell keybindings. Install with `fisher install PatrickF1/fzf.fish`.
+- [marp-cli](https://github.com/marp-team/marp-cli) to generate slides from markdown. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
+- [nvm.fish](https://github.com/jorgebucaran/nvm.fish) to manage node.js and npm versions. Install with `fisher install jorgebucaran/nvm.fish`.
+- [pandiff](https://github.com/davidar/pandiff) for producing file diffs for any files that pandoc supports. Install with `node -g install pandiff` into an appropriate node installation.
 
 ## macOS
 
