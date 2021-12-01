@@ -52,6 +52,7 @@ if command -q git
   abbr --add --global gam 'git add --update'
   abbr --add --global gap 'git add --patch'
   abbr --add --global gb 'git branch --all --list --verbose'
+  abbr --add --global gbd 'git branch -D'
   abbr --add --global go 'git checkout'
   abbr --add --global gn 'git clone'
   abbr --add --global gc 'git commit --verbose'
