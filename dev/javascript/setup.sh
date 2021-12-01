@@ -1,24 +1,13 @@
 #!/bin/bash
 #
-# Install node.js and npm from https://nodejs.org/.
+# Install node.js and npm using nvm.fish.
+#
+# Note: to use node/npm after installation requires, e.g.
+#
+#  nvm use latest
 
-# Version. Update as required.
-VERSION=v16.13.0
+# Install nvm.fish
+fisher install jorgebucaran/nvm.fish
 
-# Fix permissions if True.
-FIX_PERMISSIONS=true
-
-# Only works on macOS.
-[[ $(uname) = Darwin ]] || return 1
-
-# Download installer.
-wget "https://nodejs.org/dist/$VERSION/node-$VERSION.pkg"
-
-# Run installer.
-echo 'Run installer'
-open "node-$VERSION.pkg"
-
-# You may need to fix permissions on /usr/local. E.g.
-if $FIX_PERMISSIONS; then
-    sudo chown -R "$USER" /usr/local/*
-fi
+# Install latest node.js and npm
+nvm install latest
