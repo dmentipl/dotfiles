@@ -11,6 +11,7 @@ in {
     bash
     bat
     curl
+    delta
     du-dust
     exa
     fd
@@ -29,6 +30,7 @@ in {
     starship
     tmux
     trash-cli
+    up
     watch
     wget
     zoxide
