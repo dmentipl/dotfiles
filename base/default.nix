@@ -12,6 +12,7 @@ in {
     bat
     curl
     delta
+    direnv
     du-dust
     exa
     fd
