@@ -23,7 +23,7 @@
 	cmd = code --wait --new-window $MERGED
 
 [push]
-	default = simple
+	default = current
 	followTags = true
 
 [status]
