@@ -1,0 +1,4 @@
+# This is a direnv .envrc file for Haskell projects.
+# Copy this file to any Haskell project directory and rename .envrc.
+PATH_add ~/.cabal/bin
+PATH_add ~/.ghcup/bin

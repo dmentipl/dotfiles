@@ -33,8 +33,6 @@ in rec {
 
   imports = [
     ./base
-    ./dev/haskell
-    ./dev/python
   ];
 
 }

@@ -1,6 +1,12 @@
 #!/bin/bash
 #
 # Install Racket.
+#
+# The following directory must be on the $PATH
+#
+#   /Applications/Racket/bin
+#
+# See envrc.
 
 # Version. Update as required.
 VERSION=8.3

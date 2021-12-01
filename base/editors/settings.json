@@ -5,6 +5,11 @@
         80
     ],
     "editor.tabCompletion": "on",
+    "files.associations": {
+        ".envrc": "shellscript",
+        "envrc": "shellscript",
+        "vimrc": "vimrc"
+    },
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
