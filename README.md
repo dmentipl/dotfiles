@@ -68,13 +68,19 @@ This is analogous to `sudo apt upgrade`.
 
 ### Managed by nix and home-manager
 
-Nix and home-manager manage the installation of applications such as: bat, dust, exa, fd, fish, fzf, htop, jq, neovim, pandoc, procs, ripgrep, sd, starship, tmux, trash, and vscode. See [`home.nix`](home.nix) and files imported therein for further details.
+Nix and home-manager manage the installation of applications such as: `bat`, `dust`, `exa`, `fd`, `fish`, `fzf`, `htop`, `jq`, `neovim`, `pandoc`, `procs`, `ripgrep`, `sd`, `starship`, `tmux`, and `trash`. See [`home.nix`](home.nix) and files imported therein for further details.
 
 Nix and home-manager also manages the configuration of those applications, including via symlinking of dotfiles to the appropriate locations in `$HOME`. This includes dotfiles such as `config.fish`, `git/config`, `init.lua`, `settings.json`, `starship.toml`, and `tmux.conf`, for example.
 
 ### Not managed by nix or home-manager
 
 The following are not managed by nix or home-manager.
+
+- Fisher for fish-shell. Install with the following
+
+    ```fish
+    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+    ```
 
 - VS Code extensions. Install with the following
 
@@ -96,15 +102,9 @@ The following are not managed by nix or home-manager.
 
   Then run `:PaqInstall` inside Neovim. See `base/editor/init.lua` for the list of extensions.
 
-- [Marp](https://marpit.marp.app/) for markdown slides. Install the stand-alone binary as follows (choosing the latest version number)
+### Other CLI applications
 
-    ```zsh
-    OS=mac
-    VERSION=v1.2.0
-    wget "https://github.com/marp-team/marp-cli/releases/download/$VERSION/marp-cli-$VERSION-$OS.tar.gz"
-    tar -xf "marp-cli-$VERSION-$OS.tar.gz"
-    mv marp ~/bin
-    ```
+- [Marp](https://marpit.marp.app/) for markdown slides: install the stand-alone binary from GitHub repo [releases](https://github.com/marp-team/marp-cli/releases/).
 
 ## macOS
 
@@ -155,6 +155,8 @@ Configure macOS, e.g. Finder, the Dock, trackpad and keyboard, terminal. See [`m
 ```zsh
 base/os/mac.sh
 ```
+
+*Note*: it seems that many settings cannot be scripted.
 
 #### Require password immediately
 
