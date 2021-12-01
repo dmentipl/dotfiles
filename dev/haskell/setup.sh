@@ -10,12 +10,12 @@
 #
 # Installs file into $HOME at the following locations:
 #
-# ~/.cabal/bin
-# ~/.ghcup/bin
+#   ~/.cabal/bin
+#   ~/.ghcup/bin
 #
 # These directories need to be on the $PATH to use Haskell after installation.
 #
-# See haskell-init.fish.
+# See envrc.
 #
 # The script is interactive and requires user input, for example, to choose to
 # install optional software.

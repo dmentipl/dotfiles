@@ -1,0 +1,5 @@
+# This is a direnv .envrc file for Python projects.
+# Copy this file to any Python project directory and rename .envrc.
+# Chose the environment name below as appropriate
+eval "$(conda shell.bash hook)"
+conda activate my_conda_env
