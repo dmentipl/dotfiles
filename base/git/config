@@ -1,10 +1,12 @@
-[user]
-	name = Daniel Mentiplay
-	email = daniel.mentiplay@protonmail.com
-
 [core]
-	editor = nvim
+	editor = code --wait --new-window
 	excludesfile = ~/.config/git/ignore
+
+[diff]
+	tool = vscode
+
+[difftool "vscode"]
+	cmd = code --wait --diff --new-window $LOCAL $REMOTE
 
 [init]
 	defaultBranch = main
@@ -12,6 +14,13 @@
 [merge]
 	conflictstlye = diff3
 	ff = only
+	tool = vscode
+
+[mergetool]
+	keepBackup = false
+
+[mergetool "vscode"]
+	cmd = code --wait --new-window $MERGED
 
 [push]
 	default = simple
@@ -22,3 +31,7 @@
 
 [url "git@github.com:"]
 	insteadOf = gh:
+
+[user]
+	name = Daniel Mentiplay
+	email = daniel.mentiplay@protonmail.com
