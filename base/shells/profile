@@ -7,3 +7,6 @@ export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 # User binaries
 [[ -d ~/.local/bin ]] && PATH="$HOME/.local/bin:$PATH"
 [[ -d ~/bin ]] && PATH="$HOME/bin:$PATH"
+
+# Conda binary
+[[ -d ~/conda/condabin ]] && PATH="$HOME/conda/condabin:$PATH"

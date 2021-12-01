@@ -4,7 +4,16 @@
 # Bind ctrl-space
 bind -k nul accept-autosuggestion
 
-# Initialize starship prompt
+# Initialize conda
+command -q conda &&
+  set --export CONDA_AUTO_ACTIVATE_BASE false &&
+  set --export CONDA_PROMPT_MODIFIER '' &&
+  eval conda "shell.fish" "hook" $argv | source
+
+# Initialize direnv
+command -q direnv && direnv hook fish | source
+
+# Initialize starship
 command -q starship && starship init fish | source
 
 # Initialize zoxide
