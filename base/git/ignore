@@ -10,3 +10,7 @@ Icon
 
 # Editor
 .vscode
+
+# Vale
+.vale
+.vale.ini
