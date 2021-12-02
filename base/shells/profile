@@ -1,12 +1,18 @@
-# Initialize Nix
+# Nix and home-manager
 source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+source "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
 export NIX_PATH=/nix/var/nix/profiles/per-user/root/channels/nixpkgs:/nix/var/nix/profiles/per-user/root/channels
 export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 
 # User binaries
-[[ -d ~/.local/bin ]] && PATH="$HOME/.local/bin:$PATH"
-[[ -d ~/bin ]] && PATH="$HOME/bin:$PATH"
+[[ -d $HOME/.local/bin ]] && PATH="$HOME/.local/bin:$PATH"
+[[ -d $HOME/bin ]] && PATH="$HOME/bin:$PATH"
 
-# Conda binary
-[[ -d ~/conda/condabin ]] && PATH="$HOME/conda/condabin:$PATH"
+# Pyenv for Python
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT ]] && PATH="$PYENV_ROOT/bin:$PATH"
+[[ -d $PYENV_ROOT ]] && PATH="$PYENV_ROOT/shims:$PATH"
+
+# Volta for node/npm
+export VOLTA_HOME="$HOME/.volta"
+[[ -d $VOLTA_HOME ]] && PATH="$VOLTA_HOME/bin:$PATH"
