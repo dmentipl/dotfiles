@@ -1,14 +1,18 @@
 #!/bin/bash
 #
-# Install Mambaforge conda at ~/conda from
-# https://github.com/conda-forge/miniforge.
+# Install pyenv and conda (mamba).
 
-# Get OS
-[[ $(uname) == Linux ]] && OS=Linux
-[[ $(uname) == Darwin ]] && OS=MacOSX
+# ============================================================================ #
+# PYENV
 
-# Download and run installer
-INSTALLER="Mambaforge-$OS-x86_64.sh"
+curl https://pyenv.run | bash
+
+# ============================================================================ #
+# CONDA
+
+# Download and install Mambaforge conda to ~/conda
+[[ $(uname) == Linux ]] && INSTALLER="Mambaforge-Linux-x86_64.sh"
+[[ $(uname) == Darwin ]] && INSTALLER="Mambaforge-MacOSX-arm64.sh"
 URL="https://github.com/conda-forge/miniforge/releases/latest/download/$INSTALLER"
 wget "$URL" && bash "$INSTALLER" -b -p "$HOME/conda" && rm "$INSTALLER"
 

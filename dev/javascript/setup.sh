@@ -1,13 +1,9 @@
 #!/bin/bash
 #
-# Install node.js and npm using nvm.fish.
-#
-# Note: to use node/npm after installation requires, e.g.
-#
-#  nvm use latest
+# Install volta for managing node versions.
 
-# Install nvm.fish
-fisher install jorgebucaran/nvm.fish
+# Install volta
+curl https://get.volta.sh | bash -s -- --skip-setup
 
-# Install latest node.js and npm
-nvm install latest
+# Install node
+volta install node

@@ -5,13 +5,16 @@
 bind -k nul accept-autosuggestion
 
 # Initialize conda
-command -q conda &&
+command -q ~/conda/bin/conda &&
   set --export CONDA_AUTO_ACTIVATE_BASE false &&
   set --export CONDA_PROMPT_MODIFIER '' &&
-  eval conda "shell.fish" "hook" $argv | source
+  eval ~/conda/bin/conda "shell.fish" "hook" $argv | source
 
 # Initialize direnv
 command -q direnv && direnv hook fish | source
+
+# Initialize pyenv
+command -q pyenv && pyenv init - | source
 
 # Initialize starship
 command -q starship && starship init fish | source

@@ -68,19 +68,13 @@ This is analogous to `sudo apt upgrade`.
 
 ### Managed by nix and home-manager
 
-Nix and home-manager manage the installation of applications such as: `bat`, `dust`, `exa`, `fd`, `fish`, `fzf`, `htop`, `jq`, `neovim`, `pandoc`, `procs`, `ripgrep`, `sd`, `starship`, `tmux`, and `trash`. See [`home.nix`](home.nix) and files imported therein for further details.
+Nix and home-manager manage the installation of command-line applications such as: `bat`, `dust`, `exa`, `fd`, `fish`, `fzf`, `htop`, `jq`, `neovim`, `pandoc`, `procs`, `ripgrep`, `sd`, `starship`, `tmux`, and `trash`. See [`home.nix`](home.nix) and files imported therein for further details.
 
 Nix and home-manager also manages the configuration of those applications, including via symlinking of dotfiles to the appropriate locations in `$HOME`. This includes dotfiles such as `config.fish`, `git/config`, `init.lua`, `settings.json`, `starship.toml`, and `tmux.conf`, for example.
 
 ### Not managed by nix or home-manager
 
 The following are not managed by nix or home-manager.
-
-- [Fisher](https://github.com/jorgebucaran/fisher) for fish-shell plugins. Install with the following
-
-    ```fish
-    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-    ```
 
 - [VS Code](https://code.visualstudio.com/) extensions. Install with the following
 
@@ -104,9 +98,7 @@ The following are not managed by nix or home-manager.
 
 ### Other applications and utilities
 
-- [fzf.fish](https://github.com/PatrickF1/fzf.fish) for fzf fish-shell keybindings. Install with `fisher install PatrickF1/fzf.fish`.
 - [marp-cli](https://github.com/marp-team/marp-cli) to generate slides from markdown. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
-- [nvm.fish](https://github.com/jorgebucaran/nvm.fish) to manage node.js and npm versions. Install with `fisher install jorgebucaran/nvm.fish`.
 - [pandiff](https://github.com/davidar/pandiff) for producing file diffs for any files that pandoc supports. Install with `node -g install pandiff` into an appropriate node installation.
 
 ## macOS
