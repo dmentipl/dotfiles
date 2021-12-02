@@ -87,7 +87,7 @@ The following are not managed by nix or home-manager.
 
     See `base/editor/extensions.json` for the list of "recommended" extensions.
 
-- [marp-cli](https://github.com/marp-team/marp-cli) to generate slides from markdown. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
+- [marp](https://github.com/marp-team/marp-cli) to generate slides from markdown. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
 - [neovim](https://neovim.io/) extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
 
     ```zsh
@@ -98,7 +98,7 @@ The following are not managed by nix or home-manager.
   Then run `:PaqInstall` inside Neovim. See `base/editor/init.lua` for the list of extensions.
 
 - [pandiff](https://github.com/davidar/pandiff) for producing file diffs for any files that pandoc supports. Install with `node -g install pandiff` into an appropriate node installation.
-- [vale](https://github.com/errata-ai/vale) styles. Download styles and put in `~/.config/vale/styles`. See [errata-ai/styles](https://github.com/errata-ai/styles) for a list of styles.
+- [vale](https://github.com/errata-ai/vale) styles. Download styles and put in `~/.config/vale/styles`. The VS Code extension expects `.vale.ini` in the working directory, so symlink as follows: `ln -s ~/.config/vale .vale`. See [errata-ai/styles](https://github.com/errata-ai/styles) for a list of styles.
 
 ## macOS
 
