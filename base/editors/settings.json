@@ -38,6 +38,8 @@
     ],
     "terminal.integrated.inheritEnv": false,
     "terminal.integrated.macOptionIsMeta": true,
+    "vale.core.useCLI": true,
+    "vale.valeCLI.config": "${workspaceFolder}/.vale/vale.ini",
     "vim.easymotion": true,
     "vim.hlsearch": true,
     "vim.insertModeKeyBindings": [

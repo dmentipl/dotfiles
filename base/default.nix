@@ -32,6 +32,7 @@ in {
     tmux
     trash-cli
     up
+    vale
     watch
     wget
     zoxide
@@ -75,6 +76,10 @@ in {
     tmux = {
       source = dotfilesBase + /shells/tmux.conf;
       target = ".config/tmux/tmux.conf";
+    };
+    vale = {
+      source = dotfilesBase + /tools/vale.ini;
+      target = ".config/vale/vale.ini";
     };
     vscode-settings = {
       source = dotfilesBase + /editors/settings.json;
