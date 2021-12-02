@@ -72,11 +72,11 @@ Nix and home-manager manage the installation of command-line applications such a
 
 Nix and home-manager also manages the configuration of those applications, including via symlinking of dotfiles to the appropriate locations in `$HOME`. This includes dotfiles such as `config.fish`, `git/config`, `init.lua`, `settings.json`, `starship.toml`, and `tmux.conf`, for example.
 
-### Not managed by nix or home-manager
+### Other applications and utilities
 
 The following are not managed by nix or home-manager.
 
-- [VS Code](https://code.visualstudio.com/) extensions. Install with the following
+- [code](https://code.visualstudio.com/) extensions. Install with the following
 
     ```zsh
     for ext in $(jq '.recommendations[]' -r base/editor/extensions.json)
@@ -87,7 +87,8 @@ The following are not managed by nix or home-manager.
 
     See `base/editor/extensions.json` for the list of "recommended" extensions.
 
-- [Neovim](https://neovim.io/) extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
+- [marp-cli](https://github.com/marp-team/marp-cli) to generate slides from markdown. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
+- [neovim](https://neovim.io/) extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
 
     ```zsh
     git clone --depth=1 https://github.com/savq/paq-nvim.git \
@@ -96,10 +97,8 @@ The following are not managed by nix or home-manager.
 
   Then run `:PaqInstall` inside Neovim. See `base/editor/init.lua` for the list of extensions.
 
-### Other applications and utilities
-
-- [marp-cli](https://github.com/marp-team/marp-cli) to generate slides from markdown. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
 - [pandiff](https://github.com/davidar/pandiff) for producing file diffs for any files that pandoc supports. Install with `node -g install pandiff` into an appropriate node installation.
+- [vale](https://github.com/errata-ai/vale) styles. Download styles and put in `~/.config/vale/styles`. See [errata-ai/styles](https://github.com/errata-ai/styles) for a list of styles.
 
 ## macOS
 
