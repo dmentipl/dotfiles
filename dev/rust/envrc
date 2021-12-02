@@ -1,0 +1,3 @@
+# This is a direnv .envrc file for Rust projects.
+# Copy this file to any Rust project directory and rename .envrc.
+PATH_add "$HOME/.cargo/bin"
