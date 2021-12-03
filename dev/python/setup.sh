@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Install pyenv and conda (mamba).
+# Install pyenv and conda (mamba) for Python.
 
 # ============================================================================ #
 # PYENV

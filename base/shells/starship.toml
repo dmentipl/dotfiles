@@ -1,7 +1,10 @@
 format = """\
     $conda\
+    $elixir\
+    $julia\
     $nodejs\
     $python\
+    $ruby\
     $rust\
     $nix_shell\
     $hostname\
@@ -22,9 +25,15 @@ format = " [⤳ $duration](bold 242) "
 [conda]
 format = "[$symbol$environment ]($style)[•](242) "
 ignore_base = false
+style = "bold green"
 
 [directory]
-format = "[$path ]($style)[$read_only ]($read_only_style)[•](242) "
+format = "[$path]($style)[$read_only]($read_only_style) [•](242) "
+
+[elixir]
+format = '[$symbol($version \(OTP $otp_version\) )]($style)[•](242) '
+style = "bold green"
+symbol = "🄴 "
 
 [git_branch]
 format = "[$symbol$branch]($style) "
@@ -44,6 +53,10 @@ format = "[$hostname ]($style)[•](242) "
 ssh_only = false
 style = "bold red"
 
+[julia]
+format = "[$symbol($version )]($style)[•](242) "
+style = "bold green"
+
 [nix_shell]
 disabled = false
 format = '[$state( \($name\)) ]($style)[•](242) '
@@ -59,6 +72,12 @@ format = '[$symbol${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)[•](2
 style = "bold green"
 symbol = '∏ '
 
+[ruby]
+format = "[$symbol($version )]($style)[•](242) "
+style = "bold green"
+symbol = "⬥ "
+
 [rust]
 format = "[$symbol($version )]($style)[•](242) "
 style = "bold green"
+symbol = "🆁 "

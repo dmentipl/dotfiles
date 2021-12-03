@@ -4,7 +4,6 @@
     "bbenoist.nix",
     "bungcip.better-toml",
     "eamodio.gitlens",
-    "errata-ai.vale-server",
     "DavidAnson.vscode-markdownlint",
     "GitHub.github-vscode-theme",
     "ms-vscode.wordcount",
