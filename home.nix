@@ -33,6 +33,7 @@ in rec {
 
   imports = [
     ./base
+    ./extra
   ];
 
 }
