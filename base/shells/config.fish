@@ -4,17 +4,8 @@
 # Bind ctrl-space
 bind -k nul accept-autosuggestion
 
-# Initialize conda
-command -q ~/conda/bin/conda &&
-  set --export CONDA_AUTO_ACTIVATE_BASE false &&
-  set --export CONDA_PROMPT_MODIFIER '' &&
-  eval ~/conda/bin/conda "shell.fish" "hook" $argv | source
-
 # Initialize direnv
 command -q direnv && direnv hook fish | source
-
-# Initialize pyenv
-command -q pyenv && pyenv init - | source
 
 # Initialize starship
 command -q starship && starship init fish | source
@@ -22,8 +13,20 @@ command -q starship && starship init fish | source
 # Initialize zoxide
 command -q zoxide && zoxide init fish | source
 
-# Load local fish config
-test -e ~/.config/fish/local.fish && source ~/.config/fish/local.fish
+# ============================================================================ #
+# ==== DEVELOPMENT ==== #
+
+# Initialize conda
+command -q conda &&
+  set --export CONDA_AUTO_ACTIVATE_BASE false &&
+  set --export CONDA_PROMPT_MODIFIER '' &&
+  eval conda "shell.fish" "hook" $argv | source
+
+# Initialize pyenv
+command -q pyenv && pyenv init - | source
+
+# Initialize rbenv
+command -q rbenv && rbenv init - fish | source
 
 # ============================================================================ #
 # ==== ABBREVIATIONS ==== #

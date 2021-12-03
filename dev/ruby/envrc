@@ -1,0 +1,4 @@
+# This is a direnv .envrc file for Racket projects.
+# Copy this file to any Racket project directory and rename .envrc.
+PATH_add "$HOME/.rbenv/bin"
+PATH_add "$HOME/.rbenv/shims"
