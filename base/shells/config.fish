@@ -17,10 +17,7 @@ command -q zoxide && zoxide init fish | source
 # ==== DEVELOPMENT ==== #
 
 # Initialize conda
-command -q conda &&
-  set --export CONDA_AUTO_ACTIVATE_BASE false &&
-  set --export CONDA_PROMPT_MODIFIER '' &&
-  eval conda "shell.fish" "hook" $argv | source
+command -q conda && eval conda "shell.fish" "hook" $argv | source
 
 # Initialize pyenv
 command -q pyenv && pyenv init - | source
