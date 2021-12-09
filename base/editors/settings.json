@@ -27,6 +27,7 @@
             "siblings_only": true
         }
     },
+    "redhat.telemetry.enabled": false,
     "remote.SSH.useLocalServer": false,
     "search.useGlobalIgnoreFiles": true,
     "terminal.integrated.allowChords": false,
