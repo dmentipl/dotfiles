@@ -1,12 +1,26 @@
 # macOS
 ._*
+.AppleDB
+.AppleDesktop
 .AppleDouble
+.DocumentRevisions-V100
 .DS_Store
+.fseventsd
 .localized
 .LSOverride
 .Spotlight-V100
+.TemporaryItems
 .Trashes
+.VolumeIcon.icns
+.apdisk
+.com.apple.timemachine.donotpresent
 Icon
+Network Trash Folder
+Temporary Items
 
 # Editor
 .vscode
+
+# Environment
+.env
+.envrc
