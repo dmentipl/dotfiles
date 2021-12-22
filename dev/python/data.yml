@@ -1,0 +1,30 @@
+# Conda environment for data science.
+#
+# mamba env create --file data.yml
+# conda env create --file data.yml
+#
+name: data
+channels:
+  - conda-forge
+dependencies:
+  # Requirements
+  - dask
+  - matplotlib
+  - numpy
+  - pandas
+  - seaborn
+  - xarray
+  # Development
+  - black
+  - flake8
+  - ipython
+  - isort
+  - jupyterlab
+  - jupytext
+  - mypy
+  - pip
+  - pycodestyle
+  - pydocstyle
+  - pylint
+  - pytest
+  - sphinx
