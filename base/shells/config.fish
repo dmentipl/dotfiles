@@ -68,6 +68,7 @@ if command -q git
   abbr --add --global go 'git checkout'
   abbr --add --global gn 'git clone'
   abbr --add --global gc 'git commit --verbose'
+  abbr --add --global gcm 'git commit --message'
   abbr --add --global gd 'git diff'
   abbr --add --global gdc 'git diff --compact-summary'
   abbr --add --global gds 'git diff --staged'
