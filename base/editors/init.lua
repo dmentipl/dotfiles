@@ -39,19 +39,11 @@ opt.wrap = false                    -- Disable line wrap.
 
 cmd 'packadd paq-nvim'
 require 'paq-nvim' {
-    'airblade/vim-gitgutter';          -- Git gutter.
-    'chrisbra/vim-diff-enhanced';      -- Enhanced vimdiff.
-    'easymotion/vim-easymotion';       -- Easy motions.
-    'justinmk/vim-sneak';              -- Extra motions.
-    'kana/vim-textobj-line';           -- Text objects for current line.
-    'kana/vim-textobj-user';           -- Dependency for vim-textobj-line.
-    'michaeljsmith/vim-indent-object'; -- Indent text object.
-    'tpope/vim-commentary';            -- Comment stuff out.
-    'tpope/vim-repeat';                -- Repeating plugin maps.
-    'tpope/vim-rsi';                   -- Readline features in command line.
-    'tpope/vim-surround';              -- Quoting/parenthesizing made simple.
-    'tpope/vim-unimpaired';            -- Bracket mappings.
-    'unblevable/quick-scope';          -- Hightlight f, F, t, T.
+    'easymotion/vim-easymotion';    -- Easy motions.
+    'tpope/vim-commentary';         -- Comment stuff out.
+    'tpope/vim-repeat';             -- Repeating plugin maps.
+    'tpope/vim-surround';           -- Quoting/parenthesizing made simple.
+    'tpope/vim-unimpaired';         -- Bracket mappings.
 }
 
 -------------------- MAPPINGS ------------------------------
