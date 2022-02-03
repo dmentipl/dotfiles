@@ -74,9 +74,9 @@ if command -q git
   abbr --add --global gds 'git diff --staged'
   abbr --add --global gdt 'git difftool --no-prompt'
   abbr --add --global gf 'git fetch --all --prune'
-  abbr --add --global gg 'git log --stat --abbrev-commit'
-  abbr --add --global ggo 'git log --graph --pretty=format:$prettyformat --abbrev-commit'
-  abbr --add --global ggp 'git log --patch --abbrev-commit'
+  abbr --add --global gg 'git log --abbrev-commit --stat'
+  abbr --add --global ggo 'git log --abbrev-commit --graph --pretty=format:$prettyformat'
+  abbr --add --global ggp 'git log --abbrev-commit --patch'
   abbr --add --global gm 'git merge'
   abbr --add --global gmt 'git mergetool'
   abbr --add --global gl 'git pull'
@@ -86,6 +86,7 @@ if command -q git
   abbr --add --global gx 'git reset --soft HEAD^'
   abbr --add --global gt 'git stash --include-untracked'
   abbr --add --global gs 'git status'
+  abbr --add --global gw 'git show --abbrev-commit --stat'
 end
 
 if command -q tmux
