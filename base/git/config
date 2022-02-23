@@ -12,7 +12,7 @@
 	defaultBranch = main
 
 [merge]
-	conflictstlye = diff3
+	conflictstyle = diff3
 	ff = only
 	tool = vscode
 
