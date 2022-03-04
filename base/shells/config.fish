@@ -28,6 +28,7 @@ command -q rbenv && rbenv init - fish | source
 # ============================================================================ #
 # ==== ABBREVIATIONS ==== #
 
+command -q code && abbr --add --global c 'code'
 abbr --add --global chown 'chown -R'
 abbr --add --global cp 'cp -i -r'
 abbr --add --global df 'df -H'
