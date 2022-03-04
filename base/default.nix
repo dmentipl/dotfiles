@@ -22,6 +22,7 @@ in {
     git
     htop
     jq
+    just
     neovim
     pandoc
     procs

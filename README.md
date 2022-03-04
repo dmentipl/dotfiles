@@ -99,6 +99,7 @@ The following are not managed by nix or home-manager.
 
 - [pandiff](https://github.com/davidar/pandiff) for producing file diffs for any files that pandoc supports. Install with `node -g install pandiff` into an appropriate node installation.
 - [vale](https://github.com/errata-ai/vale) styles. Download styles and put in `~/.config/vale/styles`. The VS Code extension expects `.vale.ini` in the working directory, so symlink as follows: `ln -s ~/.config/vale .vale`. See [errata-ai/styles](https://github.com/errata-ai/styles) for a list of styles.
+- [watchexec](https://github.com/watchexec/watchexec) to watch for file changes then execute a program. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
 
 ## macOS
 
