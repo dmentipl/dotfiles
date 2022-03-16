@@ -9,7 +9,7 @@
 # See envrc.
 
 # Version. Update as required.
-VERSION=8.3
+VERSION=8.4
 
 # Architecture.
 ARCH=aarch64
@@ -21,5 +21,8 @@ ARCH=aarch64
 wget https://download.racket-lang.org/installers/$VERSION/racket-$VERSION-$ARCH-macosx-cs.dmg
 
 # Install Racket.
-echo 'Install Racket to /Applications/Racket'
+echo 'Install Racket'
 open "racket-$VERSION-$ARCH-macosx-cs.dmg"
+
+# Symlink current version to /Applications/Racket.
+ln -sfn "/Applications/Racket v$VERSION" /Applications/Racket
