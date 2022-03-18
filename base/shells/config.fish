@@ -67,6 +67,7 @@ if command -q git
   abbr --add --global gb 'git branch --all --list --verbose'
   abbr --add --global gbd 'git branch -D'
   abbr --add --global go 'git checkout'
+  abbr --add --global gob 'git checkout -b'
   abbr --add --global gn 'git clone'
   abbr --add --global gc 'git commit --verbose'
   abbr --add --global gcm 'git commit --message'
