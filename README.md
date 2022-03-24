@@ -68,13 +68,25 @@ This is analogous to `sudo apt upgrade`.
 
 ### Managed by nix and home-manager
 
-Nix and home-manager manage the installation of command-line applications such as: `bat`, `dust`, `exa`, `fd`, `fish`, `fzf`, `htop`, `jq`, `neovim`, `pandoc`, `procs`, `ripgrep`, `sd`, `starship`, `tmux`, and `trash`. See [`home.nix`](home.nix) and files imported therein for further details.
+Nix and home-manager manage the installation of command-line applications such as: `bat`, `dust`, `exa`, `fd`, `fish`, `fzf`, `htop`, `jq`, `neovim`, `pandoc`, `procs`, `ripgrep`, `sd`, `tmux`, and `trash`. See [`home.nix`](home.nix) and files imported therein for further details.
 
 Nix and home-manager also manages the configuration of those applications, including via symlinking of dotfiles to the appropriate locations in `$HOME`. This includes dotfiles such as `config.fish`, `git/config`, `init.lua`, `settings.json`, `starship.toml`, and `tmux.conf`, for example.
 
-### Other applications and utilities
+### Not managed by nix
 
-The following are not managed by nix or home-manager.
+#### Applications
+
+The following applications are not managed by nix or home-manager.
+
+- [marp](https://github.com/marp-team/marp-cli) to generate slides from markdown. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
+- [pandiff](https://github.com/davidar/pandiff) for producing file diffs for any files that pandoc supports. Install with `node -g install pandiff` into an appropriate node installation.
+- [starship](https://github.com/starship/starship) for a configurable command prompt. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
+- [vale](https://github.com/errata-ai/vale) styles. Download styles and put in `~/.config/vale/styles`. The VS Code extension expects `.vale.ini` in the working directory, so symlink as follows: `ln -s ~/.config/vale .vale`. See [errata-ai/styles](https://github.com/errata-ai/styles) for a list of styles.
+- [watchexec](https://github.com/watchexec/watchexec) to watch for file changes then execute a program. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
+
+#### Extensions
+
+The following extensions are not managed by nix or home-manager.
 
 - [code](https://code.visualstudio.com/) extensions. Install with the following
 
@@ -87,7 +99,6 @@ The following are not managed by nix or home-manager.
 
     See `base/editor/extensions.json` for the list of "recommended" extensions.
 
-- [marp](https://github.com/marp-team/marp-cli) to generate slides from markdown. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
 - [neovim](https://neovim.io/) extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
 
     ```zsh
@@ -96,10 +107,6 @@ The following are not managed by nix or home-manager.
     ```
 
   Then run `:PaqInstall` inside Neovim. See `base/editor/init.lua` for the list of extensions.
-
-- [pandiff](https://github.com/davidar/pandiff) for producing file diffs for any files that pandoc supports. Install with `node -g install pandiff` into an appropriate node installation.
-- [vale](https://github.com/errata-ai/vale) styles. Download styles and put in `~/.config/vale/styles`. The VS Code extension expects `.vale.ini` in the working directory, so symlink as follows: `ln -s ~/.config/vale .vale`. See [errata-ai/styles](https://github.com/errata-ai/styles) for a list of styles.
-- [watchexec](https://github.com/watchexec/watchexec) to watch for file changes then execute a program. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
 
 ## macOS
 

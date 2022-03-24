@@ -29,7 +29,6 @@ in {
     ripgrep
     sd
     shellcheck
-    starship
     tmux
     trash-cli
     up
