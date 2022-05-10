@@ -14,6 +14,7 @@ in {
     delta
     direnv
     du-dust
+    emacs
     exa
     fd
     fish
