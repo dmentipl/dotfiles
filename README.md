@@ -108,6 +108,13 @@ The following extensions are not managed by nix or home-manager.
 
   Then run `:PaqInstall` inside Neovim. See `base/editor/init.lua` for the list of extensions.
 
+- [Doom Emacs](https://github.com/doomemacs/doomemacs) configuration for Emacs.
+
+    ```zsh
+    git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
+    ~/.emacs.d/bin/doom install
+    ```
+
 ## macOS
 
 ### Command line tools
