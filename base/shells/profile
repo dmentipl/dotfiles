@@ -11,6 +11,9 @@ export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
 [[ -d $HOME/.local/bin ]] && PATH="$HOME/.local/bin:$PATH"
 [[ -d $HOME/bin ]] && PATH="$HOME/bin:$PATH"
 
+# Emacs
+[[ -d $HOME/.local/bin ]] && PATH="$HOME/.emacs.d/bin:$PATH"
+
 # ============================================================================ #
 # ==== DEVELOPMENT ==== #
 
