@@ -28,7 +28,6 @@ command -q rbenv && rbenv init - fish | source
 # ============================================================================ #
 # ==== ABBREVIATIONS ==== #
 
-command -q code && abbr --add --global c 'code'
 abbr --add --global chown 'chown -R'
 abbr --add --global cp 'cp -i -r'
 abbr --add --global df 'df -H'
@@ -36,15 +35,15 @@ abbr --add --global du 'du -chs'
 abbr --add --global mkdir 'mkdir -pv'
 abbr --add --global mv 'mv -i'
 abbr --add --global path 'for path in $PATH; echo $path; end'
-command -q rg && abbr --add --global rg 'rg -S'
 abbr --add --global scp 'scp -r'
 abbr --add --global ssh 'ssh -Y'
 abbr --add --global which 'which -a'
 
-if command -q trash
-  abbr --add --global bin 'trash'
-  abbr --add --global rm '# Use trash instead, or /bin/rm if required'
-end
+command -q code && abbr --add --global c code
+command -q just && abbr --add --global j just
+command -q nvim && abbr --add --global vim nvim
+command -q rg && abbr --add --global rg 'rg -S'
+command -q xdg-open && abbr --add --global open xdg-open
 
 if command -q exa
   abbr --add --global l 'exa -l'
@@ -101,7 +100,10 @@ if command -q tmux
   abbr --add --global ts 'tmux switch-client'
 end
 
-command -q nvim && abbr --add --global vim nvim
+if command -q trash
+  abbr --add --global bin 'trash'
+  abbr --add --global rm '# Use trash instead, or /bin/rm if required'
+end
 
 if command -q pbcopy
   abbr --add --global copy 'pbcopy'
@@ -110,5 +112,3 @@ else if command -q xsel
   abbr --add --global copy 'xsel --clipboard --input'
   abbr --add --global paste 'xsel --clipboard --output'
 end
-
-command -q xdg-open && abbr --add --global open xdg-open
