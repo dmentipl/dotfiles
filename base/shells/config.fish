@@ -40,6 +40,7 @@ abbr --add --global ssh 'ssh -Y'
 abbr --add --global which 'which -a'
 
 command -q code && abbr --add --global c code
+command -q code && abbr --add --global c. 'code .'
 command -q just && abbr --add --global j just
 command -q nvim && abbr --add --global vim nvim
 command -q rg && abbr --add --global rg 'rg -S'
@@ -74,6 +75,7 @@ if command -q git
   abbr --add --global gdc 'git diff --compact-summary'
   abbr --add --global gds 'git diff --staged'
   abbr --add --global gdt 'git difftool --no-prompt'
+  abbr --add --global gdw 'git diff --word-diff'
   abbr --add --global gf 'git fetch --all --prune'
   abbr --add --global gg 'git log --abbrev-commit --stat'
   abbr --add --global ggo 'git log --abbrev-commit --graph --pretty=format:$prettyformat'
