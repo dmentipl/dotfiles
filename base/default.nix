@@ -24,6 +24,7 @@ in {
     htop
     jq
     just
+    llvm # Required for ghc (Haskell)
     neovim
     pandoc
     procs
