@@ -2,6 +2,7 @@
   "recommendations": [
     "bierner.markdown-preview-github-styles",
     "bbenoist.nix",
+    "bmalehorn/vscode-fish",
     "bungcip.better-toml",
     "eamodio.gitlens",
     "DavidAnson.vscode-markdownlint",
