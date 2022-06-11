@@ -187,7 +187,9 @@ base/os/mac.sh
 Install the following applications manually.
 
 - Brave
+- Emacs
 - iTerm
+- Logseq
 - Obsidian
 - Signal
 - Spotify
@@ -196,7 +198,6 @@ Install the following applications manually.
 
 Install the following utilities manually.
 
-- iStat Menus
 - KeepingYouAwake
 - ProtonVPN
 - Sync
