@@ -2,7 +2,6 @@
   "recommendations": [
     "lextudio.restructuredtext",
     "ms-python.python",
-    "ms-python.vscode-pylance",
     "ms-toolsai.jupyter",
     "redhat.vscode-yaml"
   ]
