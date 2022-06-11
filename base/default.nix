@@ -80,11 +80,11 @@ in {
     };
     vscode-settings = {
       source = dotfilesBase + /editors/settings.json;
-      target = "Library/Application Support/Code/User/settings.json";
+      target = "Library/Application Support/VSCodium/User/settings.json";
     };
     vscode-keybindings = {
       source = dotfilesBase + /editors/keybindings.json;
-      target = "Library/Application Support/Code/User/keybindings.json";
+      target = "Library/Application Support/VSCodium/User/keybindings.json";
     };
     zsh = {
       source = dotfilesBase + /shells/profile;

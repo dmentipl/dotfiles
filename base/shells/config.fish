@@ -39,8 +39,8 @@ abbr --add --global scp 'scp -r'
 abbr --add --global ssh 'ssh -Y'
 abbr --add --global which 'which -a'
 
-command -q code && abbr --add --global c code
-command -q code && abbr --add --global c. 'code .'
+command -q codium && abbr --add --global c codium
+command -q codium && abbr --add --global c. 'codium .'
 command -q just && abbr --add --global j just
 command -q nvim && abbr --add --global vim nvim
 command -q rg && abbr --add --global rg 'rg -S'

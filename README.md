@@ -81,23 +81,23 @@ The following applications are not managed by nix or home-manager.
 - [marp](https://github.com/marp-team/marp-cli) to generate slides from markdown. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
 - [pandiff](https://github.com/davidar/pandiff) for producing file diffs for any files that pandoc supports. Install with `node -g install pandiff` into an appropriate node installation.
 - [starship](https://github.com/starship/starship) for a configurable command prompt. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
-- [vale](https://github.com/errata-ai/vale) styles. Download styles and put in `~/.config/vale/styles`. The VS Code extension expects `.vale.ini` in the working directory, so symlink as follows: `ln -s ~/.config/vale .vale`. See [errata-ai/styles](https://github.com/errata-ai/styles) for a list of styles.
+- [vale](https://github.com/errata-ai/vale) styles. Download styles and put in `~/.config/vale/styles`. The VSCodium extension expects `.vale.ini` in the working directory, so symlink as follows: `ln -s ~/.config/vale .vale`. See [errata-ai/styles](https://github.com/errata-ai/styles) for a list of styles.
 - [watchexec](https://github.com/watchexec/watchexec) to watch for file changes then execute a program. Download the stand-alone binary from the GitHub releases page and put in `~/bin`.
 
 #### Extensions
 
 The following extensions are not managed by nix or home-manager.
 
-- [code](https://code.visualstudio.com/) extensions. Install with the following
+- [codium](https://vscodium.com/) extensions. Install with the following
 
     ```zsh
-    for ext in $(jq '.recommendations[]' -r base/editor/extensions.json)
+    for ext in $(jq '.recommendations[]' -r base/editors/extensions.json)
     do
-      code --install-extension $ext
+      codium --install-extension $ext
     done
     ```
 
-    See `base/editor/extensions.json` for the list of "recommended" extensions.
+    See `base/editors/extensions.json` for the list of "recommended" extensions.
 
 - [neovim](https://neovim.io/) extensions. First, install [paq](https://github.com/savq/paq-nvim) (a package manager) with the following
 
@@ -106,7 +106,7 @@ The following extensions are not managed by nix or home-manager.
         "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
     ```
 
-  Then run `:PaqInstall` inside Neovim. See `base/editor/init.lua` for the list of extensions.
+  Then run `:PaqInstall` inside Neovim. See `base/editors/init.lua` for the list of extensions.
 
 - [Doom Emacs](https://github.com/doomemacs/doomemacs) configuration for Emacs.
 
@@ -192,7 +192,7 @@ Install the following applications manually.
 - Signal
 - Spotify
 - Transmission
-- VS Code
+- VSCodium
 
 Install the following utilities manually.
 
