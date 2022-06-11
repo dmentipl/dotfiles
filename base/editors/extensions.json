@@ -6,11 +6,7 @@
     "eamodio.gitlens",
     "DavidAnson.vscode-markdownlint",
     "GitHub.github-vscode-theme",
-    "ms-vscode.wordcount",
-    "ms-vscode-remote.remote-ssh",
-    "ms-vscode-remote.remote-ssh-edit",
     "redhat.vscode-yaml",
-    "skyapps.fish-vscode",
     "timonwong.shellcheck",
     "vscodevim.vim"
   ]
